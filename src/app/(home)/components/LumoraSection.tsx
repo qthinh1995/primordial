@@ -47,7 +47,7 @@ export function LumoraSection({
           {/* Image Gallery */}
           <div className="flex gap-6 max-md:flex-col">
             {images.map((image, index) => (
-              <div
+              <div          
                 key={index}
                 className="relative aspect-[432/518] flex-1 overflow-hidden max-md:aspect-[4/3]"
               >

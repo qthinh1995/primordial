@@ -73,7 +73,7 @@ export function Footer({ content, logo, className }: FooterProps) {
   return (
     <footer
       className={cn(
-        "bg-[var(--yellow-200)] flex flex-col items-center justify-center py-12",
+        "bg-[var(--yellow-200)] flex flex-col items-center justify-center py-12 px-12",
         className
       )}
     >
@@ -82,7 +82,7 @@ export function Footer({ content, logo, className }: FooterProps) {
           {/* Logo and Tagline */}
           <div className="flex items-center justify-between w-full">
             <div className="flex flex-col items-start py-2.5">
-              <div className="relative h-14 w-[246px]">
+              <div className="relative h-14 w-[246px] pt-[-50px]">
                 <Image
                   src={logoConfig.src}
                   alt={logoConfig.alt}

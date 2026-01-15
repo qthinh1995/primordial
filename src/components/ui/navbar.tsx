@@ -20,75 +20,69 @@ interface NavbarProps {
 }
 
 export function Navbar({ content, logo, className }: NavbarProps) {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const isVietnamese = pathname.startsWith("/vi");
 
-  const defaultLogo = {
+  const logoConfig = logo ?? {
     src: "/figma/navbar-logo.png",
     alt: "Primordial Hospitium",
     width: 173,
     height: 40,
   };
 
-  const logoConfig = logo || defaultLogo;
-
-  // Close mobile menu when route changes
   useEffect(() => {
-    setIsMobileMenuOpen(false);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setOpen(false);
   }, [pathname]);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = open ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [isMobileMenuOpen]);
+  }, [open]);
 
-  const isActive = (href: string) => {
-    if (href === "/en" || href === "/vi") {
-      return pathname === href || pathname === `${href}/`;
-    }
-    return pathname.startsWith(href);
-  };
+  const isActive = (href: string) =>
+    href === "/en" || href === "/vi"
+      ? pathname === href || pathname === `${href}/`
+      : pathname.startsWith(href);
 
   return (
     <>
-      {/* Desktop Header */}
-      <header
-        className={cn(
-          "backdrop-blur-[4px] bg-[rgba(0,0,0,0.5)] flex items-center justify-between px-12 py-0 sticky top-0 z-50 w-full",
-          className
-        )}
-      >
-        <Container className="flex flex-1 items-center justify-between py-5">
-          {/* Logo and Navigation */}
-          <div className="flex gap-12 items-center">
-            <Link href={content.items[0]?.href || "/"} className="relative h-10 w-[173px]">
+      {/* ================= NAVBAR ================= */}
+      <header className={cn("sticky top-0 z-50 w-full", className)}>
+        {/* Blur background layer (KHÔNG đè content) */}
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-md" />
+
+        {/* Content */}
+        <Container className="relative z-10 h-[88px] flex items-center justify-between">
+          {/* LEFT */}
+          <div className="flex items-center gap-12">
+            {/* LOGO */}
+            <Link href={content.items[0]?.href || "/"} className="flex items-center">
               <Image
-                src={logoConfig.src}
-                alt={logoConfig.alt}
-                width={logoConfig.width || 173}
-                height={logoConfig.height || 40}
-                className="object-contain"
-                priority
+                {...logoConfig}
+                className=" h-auto w-auto object-containdrop-shadow-[0_1px_1px_rgba(0,0,0,0.35)]"
+               priority
               />
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex gap-8 items-center">
-              {content.items.map((item, index) => (
+            {/* DESKTOP NAV */}
+            <nav className="hidden lg:flex items-center gap-8">
+              {content.items.map((item, i) => (
                 <Link
-                  key={index}
+                  key={i}
                   href={item.href}
                   className={cn(
-                    "flex items-center justify-center py-2 font-sans font-normal leading-6 text-base text-white tracking-[-0.32px] transition-opacity hover:opacity-80",
-                    isActive(item.href) && "border-b-2 border-white"
+                    "relative flex items-center h-[52px]",
+                    "text-white text-base font-normal tracking-tight",
+                    "after:absolute after:left-0 after:-bottom-[6px]",
+                    "after:h-[2px] after:w-full after:origin-left",
+                    "after:scale-x-0 after:bg-white",
+                    "after:transition-transform after:duration-300",
+                    "hover:after:scale-x-100",
+                    isActive(item.href) && "after:scale-x-100"
                   )}
                 >
                   {item.label}
@@ -97,39 +91,29 @@ export function Navbar({ content, logo, className }: NavbarProps) {
             </nav>
           </div>
 
-          {/* Contact and Language Selector */}
-          <div className="hidden lg:flex gap-6 items-center">
+          {/* RIGHT */}
+          <div className="hidden lg:flex items-center gap-6">
             <Link
               href={content.contactHref}
-              className="flex gap-2 items-center justify-center py-2 rounded-[99px] font-sans font-semibold leading-6 text-base text-white tracking-[-0.32px] hover:opacity-80 transition-opacity"
+              className="flex items-center h-[52px] text-white font-semibold hover:opacity-80 transition"
             >
               {content.contactLabel}
             </Link>
-            <div className="flex h-6 items-center justify-center w-0">
-              <div className="flex-none rotate-90">
-                <div className="h-0 relative w-6">
-                  <Image
-                    src="/figma/navbar-divider.png"
-                    alt=""
-                    width={24}
-                    height={24}
-                    className="block max-w-none size-full"
-                  />
-                </div>
-              </div>
-            </div>
+
+            <span className="h-4 w-px bg-white/40" />
+
             <Link
               href={isVietnamese ? "/en" : "/vi"}
-              className="flex items-center justify-center py-2 rounded font-sans font-semibold leading-6 text-base text-white tracking-[-0.32px] hover:opacity-80 transition-opacity"
+              className="flex items-center h-[52px] text-white font-semibold hover:opacity-80 transition"
             >
               {isVietnamese ? "EN" : "VN"}
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* MOBILE BUTTON */}
           <button
-            onClick={() => setIsMobileMenuOpen(true)}
-            className="lg:hidden flex items-center justify-center p-2 text-white"
+            onClick={() => setOpen(true)}
+            className="lg:hidden flex items-center justify-center h-[44px] w-[44px] text-white"
             aria-label="Open menu"
           >
             <svg
@@ -137,157 +121,84 @@ export function Navbar({ content, logo, className }: NavbarProps) {
               height="24"
               viewBox="0 0 24 24"
               fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+              stroke="currentColor"
+              strokeWidth="2"
             >
-              <path
-                d="M3 12H21M3 6H21M3 18H21"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+              <path strokeLinecap="round" d="M3 6h18M3 12h18M3 18h18" />
             </svg>
           </button>
         </Container>
       </header>
 
-      {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
+      {/* ================= MOBILE MENU ================= */}
+      {open && (
         <>
-          {/* Backdrop */}
+          {/* BACKDROP */}
           <div
-            className="fixed inset-0 z-50 bg-black/50 lg:hidden"
-            onClick={() => setIsMobileMenuOpen(false)}
+            className="fixed inset-0 z-40 bg-black/60 lg:hidden"
+            onClick={() => setOpen(false)}
           />
-          {/* Menu Panel */}
-          <div className="fixed inset-y-0 right-0 z-50 lg:hidden">
-            <div className="backdrop-blur-[4px] bg-[#121212] flex flex-col items-end h-full w-[311px] animate-in slide-in-from-right duration-300">
-              {/* Mobile Header */}
-              <div className="backdrop-blur-[4px] bg-[#121212] flex items-center justify-between overflow-clip px-4 py-0 sticky top-0 w-full">
-                <div className="flex flex-1 items-center justify-between py-5">
-                  <Link href={content.items[0]?.href || "/"} className="relative h-10 w-[173px]">
-                    <Image
-                      src={logoConfig.src}
-                      alt={logoConfig.alt}
-                      width={logoConfig.width || 173}
-                      height={logoConfig.height || 40}
-                      className="object-contain"
-                    />
-                  </Link>
-                  <button
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="flex items-center justify-center p-2 text-white"
-                    aria-label="Close menu"
-                  >
-                    <Image
-                      src="/figma/menu-close.png"
-                      alt="Close"
-                      width={24}
-                      height={24}
-                      className="block"
-                    />
-                  </button>
-                </div>
-              </div>
 
-              {/* Mobile Menu Content */}
-              <div className="bg-[#121212] flex flex-1 flex-col gap-5 items-start overflow-clip px-6 py-3 w-[311px]">
-              {/* Navigation Items */}
-              <div className="flex flex-1 flex-col gap-6 items-start w-full">
-                <nav className="flex flex-col gap-2 items-start justify-center w-full">
-                  {content.items.map((item, index) => (
-                    <Link
-                      key={index}
-                      href={item.href}
-                      className={cn(
-                        "flex items-center py-2 font-sans font-normal leading-8 text-2xl text-white tracking-[-0.72px] w-full hover:opacity-80 transition-opacity",
-                        isActive(item.href) && "font-semibold"
-                      )}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </nav>
-
-                {/* Divider */}
-                <div className="h-0 relative w-[128px]">
-                  <Image
-                    src="/figma/menu-divider.png"
-                    alt=""
-                    width={128}
-                    height={1}
-                    className="block max-w-none w-full h-full"
-                  />
-                </div>
-
-                {/* Contact Link */}
-                <Link
-                  href={content.contactHref}
-                  className="flex items-center py-2 font-sans font-bold leading-6 text-base text-white tracking-[-0.32px] hover:opacity-80 transition-opacity"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {content.mobileContactLabel}
-                </Link>
-              </div>
-
-              {/* Bottom Section */}
-              <div className="flex flex-col gap-6 items-start pb-6 pt-0 px-0 w-full">
-                {/* Social Icons Section */}
-                <div className="flex flex-col gap-3 items-start w-full">
-                  {/* Top Divider */}
-                  <div className="h-0 relative w-full">
-                    <Image
-                      src="/figma/menu-social-divider.png"
-                      alt=""
-                      width={300}
-                      height={1}
-                      className="block max-w-none w-full h-full"
-                    />
-                  </div>
-
-                  {/* Social Icons */}
-                  <div className="flex gap-6 items-center w-full">
-                    {content.mobileSocialLinks.map((social, index) => (
-                      <a
-                        key={index}
-                        href={social.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="relative size-6 hover:opacity-80 transition-opacity"
-                        aria-label={social.name}
-                      >
-                        <Image
-                          src={social.icon}
-                          alt={social.name}
-                          width={24}
-                          height={24}
-                          className="block max-w-none size-full"
-                        />
-                      </a>
-                    ))}
-                  </div>
-
-                  {/* Bottom Divider */}
-                  <div className="h-0 relative w-full">
-                    <Image
-                      src="/figma/menu-social-divider.png"
-                      alt=""
-                      width={300}
-                      height={1}
-                      className="block max-w-none w-full h-full"
-                    />
-                  </div>
-                </div>
-
-                {/* Copyright */}
-                <p className="font-sans font-semibold leading-5 text-sm text-white tracking-[-0.28px] w-full whitespace-pre-wrap">
-                  {content.mobileCopyright}
-                </p>
-              </div>
+          {/* PANEL */}
+          <aside className="fixed right-0 top-0 z-50 h-full w-[320px] bg-[#121212]/95 animate-in slide-in-from-right duration-300">
+            {/* HEADER */}
+            <div className="h-[88px] flex items-center justify-between px-6">
+              <Image
+                {...logoConfig}
+                className="h-[52px] w-auto object-contain"
+              />
+              <button onClick={() => setOpen(false)} aria-label="Close menu">
+                <Image
+                  src="/figma/menu-close.png"
+                  alt="Close"
+                  width={24}
+                  height={24}
+                />
+              </button>
             </div>
-          </div>
-        </div>
+
+            {/* NAV */}
+            <nav className="px-6 pt-6 flex flex-col gap-6">
+              {content.items.map((item, i) => (
+                <Link
+                  key={i}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className={cn(
+                    "text-white text-2xl tracking-tight",
+                    isActive(item.href) && "font-semibold"
+                  )}
+                >
+                  {item.label}
+                </Link>
+              ))}
+
+              <div className="h-px bg-white/20 my-6" />
+
+              <Link
+                href={content.contactHref}
+                onClick={() => setOpen(false)}
+                className="text-white font-semibold"
+              >
+                {content.mobileContactLabel}
+              </Link>
+            </nav>
+
+            {/* FOOTER */}
+            <div className="mt-auto px-6 pb-6 space-y-4">
+              <div className="flex gap-6">
+                {content.mobileSocialLinks.map((s, i) => (
+                  <a key={i} href={s.href} target="_blank" rel="noreferrer">
+                    <Image src={s.icon} alt={s.name} width={24} height={24} />
+                  </a>
+                ))}
+              </div>
+
+              <p className="text-sm text-white/80">
+                {content.mobileCopyright}
+              </p>
+            </div>
+          </aside>
         </>
       )}
     </>

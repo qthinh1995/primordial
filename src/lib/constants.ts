@@ -126,7 +126,7 @@ export const NAV_CONTENT_EN: NavContent = {
     { label: "Home", href: "/en" },
     { label: "Introduction", href: "/en/introduction" },
     { label: "Ecosystem", href: "/en/ecosystem" },
-    { label: "Partners", href: "/en/partnerships" },
+    { label: "Partners & Affiliates", href: "/en/partnerships" },
     { label: "News & Stories", href: "/en/news" },
   ],
   contactLabel: "CONTACT",

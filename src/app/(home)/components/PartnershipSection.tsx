@@ -25,7 +25,7 @@ export function PartnershipSection({
       <Container>
         <div className="flex flex-col items-center gap-12">
           {/* Text Content */}
-          <div className="mx-auto flex max-w-[960px] flex-col items-center gap-6 px-9 text-center">
+          <div className="mx-auto flex max-w-[1272px]] flex-col items-center gap-6 px-9 text-center">
             <div className="flex flex-col items-center gap-3">
               <p className="font-sans text-base font-bold leading-6 tracking-[-0.32px] text-accent">
                 {badge}

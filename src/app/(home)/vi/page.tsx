@@ -40,7 +40,7 @@ export default function HomePage() {
   return (
     <main>
       <Hero
-        title="Where Design Meets Revenue"
+        title="Tái định nghĩa cách khách sạn được thiết kế và vận hành"
         description="Nơi thiết kế, vận hành và hiệu quả tài chính gặp nhau trong một hệ sinh thái thống nhất. Primordial là nền tảng tư vấn và điều phối độc lập trong lĩnh vực khách sạn – nghỉ dưỡng, đồng hành cùng chủ đầu tư từ ý tưởng đến vận hành ổn định và sinh lợi."
         images={heroImages}
       />
@@ -63,7 +63,8 @@ export default function HomePage() {
       <LumoraSection
         badge="TRẢI NGHIỆM"
         title="LUMORA IX.IX AGENDA"
-        description="Lumora IX.IX Agenda là nền tảng trải nghiệm và văn hoá trong hệ sinh thái Primordial, chuyên kiến tạo các chương trình, sự kiện và hợp tác sáng tạo được tuyển chọn - lấy khách sạn và không gian lưu trú làm trung tâm. Lumora tập trung xây dựng những khoảnh khắc có chiều sâu cảm xúc, góp phần định hình bản sắc thương hiệu, tăng giá trị trải nghiệm và tạo dấu ấn lâu dài trong tâm trí khách hàng."
+        description="Lumora IX.IX Agenda là nền tảng trải nghiệm và văn hoá trong hệ sinh thái Primordial, chuyên kiến tạo các chương trình, sự kiện và hợp tác sáng tạo được tuyển chọn - lấy khách sạn và không gian lưu trú làm trung tâm. 
+        Lumora tập trung xây dựng những khoảnh khắc có chiều sâu cảm xúc, góp phần định hình bản sắc thương hiệu, tăng giá trị trải nghiệm và tạo dấu ấn lâu dài trong tâm trí khách hàng."
         buttonText="Khám phá ngay"
         buttonHref="/vi/lumora"
         images={lumoraImages}
@@ -72,7 +73,7 @@ export default function HomePage() {
         badge="PARTNERSHIP"
         title="Primordial Hospitium"
         description="Primordial Hospitium đồng hành cùng các chủ khách sạn độc lập, đối tác sáng tạo và nhà đầu tư thông qua mô hình hợp tác linh hoạt và minh bạch. Chúng tôi không quản lý, không nhượng quyền, không thay thế quyền quyết định - Primordial đóng vai trò tư vấn, điều phối và hỗ trợ để mỗi dự án phát triển đúng bản chất của mình. Bởi với chúng tôi, Everybody is Somebody không chỉ là một triết lý, mà là cách chúng tôi lựa chọn đồng hành."
-        buttonText="Trở thành đối tác"
+        buttonText="Liên hệ đối tác"
         buttonHref="/vi/partnerships"
         image={partnershipImage}
       />

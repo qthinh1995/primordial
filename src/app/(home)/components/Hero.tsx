@@ -57,7 +57,7 @@ export function Hero({ title, description, images }: HeroProps) {
             <h1 className="mb-6 font-display text-[72px] font-normal leading-[80px] tracking-[-2.88px] text-white max-md:text-[48px] max-md:leading-[56px]">
               {title}
             </h1>
-            <p className="font-sans text-lg leading-[1.4] tracking-[-0.54px] text-[#eaeaea] max-md:text-base">
+            <p className="font-sans mx-auto text-lg leading-[1.4] tracking-[-0.54px] text-[#eaeaea]">
               {description}
             </p>
           </div>
