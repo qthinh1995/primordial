@@ -1,7 +1,46 @@
 ---
 name: Implement Primordial Website with i18n
 overview: Implement the complete Primordial website from Figma with dual language support (Vietnamese as default, English). This includes setting up next-intl for internationalization, creating all pages (Home, Introduction, Ecosystem, Stouffer Hotels, Hoteliers Without Borders, Lumora, Partnerships, Contact), extracting images from Figma, and building reusable components.
-todos: []
+todos:
+  - id: phase-1-foundation
+    content: "Phase 1: Foundation & i18n Setup - Install dependencies, configure i18n, and restructure app directory"
+    status: pending
+  - id: phase-2-design-system
+    content: "Phase 2: The Design System (The Foundation) - Extract color palette from Figma, update Tailwind config, set up typography with next/font/google, and create Container component"
+    status: pending
+  - id: phase-3-atomic-components
+    content: "Phase 3: Atomic Components - Create core components using Shadcn UI base (PrimaryButton, Navbar with glassmorphism) based on Figma design"
+    status: pending
+  - id: phase-4-home-page
+    content: "Phase 4: Home Page Implementation - Build home page with hero, sections, and responsive design"
+    status: pending
+  - id: phase-5-introduction-page
+    content: "Phase 5: Introduction Page - Build introduction page with hero, story, vision, key functions, and team sections"
+    status: pending
+  - id: phase-6-ecosystem-page
+    content: "Phase 6: Ecosystem Page - Build ecosystem page with strategic pillars, timeline, and project cards"
+    status: pending
+  - id: phase-7-stouffer-hotels-page
+    content: "Phase 7: Stouffer Hotels Page - Build Stouffer Hotels page with introduction, cards, marketing, and carousel sections"
+    status: pending
+  - id: phase-8-hoteliers-without-borders-page
+    content: "Phase 8: Hoteliers Without Borders Page - Build page with hero, what is HWB, value sections, and images"
+    status: pending
+  - id: phase-9-lumora-page
+    content: "Phase 9: Lumora Page - Build Lumora page with hero, what is Lumora, timeline, and target audience sections"
+    status: pending
+  - id: phase-10-partnerships-page
+    content: "Phase 10: Partnerships Page - Build partnerships page with hero, logos, TPO model, implementation, value, and contact form"
+    status: pending
+  - id: phase-11-contact-page
+    content: "Phase 11: Contact Page - Build contact page with hero, contact info, form, offices, and success dialog"
+    status: pending
+  - id: phase-12-assets-styling
+    content: "Phase 12: Assets & Styling - Extract images from Figma, organize assets, and implement responsive styling"
+    status: pending
+  - id: phase-13-functionality
+    content: "Phase 13: Functionality - Implement interactive features, form validation, language switcher, and SEO metadata"
+    status: pending
 ---
 
 # Implement Primordial Website with i18n
@@ -75,19 +114,41 @@ src/
    - Update `src/app/layout.tsx` to work with locale routing
    - Create new root layout in `src/app/[locale]/layout.tsx`
 
-### Phase 2: Core Components
+### Phase 2: The Design System (The Foundation)
 
-4. **Create reusable UI components** (`src/components/ui/`)
+Before building sections, you need your global styles set up so the AI doesn't hallucinate random hex codes.
 
-   - `Button.tsx` - Primary button component with variants
-   - `Header.tsx` - Navigation header with language switcher
-   - `Footer.tsx` - Footer component
+**Prompt:**
+
+"I am starting a new Next.js 15 project from a Figma design. First, look at the provided Figma design: https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?node-id=834-6879&m=dev. Extract the color palette and update tailwind.config.ts with these specific theme names (primary, secondary, accent). Set up the typography in app/layout.tsx using next/font/google to match the design. Create a components/ui/container.tsx that handles the max-width and horizontal padding for all sections based on the design's grid."
+
+4. **Extract and configure design tokens**
+
+   - Extract color palette from Figma design
+   - Update `tailwind.config.ts` with theme colors (primary, secondary, accent)
+   - Set up typography in `app/layout.tsx` using `next/font/google` to match design
+   - Create `components/ui/container.tsx` for max-width and horizontal padding based on design grid
+
+### Phase 3: Atomic Components
+
+Using Shadcn UI as a base, create the following core components based on the Figma design.
+
+**Prompt:**
+
+"Using Shadcn UI as a base, create the following core components based on the Figma design: A 'PrimaryButton' with the specific border-radius and hover transition seen in the design. A 'Navbar' that is sticky, has a glassmorphism effect (backdrop-blur), and includes the logo and navigation links. Ensure all components are responsive and use the Tailwind theme colors we just defined."
+
+5. **Create atomic UI components** (`src/components/ui/`)
+
+   - `PrimaryButton.tsx` - Button component with specific border-radius and hover transitions from design
+   - `Navbar.tsx` - Sticky navigation with glassmorphism effect (backdrop-blur), logo, and navigation links
+   - `Container.tsx` - Container component for max-width and horizontal padding (from Phase 2)
    - `Input.tsx` - Form input component
    - `PhoneInput.tsx` - Phone number input with country selector
    - `Textarea.tsx` - Message textarea component
    - `Dialog.tsx` - Success dialog modal
+   - `Footer.tsx` - Footer component
 
-5. **Create section components** (`src/components/sections/`)
+6. **Create section components** (`src/components/sections/`)
 
    - `Hero.tsx` - Hero section with banner slides
    - `ContentSection.tsx` - Reusable content section
@@ -95,7 +156,7 @@ src/
    - `Timeline.tsx` - Timeline component for phases
    - `Card.tsx` - Card component for services/features
 
-### Phase 3: Home Page Implementation
+### Phase 4: Home Page Implementation
 
 6. **Home page** (`src/app/[locale]/page.tsx`)
 
@@ -106,7 +167,7 @@ src/
    - Partnership section (Primordial Hospitium)
    - All sections with proper spacing and responsive design
 
-### Phase 4: Additional Pages
+### Phase 5: Introduction Page
 
 7. **Introduction page** (`src/app/[locale]/introduction/page.tsx`)
 
@@ -116,12 +177,16 @@ src/
    - Key Functions section
    - Our Team section with team cards
 
+### Phase 5: Ecosystem Page
+
 8. **Ecosystem page** (`src/app/[locale]/ecosystem/page.tsx`)
 
    - Hero section
    - Three Strategic Pillars section with cards
    - Ecosystem Applied in Stages timeline
    - Designed for Projects section with cards
+
+### Phase 7: Stouffer Hotels Page
 
 9. **Stouffer Hotels page** (`src/app/[locale]/stouffer-hotels/page.tsx`)
 
@@ -132,6 +197,8 @@ src/
    - Independent Identity section with image carousel
    - Contact section
 
+### Phase 8: Hoteliers Without Borders Page
+
 10. **Hoteliers Without Borders page** (`src/app/[locale]/hoteliers-without-borders/page.tsx`)
 
     - Hero section
@@ -139,12 +206,16 @@ src/
     - For Who & Value section with content blocks
     - Image section
 
+### Phase 9: Lumora Page
+
 11. **Lumora page** (`src/app/[locale]/lumora/page.tsx`)
 
     - Hero section
     - What is Lumora section with images
     - When Lumora is Activated timeline (3 phases)
     - Target Audience section with content blocks
+
+### Phase 10: Partnerships Page
 
 12. **Partnerships page** (`src/app/[locale]/partnerships/page.tsx`)
 
@@ -155,6 +226,8 @@ src/
     - Partnership Value section
     - Contact form section
 
+### Phase 11: Contact Page
+
 13. **Contact page** (`src/app/[locale]/contact/page.tsx`)
 
     - Hero section
@@ -163,7 +236,7 @@ src/
     - Offices section (Adelaide, Phu Quoc)
     - Success dialog
 
-### Phase 5: Assets & Styling
+### Phase 12: Assets & Styling
 
 14. **Extract images from Figma**
 
@@ -179,7 +252,7 @@ src/
     - Match typography, spacing, and colors from design
     - Add animations/transitions where appropriate
 
-### Phase 6: Functionality
+### Phase 13: Functionality
 
 16. **Interactive Features**
 
@@ -216,8 +289,9 @@ src/
 
 ### Component Files
 
-- `src/components/ui/Button.tsx`
-- `src/components/ui/Header.tsx`
+- `src/components/ui/PrimaryButton.tsx`
+- `src/components/ui/Navbar.tsx`
+- `src/components/ui/Container.tsx`
 - `src/components/ui/Footer.tsx`
 - `src/components/ui/Input.tsx`
 - `src/components/ui/PhoneInput.tsx`
