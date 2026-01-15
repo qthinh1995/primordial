@@ -28,7 +28,7 @@ export function Container({
   return (
     <div
       className={cn(
-        "mx-auto w-full px-12", // 48px horizontal padding matching design
+        "mx-auto px-12 w-full", // 48px horizontal padding matching design
         maxWidthClasses[maxWidth],
         className
       )}

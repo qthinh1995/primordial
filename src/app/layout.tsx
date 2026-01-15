@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Open_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { NavbarWrapper } from "@/components/ui/navbar-wrapper";
+import { FooterWrapper } from "@/components/ui/footer-wrapper";
 
 const openSans = Open_Sans({
   variable: "--font-open-sans",
@@ -33,7 +35,9 @@ export default function RootLayout({
       <body
         className={`${openSans.variable} ${playfairDisplay.variable} antialiased`}
       >
+        <NavbarWrapper />
         {children}
+        <FooterWrapper />
       </body>
     </html>
   );
