@@ -1,9 +1,9 @@
 ---
-name: Implement Primordial Website with i18n
-overview: Implement the complete Primordial website from Figma with dual language support (Vietnamese as default, English). This includes setting up next-intl for internationalization, creating all pages (Home, Introduction, Ecosystem, Stouffer Hotels, Hoteliers Without Borders, Lumora, Partnerships, Contact), extracting images from Figma, and building reusable components.
+name: Implement Primordial Website with Dual Language Support
+overview: Implement the complete Primordial website from Figma with dual language support (Vietnamese and English). This includes creating all pages (Home, Introduction, Ecosystem, Stouffer Hotels, Hoteliers Without Borders, Lumora, Partnerships, Contact) using route groups, extracting images from Figma, and building reusable components that accept localized text as props.
 todos:
   - id: phase-1-foundation
-    content: "Phase 1: Foundation & i18n Setup - Install dependencies, configure i18n, and restructure app directory"
+    content: "Phase 1: Foundation Setup - Install dependencies and set up project structure with route groups"
     status: pending
   - id: phase-2-design-system
     content: "Phase 2: The Design System (The Foundation) - Extract color palette from Figma, update Tailwind config, set up typography with next/font/google, and create Container component"
@@ -12,107 +12,141 @@ todos:
     content: "Phase 3: Atomic Components - Create core components using Shadcn UI base (PrimaryButton, Navbar with glassmorphism) based on Figma design"
     status: pending
   - id: phase-4-home-page
-    content: "Phase 4: Home Page Implementation - Build home page with hero, sections, and responsive design"
+    content: "Phase 4: Home Page Implementation - Build home page with hero, sections, and responsive design for both en and vi"
     status: pending
   - id: phase-5-introduction-page
-    content: "Phase 5: Introduction Page - Build introduction page with hero, story, vision, key functions, and team sections"
+    content: "Phase 5: Introduction Page - Build introduction page with hero, story, vision, key functions, and team sections for both languages"
     status: pending
   - id: phase-6-ecosystem-page
-    content: "Phase 6: Ecosystem Page - Build ecosystem page with strategic pillars, timeline, and project cards"
+    content: "Phase 6: Ecosystem Page - Build ecosystem page with strategic pillars, timeline, and project cards for both languages"
     status: pending
   - id: phase-7-stouffer-hotels-page
-    content: "Phase 7: Stouffer Hotels Page - Build Stouffer Hotels page with introduction, cards, marketing, and carousel sections"
+    content: "Phase 7: Stouffer Hotels Page - Build Stouffer Hotels page with introduction, cards, marketing, and carousel sections for both languages"
     status: pending
   - id: phase-8-hoteliers-without-borders-page
-    content: "Phase 8: Hoteliers Without Borders Page - Build page with hero, what is HWB, value sections, and images"
+    content: "Phase 8: Hoteliers Without Borders Page - Build page with hero, what is HWB, value sections, and images for both languages"
     status: pending
   - id: phase-9-lumora-page
-    content: "Phase 9: Lumora Page - Build Lumora page with hero, what is Lumora, timeline, and target audience sections"
+    content: "Phase 9: Lumora Page - Build Lumora page with hero, what is Lumora, timeline, and target audience sections for both languages"
     status: pending
   - id: phase-10-partnerships-page
-    content: "Phase 10: Partnerships Page - Build partnerships page with hero, logos, TPO model, implementation, value, and contact form"
+    content: "Phase 10: Partnerships Page - Build partnerships page with hero, logos, TPO model, implementation, value, and contact form for both languages"
     status: pending
   - id: phase-11-contact-page
-    content: "Phase 11: Contact Page - Build contact page with hero, contact info, form, offices, and success dialog"
+    content: "Phase 11: Contact Page - Build contact page with hero, contact info, form, offices, and success dialog for both languages"
     status: pending
-  - id: phase-12-assets-styling
-    content: "Phase 12: Assets & Styling - Extract images from Figma, organize assets, and implement responsive styling"
-    status: pending
-  - id: phase-13-functionality
-    content: "Phase 13: Functionality - Implement interactive features, form validation, language switcher, and SEO metadata"
+  - id: phase-12-functionality
+    content: "Phase 12: Functionality - Implement interactive features, form validation, language switcher, and SEO metadata"
     status: pending
 ---
 
-# Implement Primordial Website with i18n
+# Implement Primordial Website with Dual Language Support
 
 ## Overview
 
-Implement the complete Primordial hospitality website from Figma with Vietnamese (default) and English language support. The site includes multiple pages with complex layouts, hero sections, content blocks, and interactive elements.
+Implement the complete Primordial hospitality website from Figma: 
+https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?node-id=834-5994&p=f&t=xRqByBq0tuWGjOx1-0
+with Vietnamese and English language support. The site includes multiple pages with complex layouts, hero sections, content blocks, and interactive elements. Each page group uses route groups with separate `en` and `vi` folders, and components receive localized text as props.
 
 ## Architecture
 
-### 1. Internationalization Setup
+### 1. Project Structure
 
-- Install `next-intl` package for Next.js 16 App Router
-- Configure `[locale]` dynamic routing structure
-- Set up middleware for locale detection and routing
-- Create translation files structure in `src/messages/` for `vi` and `en`
-- Configure default locale as `vi` in Next.js config
+Pages are organized using Next.js route groups. Each route group contains:
 
-### 2. Project Structure
-
+- `en/` folder for English pages
+- `vi/` folder for Vietnamese pages  
+- `components/` folder for page-specific reusable components
 ```
 src/
 ├── app/
-│   └── [locale]/
-│       ├── layout.tsx (root layout with locale)
-│       ├── page.tsx (home page)
-│       ├── introduction/
-│       ├── ecosystem/
-│       ├── stouffer-hotels/
-│       ├── hoteliers-without-borders/
-│       ├── lumora/
-│       ├── partnerships/
-│       └── contact/
+│   ├── (home)/
+│   │   ├── en/
+│   │   │   └── page.tsx
+│   │   ├── vi/
+│   │   │   └── page.tsx
+│   │   └── components/
+│   │       ├── Hero.tsx
+│   │       ├── StoufferSection.tsx
+│   │       └── ...
+│   ├── (introduction)/
+│   │   ├── en/
+│   │   │   └── page.tsx
+│   │   ├── vi/
+│   │   │   └── page.tsx
+│   │   └── components/
+│   │       ├── StorySection.tsx
+│   │       └── ...
+│   ├── (ecosystem)/
+│   │   ├── en/
+│   │   │   └── page.tsx
+│   │   ├── vi/
+│   │   │   └── page.tsx
+│   │   └── components/
+│   ├── (stouffer-hotels)/
+│   │   ├── en/
+│   │   │   └── page.tsx
+│   │   ├── vi/
+│   │   │   └── page.tsx
+│   │   └── components/
+│   ├── (hoteliers-without-borders)/
+│   │   ├── en/
+│   │   │   └── page.tsx
+│   │   ├── vi/
+│   │   │   └── page.tsx
+│   │   └── components/
+│   ├── (lumora)/
+│   │   ├── en/
+│   │   │   └── page.tsx
+│   │   ├── vi/
+│   │   │   └── page.tsx
+│   │   └── components/
+│   ├── (partnerships)/
+│   │   ├── en/
+│   │   │   └── page.tsx
+│   │   ├── vi/
+│   │   │   └── page.tsx
+│   │   └── components/
+│   └── (contact)/
+│       ├── en/
+│       │   └── page.tsx
+│       ├── vi/
+│       │   └── page.tsx
+│       └── components/
 ├── components/
-│   ├── ui/ (reusable UI components)
-│   │   ├── Button.tsx
-│   │   ├── Header.tsx
-│   │   ├── Footer.tsx
-│   │   ├── Input.tsx
-│   │   └── Dialog.tsx
-│   └── sections/ (page sections)
-│       ├── Hero.tsx
-│       ├── ContentSection.tsx
-│       └── ...
-├── messages/
-│   ├── vi.json
-│   └── en.json
-└── i18n/
-    └── request.ts (i18n configuration)
+│   └── ui/ (global reusable UI components)
+│       ├── Button.tsx
+│       ├── Navbar.tsx
+│       ├── Footer.tsx
+│       ├── Input.tsx
+│       ├── Container.tsx
+│       └── Dialog.tsx
+└── lib/
+    └── constants.ts (shared constants and data)
 ```
+
+
+### 2. Localization Approach
+
+- **No i18n library**: Components receive localized text as props
+- **Separate pages**: Each language has its own page file (`en/page.tsx`, `vi/page.tsx`)
+- **Shared components**: Components in route group `components/` folder accept text content as props
+- **Global components**: UI components in `src/components/ui/` are language-agnostic
 
 ## Implementation Steps
 
-### Phase 1: Foundation & i18n Setup
+### Phase 1: Foundation Setup
 
 1. **Install dependencies**
 
-   - Add `next-intl` package
-   - Install any additional UI libraries if needed
+   - Install Shadcn UI
 
-2. **Configure i18n**
+2. **Set up project structure**
 
-   - Create `src/i18n/request.ts` for next-intl configuration
-   - Update `next.config.ts` with i18n settings
-   - Create middleware for locale handling
-   - Set up `src/messages/vi.json` and `src/messages/en.json` with all translations
-
-3. **Restructure app directory**
-
-   - Move existing `src/app/page.tsx` to `src/app/[locale]/page.tsx`
-   - Update `src/app/layout.tsx` to work with locale routing
-   - Create new root layout in `src/app/[locale]/layout.tsx`
+   - Create route groups for each page: `(home)`, `(introduction)`, `(ecosystem)`, `(stouffer-hotels)`, `(hoteliers-without-borders)`, `(lumora)`, `(partnerships)`, `(contact)`
+   - Create `en/` and `vi/` folders within each route group
+   - Create `components/` folder within each route group for page-specific components
+   - Set up global `src/components/ui/` folder for shared UI components
 
 ### Phase 2: The Design System (The Foundation)
 
@@ -129,190 +163,253 @@ Before building sections, you need your global styles set up so the AI doesn't h
    - Set up typography in `app/layout.tsx` using `next/font/google` to match design
    - Create `components/ui/container.tsx` for max-width and horizontal padding based on design grid
 
-### Phase 3: Atomic Components
-
-Using Shadcn UI as a base, create the following core components based on the Figma design.
-
-**Prompt:**
-
-"Using Shadcn UI as a base, create the following core components based on the Figma design: A 'PrimaryButton' with the specific border-radius and hover transition seen in the design. A 'Navbar' that is sticky, has a glassmorphism effect (backdrop-blur), and includes the logo and navigation links. Ensure all components are responsive and use the Tailwind theme colors we just defined."
-
-5. **Create atomic UI components** (`src/components/ui/`)
-
-   - `PrimaryButton.tsx` - Button component with specific border-radius and hover transitions from design
-   - `Navbar.tsx` - Sticky navigation with glassmorphism effect (backdrop-blur), logo, and navigation links
-   - `Container.tsx` - Container component for max-width and horizontal padding (from Phase 2)
-   - `Input.tsx` - Form input component
-   - `PhoneInput.tsx` - Phone number input with country selector
-   - `Textarea.tsx` - Message textarea component
-   - `Dialog.tsx` - Success dialog modal
-   - `Footer.tsx` - Footer component
-
-6. **Create section components** (`src/components/sections/`)
-
-   - `Hero.tsx` - Hero section with banner slides
-   - `ContentSection.tsx` - Reusable content section
-   - `ImageGallery.tsx` - Image gallery component
-   - `Timeline.tsx` - Timeline component for phases
-   - `Card.tsx` - Card component for services/features
-
 ### Phase 4: Home Page Implementation
 
-6. **Home page** (`src/app/[locale]/page.tsx`)
+5. **Home page** (`src/app/(home)/en/page.tsx` and `src/app/(home)/vi/page.tsx`)
 
-   - Hero section with banner slides (4 images)
-   - Stouffer Hotels section with image gallery
-   - Hoteliers Without Borders section
-   - Lumora IX.IX Agenda section with 3 images
-   - Partnership section (Primordial Hospitium)
+   - Use Figma API to download all images needed for this page
+   - Create page-specific components in `src/app/(home)/components/`:
+     - `Hero.tsx` - Hero section with banner slides (4 images), accepts text content as props
+     - `StoufferSection.tsx` - Stouffer Hotels section with image gallery
+     - `HWBSection.tsx` - Hoteliers Without Borders section
+     - `LumoraSection.tsx` - Lumora IX.IX Agenda section with 3 images
+     - `PartnershipSection.tsx` - Partnership section (Primordial Hospitium)
+   - Each language page imports components and passes localized text as props
    - All sections with proper spacing and responsive design
+   - Use Shadcn UI to create base components if needed
 
 ### Phase 5: Introduction Page
 
-7. **Introduction page** (`src/app/[locale]/introduction/page.tsx`)
+6. **Introduction page** (`src/app/(introduction)/en/page.tsx` and `src/app/(introduction)/vi/page.tsx`)
 
-   - Hero section
-   - Our Story section with image and text
-   - Vision section
-   - Key Functions section
-   - Our Team section with team cards
+   - Use Figma API to download all images needed for this page
+   - Create page-specific components in `src/app/(introduction)/components/`:
+     - `Hero.tsx` - Hero section
+     - `StorySection.tsx` - Our Story section with image and text
+     - `VisionSection.tsx` - Vision section
+     - `KeyFunctionsSection.tsx` - Key Functions section
+     - `TeamSection.tsx` - Our Team section with team cards
+   - Each language page passes localized content to components
+   - Use Shadcn UI to create base components if needed
 
-### Phase 5: Ecosystem Page
+### Phase 6: Ecosystem Page
 
-8. **Ecosystem page** (`src/app/[locale]/ecosystem/page.tsx`)
+7. **Ecosystem page** (`src/app/(ecosystem)/en/page.tsx` and `src/app/(ecosystem)/vi/page.tsx`)
 
-   - Hero section
-   - Three Strategic Pillars section with cards
-   - Ecosystem Applied in Stages timeline
-   - Designed for Projects section with cards
+   - Use Figma API to download all images needed for this page
+   - Create page-specific components in `src/app/(ecosystem)/components/`:
+     - `Hero.tsx` - Hero section
+     - `PillarsSection.tsx` - Three Strategic Pillars section with cards
+     - `TimelineSection.tsx` - Ecosystem Applied in Stages timeline
+     - `ProjectsSection.tsx` - Designed for Projects section with cards
+   - Each language page passes localized content to components
+   - Use Shadcn UI to create base components if needed
 
 ### Phase 7: Stouffer Hotels Page
 
-9. **Stouffer Hotels page** (`src/app/[locale]/stouffer-hotels/page.tsx`)
+8. **Stouffer Hotels page** (`src/app/(stouffer-hotels)/en/page.tsx` and `src/app/(stouffer-hotels)/vi/page.tsx`)
 
-   - Hero section
-   - Introduction section
-   - What is Stouffer section with cards (is/is not)
-   - Marketing & Partnership section
-   - Independent Identity section with image carousel
-   - Contact section
+   - Use Figma API to download all images needed for this page
+   - Create page-specific components in `src/app/(stouffer-hotels)/components/`:
+     - `Hero.tsx` - Hero section
+     - `IntroductionSection.tsx` - Introduction section
+     - `WhatIsStoufferSection.tsx` - What is Stouffer section with cards (is/is not)
+     - `MarketingSection.tsx` - Marketing & Partnership section
+     - `IdentitySection.tsx` - Independent Identity section with image carousel
+     - `ContactSection.tsx` - Contact section
+   - Each language page passes localized content to components
+   - Use Shadcn UI to create base components if needed
 
 ### Phase 8: Hoteliers Without Borders Page
 
-10. **Hoteliers Without Borders page** (`src/app/[locale]/hoteliers-without-borders/page.tsx`)
+9. **Hoteliers Without Borders page** (`src/app/(hoteliers-without-borders)/en/page.tsx` and `src/app/(hoteliers-without-borders)/vi/page.tsx`)
 
-    - Hero section
-    - What is Hotels Without Borders section
-    - For Who & Value section with content blocks
-    - Image section
+   - Use Figma API to download all images needed for this page
+   - Create page-specific components in `src/app/(hoteliers-without-borders)/components/`:
+     - `Hero.tsx` - Hero section
+     - `WhatIsHWBSection.tsx` - What is Hotels Without Borders section
+     - `ValueSection.tsx` - For Who & Value section with content blocks
+     - `ImageSection.tsx` - Image section
+   - Each language page passes localized content to components
+   - Use Shadcn UI to create base components if needed
 
 ### Phase 9: Lumora Page
 
-11. **Lumora page** (`src/app/[locale]/lumora/page.tsx`)
+10. **Lumora page** (`src/app/(lumora)/en/page.tsx` and `src/app/(lumora)/vi/page.tsx`)
 
-    - Hero section
-    - What is Lumora section with images
-    - When Lumora is Activated timeline (3 phases)
-    - Target Audience section with content blocks
+    - Use Figma API to download all images needed for this page
+    - Create page-specific components in `src/app/(lumora)/components/`:
+      - `Hero.tsx` - Hero section
+      - `WhatIsLumoraSection.tsx` - What is Lumora section with images
+      - `TimelineSection.tsx` - When Lumora is Activated timeline (3 phases)
+      - `AudienceSection.tsx` - Target Audience section with content blocks
+    - Each language page passes localized content to components
+    - Use Shadcn UI to create base components if needed
 
 ### Phase 10: Partnerships Page
 
-12. **Partnerships page** (`src/app/[locale]/partnerships/page.tsx`)
+11. **Partnerships page** (`src/app/(partnerships)/en/page.tsx` and `src/app/(partnerships)/vi/page.tsx`)
 
-    - Hero section
-    - Partner logos section
-    - What is TPO Model section
-    - How Primordial Implements TPO section
-    - Partnership Value section
-    - Contact form section
+    - Use Figma API to download all images needed for this page
+    - Create page-specific components in `src/app/(partnerships)/components/`:
+      - `Hero.tsx` - Hero section
+      - `LogosSection.tsx` - Partner logos section
+      - `TPOModelSection.tsx` - What is TPO Model section
+      - `ImplementationSection.tsx` - How Primordial Implements TPO section
+      - `ValueSection.tsx` - Partnership Value section
+      - `ContactFormSection.tsx` - Contact form section
+    - Each language page passes localized content to components
+    - Use Shadcn UI to create base components if needed
 
 ### Phase 11: Contact Page
 
-13. **Contact page** (`src/app/[locale]/contact/page.tsx`)
+12. **Contact page** (`src/app/(contact)/en/page.tsx` and `src/app/(contact)/vi/page.tsx`)
 
-    - Hero section
-    - Contact information section
-    - Contact form (name, email, phone, message)
-    - Offices section (Adelaide, Phu Quoc)
-    - Success dialog
+    - Use Figma API to download all images needed for this page
+    - Create page-specific components in `src/app/(contact)/components/`:
+      - `Hero.tsx` - Hero section
+      - `ContactInfoSection.tsx` - Contact information section
+      - `ContactFormSection.tsx` - Contact form (name, email, phone, message)
+      - `OfficesSection.tsx` - Offices section (Adelaide, Phu Quoc)
+      - Success dialog (using global Dialog component)
+    - Each language page passes localized content to components
+    - Use Shadcn UI to create base components if needed
 
-### Phase 12: Assets & Styling
-
-14. **Extract images from Figma**
-
-    - Use Figma API to download all images
-    - Organize images in `public/images/` directory
-    - Optimize images for web (WebP format where possible)
-    - Create image mapping for easy reference
-
-15. **Styling & Responsive Design**
-
-    - Implement Tailwind CSS classes matching Figma design
-    - Ensure responsive breakpoints (mobile, tablet, desktop)
-    - Match typography, spacing, and colors from design
-    - Add animations/transitions where appropriate
-
-### Phase 13: Functionality
-
-16. **Interactive Features**
-
-    - Banner slider/carousel for hero sections
-    - Image carousel for galleries
-    - Form validation and submission
-    - Language switcher functionality
-    - Smooth scrolling and navigation
-
-17. **SEO & Metadata**
-
-    - Add proper metadata for each page
-    - Implement Open Graph tags
-    - Add structured data where appropriate
 
 ## Key Files to Create/Modify
 
 ### Configuration Files
 
-- `package.json` - Add next-intl dependency
-- `next.config.ts` - Configure i18n
-- `src/middleware.ts` - Locale detection and routing
-- `src/i18n/request.ts` - next-intl configuration
-
-### Translation Files
-
-- `src/messages/vi.json` - Vietnamese translations
-- `src/messages/en.json` - English translations
+- `package.json` - Add required dependencies (Shadcn UI, carousel libraries, etc.)
+- `next.config.ts` - Standard Next.js configuration
+- `tailwind.config.ts` - Tailwind configuration with design tokens
 
 ### Layout Files
 
-- `src/app/[locale]/layout.tsx` - Root layout with locale
-- `src/app/layout.tsx` - Update for locale routing
+- `src/app/layout.tsx` - Root layout
+- `src/app/(home)/layout.tsx` - Optional layout for home route group
+- (Similar layouts for other route groups if needed)
 
-### Component Files
+### Global Component Files
 
 - `src/components/ui/PrimaryButton.tsx`
-- `src/components/ui/Navbar.tsx`
+- `src/components/ui/Navbar.tsx` (accepts nav items as props)
 - `src/components/ui/Container.tsx`
-- `src/components/ui/Footer.tsx`
+- `src/components/ui/Footer.tsx` (accepts footer content as props)
 - `src/components/ui/Input.tsx`
 - `src/components/ui/PhoneInput.tsx`
 - `src/components/ui/Textarea.tsx`
-- `src/components/ui/Dialog.tsx`
-- `src/components/sections/Hero.tsx`
-- `src/components/sections/ContentSection.tsx`
-- `src/components/sections/ImageGallery.tsx`
-- `src/components/sections/Timeline.tsx`
-- `src/components/sections/Card.tsx`
+- `src/components/ui/Dialog.tsx` (accepts title, message as props)
+
+### Page-Specific Component Files
+
+Each route group has its own `components/` folder with page-specific components:
+
+**Home (`src/app/(home)/components/`):**
+
+- `Hero.tsx`
+- `StoufferSection.tsx`
+- `HWBSection.tsx`
+- `LumoraSection.tsx`
+- `PartnershipSection.tsx`
+
+**Introduction (`src/app/(introduction)/components/`):**
+
+- `Hero.tsx`
+- `StorySection.tsx`
+- `VisionSection.tsx`
+- `KeyFunctionsSection.tsx`
+- `TeamSection.tsx`
+
+**Ecosystem (`src/app/(ecosystem)/components/`):**
+
+- `Hero.tsx`
+- `PillarsSection.tsx`
+- `TimelineSection.tsx`
+- `ProjectsSection.tsx`
+
+**Stouffer Hotels (`src/app/(stouffer-hotels)/components/`):**
+
+- `Hero.tsx`
+- `IntroductionSection.tsx`
+- `WhatIsStoufferSection.tsx`
+- `MarketingSection.tsx`
+- `IdentitySection.tsx`
+- `ContactSection.tsx`
+
+**Hoteliers Without Borders (`src/app/(hoteliers-without-borders)/components/`):**
+
+- `Hero.tsx`
+- `WhatIsHWBSection.tsx`
+- `ValueSection.tsx`
+- `ImageSection.tsx`
+
+**Lumora (`src/app/(lumora)/components/`):**
+
+- `Hero.tsx`
+- `WhatIsLumoraSection.tsx`
+- `TimelineSection.tsx`
+- `AudienceSection.tsx`
+
+**Partnerships (`src/app/(partnerships)/components/`):**
+
+- `Hero.tsx`
+- `LogosSection.tsx`
+- `TPOModelSection.tsx`
+- `ImplementationSection.tsx`
+- `ValueSection.tsx`
+- `ContactFormSection.tsx`
+
+**Contact (`src/app/(contact)/components/`):**
+
+- `Hero.tsx`
+- `ContactInfoSection.tsx`
+- `ContactFormSection.tsx`
+- `OfficesSection.tsx`
 
 ### Page Files
 
-- `src/app/[locale]/page.tsx` - Home page
-- `src/app/[locale]/introduction/page.tsx`
-- `src/app/[locale]/ecosystem/page.tsx`
-- `src/app/[locale]/stouffer-hotels/page.tsx`
-- `src/app/[locale]/hoteliers-without-borders/page.tsx`
-- `src/app/[locale]/lumora/page.tsx`
-- `src/app/[locale]/partnerships/page.tsx`
-- `src/app/[locale]/contact/page.tsx`
+Each route group contains separate pages for each language:
+
+**Home:**
+
+- `src/app/(home)/en/page.tsx`
+- `src/app/(home)/vi/page.tsx`
+
+**Introduction:**
+
+- `src/app/(introduction)/en/page.tsx`
+- `src/app/(introduction)/vi/page.tsx`
+
+**Ecosystem:**
+
+- `src/app/(ecosystem)/en/page.tsx`
+- `src/app/(ecosystem)/vi/page.tsx`
+
+**Stouffer Hotels:**
+
+- `src/app/(stouffer-hotels)/en/page.tsx`
+- `src/app/(stouffer-hotels)/vi/page.tsx`
+
+**Hoteliers Without Borders:**
+
+- `src/app/(hoteliers-without-borders)/en/page.tsx`
+- `src/app/(hoteliers-without-borders)/vi/page.tsx`
+
+**Lumora:**
+
+- `src/app/(lumora)/en/page.tsx`
+- `src/app/(lumora)/vi/page.tsx`
+
+**Partnerships:**
+
+- `src/app/(partnerships)/en/page.tsx`
+- `src/app/(partnerships)/vi/page.tsx`
+
+**Contact:**
+
+- `src/app/(contact)/en/page.tsx`
+- `src/app/(contact)/vi/page.tsx`
 
 ## Design Considerations
 
@@ -325,8 +422,13 @@ Using Shadcn UI as a base, create the following core components based on the Fig
 
 ## Notes
 
-- Default language is Vietnamese (vi)
-- All text content should be translatable
-- Images may need to be extracted from Figma or provided separately
-- Form submissions will need backend integration (can be added later)
-- Banner slides should auto-play with manual navigation controls
+- **Localization Approach**: No i18n library - components receive localized text as props
+- **Route Structure**: Pages are organized using Next.js route groups `(home)`, `(introduction)`, etc.
+- **Language Routes**: Each page has separate routes: `/en/` and `/vi/` (e.g., `/en/`, `/vi/`, `/en/introduction`, `/vi/introduction`)
+- **Component Props**: All components accept text content as props, making them reusable across both language versions
+- **Default Language**: Vietnamese (vi) can be set as the default route (e.g., redirect `/` to `/vi/`)
+- **Language Switcher**: Implement a language switcher component that links between `/en/` and `/vi/` routes
+- **Images**: May need to be extracted from Figma or provided separately
+- **Form Submissions**: Will need backend integration (can be added later)
+- **Banner Slides**: Should auto-play with manual navigation controls
+- **Shared Components**: Page-specific components live in each route group's `components/` folder, while global UI components are in `src/components/ui/`
