@@ -36,7 +36,7 @@ todos:
     content: "Phase 11: Contact Page - Build contact page with hero, contact info, form, offices, and success dialog for both languages"
     status: pending
   - id: phase-12-functionality
-    content: "Phase 12: Functionality - Implement interactive features, form validation, language switcher, and SEO metadata"
+    content: "Phase 12: Functionality - Implement interactive features, form validation, language switcher, SEO metadata, use Shadcn UI to create base components if needed, and implement text and image fade in on scroll animations"
     status: pending
 ---
 
@@ -177,6 +177,7 @@ Before building sections, you need your global styles set up so the AI doesn't h
    - Each language page imports components and passes localized text as props
    - All sections with proper spacing and responsive design
    - Use Shadcn UI to create base components if needed
+   - Implement text and image fade in on scroll animations
 
 ### Phase 5: Introduction Page
 
@@ -191,6 +192,7 @@ Before building sections, you need your global styles set up so the AI doesn't h
      - `TeamSection.tsx` - Our Team section with team cards
    - Each language page passes localized content to components
    - Use Shadcn UI to create base components if needed
+   - Implement text and image fade in on scroll animations
 
 ### Phase 6: Ecosystem Page
 
@@ -204,6 +206,7 @@ Before building sections, you need your global styles set up so the AI doesn't h
      - `ProjectsSection.tsx` - Designed for Projects section with cards
    - Each language page passes localized content to components
    - Use Shadcn UI to create base components if needed
+   - Implement text and image fade in on scroll animations
 
 ### Phase 7: Stouffer Hotels Page
 
@@ -219,6 +222,7 @@ Before building sections, you need your global styles set up so the AI doesn't h
      - `ContactSection.tsx` - Contact section
    - Each language page passes localized content to components
    - Use Shadcn UI to create base components if needed
+   - Implement text and image fade in on scroll animations
 
 ### Phase 8: Hoteliers Without Borders Page
 
@@ -232,6 +236,7 @@ Before building sections, you need your global styles set up so the AI doesn't h
      - `ImageSection.tsx` - Image section
    - Each language page passes localized content to components
    - Use Shadcn UI to create base components if needed
+   - Implement text and image fade in on scroll animations
 
 ### Phase 9: Lumora Page
 
@@ -245,6 +250,7 @@ Before building sections, you need your global styles set up so the AI doesn't h
       - `AudienceSection.tsx` - Target Audience section with content blocks
     - Each language page passes localized content to components
     - Use Shadcn UI to create base components if needed
+    - Implement text and image fade in on scroll animations
 
 ### Phase 10: Partnerships Page
 
@@ -260,6 +266,7 @@ Before building sections, you need your global styles set up so the AI doesn't h
       - `ContactFormSection.tsx` - Contact form section
     - Each language page passes localized content to components
     - Use Shadcn UI to create base components if needed
+    - Implement text and image fade in on scroll animations
 
 ### Phase 11: Contact Page
 
@@ -274,6 +281,18 @@ Before building sections, you need your global styles set up so the AI doesn't h
       - Success dialog (using global Dialog component)
     - Each language page passes localized content to components
     - Use Shadcn UI to create base components if needed
+    - Implement text and image fade in on scroll animations
+
+### Phase 12: Functionality
+
+13. **Functionality implementation**
+
+    - Implement interactive features across all pages
+    - Add form validation for all contact forms
+    - Create language switcher component that links between `/en/` and `/vi/` routes
+    - Add SEO metadata for all pages (title, description, Open Graph tags)
+    - Use Shadcn UI to create base components if needed
+    - Implement text and image fade in on scroll animations across all pages
 
 
 ## Key Files to Create/Modify
