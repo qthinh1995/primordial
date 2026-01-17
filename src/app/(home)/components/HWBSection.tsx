@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
+import parse from "html-react-parser";
 
 interface HWBSectionProps {
   badge: string;
@@ -21,40 +22,67 @@ export function HWBSection({
   image,
 }: HWBSectionProps) {
   return (
-    <section className="bg-background py-[123px]">
-      <Container>
-        <div className="flex gap-6 items-center max-md:flex-col">
-          {/* Image */}
-          <div className="relative h-[778px] w-[648px] shrink-0 overflow-hidden max-md:w-full max-md:h-[400px]">
-            <div className="absolute inset-0 bg-black">
-              <Image
-                src={image}
-                alt="Hoteliers Without Borders"
-                fill
-                className="object-cover"
-              />
+    <section className="bg-background py-[64px] md:py-[96px] lg:py-[123px]">
+      <Container className="px-4 md:px-12">
+        <div className="flex flex-col gap-10 md:gap-12 lg:flex-row lg:items-center lg:gap-16">
+
+          {/* TEXT – luôn ở trên mobile */}
+          <div className="order-1 flex flex-1 flex-col gap-10 text-center lg:order-2 lg:text-left">
+            <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-3 md:w-[576px]">
+                <p className="font-sans text-sm md:text-base font-bold tracking-[-0.32px] text-accent">
+                  {badge}
+                </p>
+
+                <h2
+                  className=" w-[343px] mx-auto md:w-full
+                    font-display
+                    text-[32px] leading-[1.5] tracking-[-1.2px]
+                     md:leading-[40px]
+                    lg:text-[44px] lg:leading-[1.4] lg:tracking-[-1.76px]
+                  "
+                >
+                  {parse(title)}
+                </h2>
+              </div>
+
+              <div
+                className="
+                  font-sans text-base leading-[1.6] tracking-[-0.3px]
+                  lg:text-lg lg:leading-[1.4] lg:tracking-[-0.54px]
+                "
+              >
+                {parse(description)}
+              </div>
+            </div>
+
+            <div className="flex justify-center lg:justify-start">
+              <Link href={buttonHref}>
+                <Button>{buttonText}</Button>
+              </Link>
             </div>
           </div>
 
-          {/* Content */}
-          <div className="flex flex-1 flex-col gap-12 px-12 max-md:px-0">
-            <div className="flex flex-col gap-8">
-              <div className="flex flex-col gap-3">
-                <p className="font-sans text-base font-bold leading-6 tracking-[-0.32px] text-accent">
-                  {badge}
-                </p>
-                <h2 className="font-display text-[44px] font-normal leading-[1.4] tracking-[-1.76px] text-foreground">
-                  {title}
-                </h2>
-              </div>
-              <p className="font-sans text-lg leading-[1.4] tracking-[-0.54px] text-foreground">
-                {description}
-              </p>
-            </div>
-            <Link href={buttonHref}>
-              <Button variant="default">{buttonText}</Button>
-            </Link>
+          {/* IMAGE – mobile nằm dưới, desktop nằm trái */}
+          <div
+            className="
+              order-2
+              relative w-full overflow-hidden
+              aspect-[3/4]
+              md:aspect-[4/5]
+              lg:order-1 lg:w-[648px] lg:h-[778px] lg:aspect-auto
+              shrink-0
+            "
+          >
+            <Image
+              src={image}
+              alt="Hoteliers Without Borders"
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
+
         </div>
       </Container>
     </section>

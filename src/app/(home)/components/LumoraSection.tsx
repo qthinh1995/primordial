@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
+import parse from 'html-react-parser';
 
 interface LumoraSectionProps {
   badge: string;
@@ -21,45 +22,48 @@ export function LumoraSection({
   images,
 }: LumoraSectionProps) {
   return (
-    <section className="bg-muted py-[120px]">
-      <Container>
+    <section className="bg-muted py-[64px] md:py-[120px]">
+      <Container className="px-4 md:px-12">
         <div className="flex flex-col gap-16">
-          {/* Text Content */}
-          <div className="flex flex-col gap-6">
-            <div className="flex flex-col gap-3">
-              <p className="font-sans text-base font-bold leading-6 tracking-[-0.32px] text-accent">
-                {badge}
-              </p>
-              <h2 className="font-display text-[44px] font-normal leading-[1.4] tracking-[-1.76px] text-foreground">
-                {title}
-              </h2>
-            </div>
-            <div className="flex items-center justify-between max-md:flex-col max-md:items-start max-md:gap-4">
-              <p className="max-w-[879px] font-sans text-lg leading-[1.4] tracking-[-0.54px] text-foreground max-md:max-w-full">
-                {description}
-              </p>
-              <Link href={buttonHref} className="shrink-0">
-                <Button variant="default">{buttonText}</Button>
-              </Link>
-            </div>
-          </div>
+          {/* TEXT */}
+            <div className="flex flex-col gap-6 text-center md:text-left items-center md:items-start">
+              <div className="flex flex-col gap-3">
+                <p className="font-sans text-base font-bold tracking-[-0.32px] text-accent">
+                  {badge}
+                </p>
 
-          {/* Image Gallery */}
-          <div className="flex gap-6 max-md:flex-col">
+                <h2 className="font-display text-[32px] leading-[40px] tracking-[-1.2px] text-foreground md:text-[44px] md:leading-[1.4] md:tracking-[-1.76px]">
+                  {title}
+                </h2>
+              </div>
+
+              <div className="flex flex-col gap-10 items-center md:flex-row md:items-start md:justify-between w-full">
+                <div className="max-w-[879px] font-sans text-[16px] leading-[1.6] tracking-[-0.3px] text-foreground text-center md:text-left md:text-lg md:leading-[1.4] md:tracking-[-0.54px]">
+                  {parse(description)}
+                </div>
+
+                <Link href={buttonHref} className="shrink-0">
+                  <Button>{buttonText}</Button>
+                </Link>
+              </div>
+            </div>
+         <div className="flex gap-4 md:gap-6 overflow-x-auto md:px-0">
             {images.map((image, index) => (
-              <div          
+              <div
                 key={index}
-                className="relative aspect-[432/518] flex-1 overflow-hidden max-md:aspect-[4/3]"
+                className="relative min-w-[320px] aspect-[320/481] md:min-w-0 md:flex-1 md:aspect-[432/518]"
               >
                 <Image
                   src={image}
                   alt={`Lumora image ${index + 1}`}
                   fill
                   className="object-cover"
+                  sizes="(max-width: 768px) 320px, 33vw"
                 />
               </div>
             ))}
           </div>
+
         </div>
       </Container>
     </section>

@@ -52,12 +52,12 @@ export function Hero({ title, description, images }: HeroProps) {
 
       {/* Content */}
       <div className="relative z-10 flex h-full items-center justify-center">
-        <Container className="z-10">
-          <div className="mx-auto max-w-[960px] text-center px-4">
-            <h1 className="mb-6 font-display text-[72px] font-normal leading-[80px] tracking-[-2.88px] text-white max-md:text-[48px] max-md:leading-[56px]">
-              {title}
+        <Container className="px-4 md:px-12">
+          <div className="mx-auto max-w-[960px] text-center">
+            <h1 className="mb-6 font-display font-normal text-white text-[32px] leading-[1.25] tracking-normal sm:text-[50px] sm:leading-[1.2] md:text-[60px] md:leading-[1.15] md:tracking-[-0.02em] lg:text-[72px] lg:leading-[1.1] lg:tracking-[-0.04em]">
+          {title}
             </h1>
-            <p className="font-sans mx-auto text-lg leading-[1.4] tracking-[-0.54px] text-[#eaeaea]">
+            <p className="font-sans mx-auto text-[16px] md:text-lg leading-[1.4] tracking-[-0.54px] text-[#eaeaea]">
               {description}
             </p>
           </div>

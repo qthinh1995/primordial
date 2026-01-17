@@ -56,7 +56,7 @@ export default function HomePage() {
         badge="WORK · TALENT PLATFORM"
         title="KHÁCH SẠN KHÔNG BIÊN GIỚI"
         description="Hoteliers Without Borders là nền tảng điều phối nhân sự hospitality linh hoạt, kết nối các chuyên gia giàu kinh nghiệm với khách sạn và khu nghỉ dưỡng cho nhu cầu ngắn hạn, theo mùa hoặc theo dự án - khi tuyển dụng toàn thời gian không còn là giải pháp tối ưu. Nền tảng được thiết kế để giúp khách sạn tiếp cận đúng người, đúng thời điểm, đồng thời giúp nhân sự ngành khách sạn mở rộng cơ hội nghề nghiệp theo cách chủ động."
-        buttonText="Tham gia cùng chúng tôi"
+        buttonText="ĐĂNG KÝ THAM GIA"
         buttonHref="/vi/hoteliers-without-borders"
         image={hwbImage}
       />
@@ -73,7 +73,7 @@ export default function HomePage() {
         badge="PARTNERSHIP"
         title="Primordial Hospitium"
         description="Primordial Hospitium đồng hành cùng các chủ khách sạn độc lập, đối tác sáng tạo và nhà đầu tư thông qua mô hình hợp tác linh hoạt và minh bạch. Chúng tôi không quản lý, không nhượng quyền, không thay thế quyền quyết định - Primordial đóng vai trò tư vấn, điều phối và hỗ trợ để mỗi dự án phát triển đúng bản chất của mình. Bởi với chúng tôi, Everybody is Somebody không chỉ là một triết lý, mà là cách chúng tôi lựa chọn đồng hành."
-        buttonText="Liên hệ đối tác"
+        buttonText="Liên hệ hợp tác"
         buttonHref="/vi/partnerships"
         image={partnershipImage}
       />

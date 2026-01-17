@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
+import parse from "html-react-parser";
 
 interface PartnershipSectionProps {
   badge: string;
@@ -21,42 +22,52 @@ export function PartnershipSection({
   image,
 }: PartnershipSectionProps) {
   return (
-    <section className="flex min-h-[1024px] items-center justify-center bg-background py-[120px]">
-      <Container>
-        <div className="flex flex-col items-center gap-12">
-          {/* Text Content */}
-          <div className="mx-auto flex max-w-[1272px]] flex-col items-center gap-6 px-9 text-center">
-            <div className="flex flex-col items-center gap-3">
-              <p className="font-sans text-base font-bold leading-6 tracking-[-0.32px] text-accent">
-                {badge}
-              </p>
-              <h2 className="font-display text-[44px] font-normal leading-[48px] tracking-[-1.76px] uppercase text-foreground">
-                {title}
-              </h2>
-            </div>
-            <p className="font-sans text-xl leading-[28px] tracking-[-0.6px] text-foreground">
-              {description}
-            </p>
-          </div>
+    <section className="bg-background py-[64px] md:py-[120px]">
 
-          {/* Image */}
-          <div className="relative aspect-[423/141] w-full overflow-hidden">
-            <div className="absolute inset-0 bg-black">
-              <Image
-                src={image}
-                alt="Primordial Hospitium Partnership"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
+      {/* TEXT */}
+      <Container className="px-4 md:px-12">
+        <div className="mx-auto flex max-w-[1272px] flex-col items-center gap-6 text-center">
+          <p className="font-sans text-base font-bold tracking-[-0.32px] text-accent">
+            {badge}
+          </p>
 
-          {/* Button */}
+          <h2 className="mt-[-10px] md:mt-0 font-display text-[32px] leading-[1.2] tracking-[-0.04em] md:text-[44px] md:tracking-[-0.04em] uppercase text-foreground whitespace-nowrap">
+            {title}
+          </h2>
+
+
+          <div className="font-sans mb-[10px] md:mb-0 text-[16px] leading-[1.6] tracking-[-0.3px] md:text-xl md:leading-[28px] md:tracking-[-0.6px] text-foreground">
+            {parse(description)}
+          </div>
+          <div className="md:hidden">
           <Link href={buttonHref}>
-            <Button variant="default">{buttonText}</Button>
+            <Button size="lg">{buttonText}</Button>
           </Link>
+          </div>
+
         </div>
       </Container>
+
+      {/* IMAGE – FULL BLEED */}
+      <div className="mt-12 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+        <div className="relative aspect-[4/3] md:aspect-[16/6] w-full overflow-hidden">
+          <Image
+            src={image}
+            alt="Primordial Hospitium Partnership"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+      </div>
+      <div className="hidden md:flex items-center justify-center mt-12">  
+          <Link href={buttonHref}>
+            <Button size="lg">{buttonText}</Button>
+          </Link>
+          </div>
+
+
+
     </section>
   );
 }
