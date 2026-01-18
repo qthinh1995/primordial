@@ -1,75 +1,70 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
 
-export type OverviewSectionProps = {
-  leftImage: { src: string; alt: string };
-  title: string;
+type Img = { src: string; alt: string };
+
+interface OverviewSectionProps {
+  leftImage: Img & { objectPosition?: string };
+  title: string; // can contain \n
   eyebrow: string;
   paragraphs: string[];
-  thumbs?: Array<{ src: string; alt: string }>;
-  dividerColorHex?: string;
-};
+  thumbs: Img[]; // exactly 2 in design
+}
 
 export function OverviewSection({
   leftImage,
   title,
   eyebrow,
   paragraphs,
-  thumbs = [],
-  dividerColorHex = "#C8A55A",
+  thumbs,
 }: OverviewSectionProps) {
   return (
-    <section className="bg-white">
-      <Container className="py-16 md:py-24">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-14 items-start">
-          {/* LEFT IMAGE */}
-          <div className="md:col-span-6">
-            <div className="relative aspect-[4/3] w-full overflow-hidden bg-zinc-100">
+    <section className="bg-background py-[120px]">
+      <Container>
+        <div className="grid grid-cols-1 items-start gap-14 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
+          {/* LEFT BIG IMAGE */}
+          <div className="w-full max-w-[520px]">
+            <div className="relative aspect-square w-full overflow-hidden bg-muted">
               <Image
                 src={leftImage.src}
                 alt={leftImage.alt}
                 fill
                 className="object-cover"
-                sizes="(min-width: 768px) 50vw, 100vw"
+                style={{
+                  objectPosition: leftImage.objectPosition ?? "50% 50%",
+                }}
+                priority
               />
             </div>
           </div>
 
           {/* RIGHT CONTENT */}
-          <div className="md:col-span-6">
-            <h2 className="whitespace-pre-line font-[var(--font-display)] text-[34px] md:text-[44px] leading-[1.15] tracking-[-0.02em] text-zinc-900">
+          <div className="min-w-0">
+            <h2 className="whitespace-pre-line font-display text-[44px] leading-[1.15] tracking-[-0.6px] text-foreground">
               {title}
             </h2>
 
-            <div
-              className="mt-6 h-px w-full"
-              style={{ backgroundColor: dividerColorHex, opacity: 0.7 }}
-            />
+            <div className="mt-6 h-px w-full bg-border" />
 
-            <div className="mt-8">
-              <div className="text-sm font-semibold text-zinc-900">{eyebrow}</div>
+            <p className="mt-6 font-sans text-sm font-semibold text-foreground/80">
+              {eyebrow}
+            </p>
 
-              <div className="mt-4 space-y-5 text-[15px] leading-7 text-zinc-600">
-                {paragraphs.map((p, i) => (
-                  <p key={i}>{p}</p>
-                ))}
-              </div>
+            <div className="mt-4 space-y-4 font-sans text-[15px] leading-[1.7] text-foreground/70">
+              {paragraphs.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
 
-              {thumbs.length > 0 && (
-                <div className="mt-10 grid grid-cols-2 gap-4">
-                  {thumbs.slice(0, 2).map((img, i) => (
-                    <div key={i} className="relative aspect-[16/9] overflow-hidden bg-zinc-100">
-                      <Image
-                        src={img.src}
-                        alt={img.alt}
-                        fill
-                        className="object-cover"
-                        sizes="(min-width: 768px) 25vw, 50vw"
-                      />
-                    </div>
-                  ))}
+            <div className="mt-10 grid grid-cols-2 gap-6">
+              {thumbs.slice(0, 2).map((t, i) => (
+                <div
+                  key={i}
+                  className="relative aspect-[4/3] overflow-hidden bg-muted"
+                >
+                  <Image src={t.src} alt={t.alt} fill className="object-cover" />
                 </div>
-              )}
+              ))}
             </div>
           </div>
         </div>

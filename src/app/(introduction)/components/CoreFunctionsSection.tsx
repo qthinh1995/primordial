@@ -2,76 +2,73 @@
 
 import { useMemo, useState } from "react";
 import { Container } from "@/components/ui/container";
+import { cn } from "@/lib/utils";
 
-export type CoreFunctionItem = {
+interface CoreFunctionsSectionProps {
   title: string;
-  description: string;
-};
-
-export function CoreFunctionsSection(props: {
-  title: string;
-  items: CoreFunctionItem[];
   defaultOpenIndex?: number;
-}) {
-  const [openIndex, setOpenIndex] = useState<number>(
-    typeof props.defaultOpenIndex === "number" ? props.defaultOpenIndex : 0
-  );
+  items: Array<{
+    title: string;
+    description: string;
+  }>;
+}
 
-  const rows = useMemo(
-    () =>
-      (props.items || []).map((it, i) => ({
-        idx: i,
-        number: `${i + 1}.`,
-        ...it,
-      })),
-    [props.items]
-  );
+export function CoreFunctionsSection({
+  title,
+  defaultOpenIndex = 0,
+  items,
+}: CoreFunctionsSectionProps) {
+  const safeDefault = useMemo(() => {
+    if (!items?.length) return -1;
+    const idx = Number.isFinite(defaultOpenIndex) ? defaultOpenIndex : 0;
+    return Math.max(0, Math.min(items.length - 1, idx));
+  }, [defaultOpenIndex, items]);
+
+  const [openIndex, setOpenIndex] = useState<number>(safeDefault);
+
+  function toggle(i: number) {
+    setOpenIndex((cur) => (cur === i ? -1 : i));
+  }
 
   return (
-    <section className="bg-white">
-      <Container className="py-16 md:py-24">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-16 items-start">
-          <div className="md:col-span-4">
-            <h2 className="font-[var(--font-display)] text-[34px] md:text-[44px] leading-[1.15] tracking-[-0.02em] text-zinc-900">
-              {props.title}
-            </h2>
-          </div>
+    <section className="bg-background py-[120px]">
+      <Container>
+        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[260px_1fr] lg:gap-20">
+          <h2 className="font-display text-[44px] leading-[1.1] text-foreground">
+            {title}
+          </h2>
 
-          <div className="md:col-span-8">
-            <div className="border-t border-zinc-200">
-              {rows.map((r) => {
-                const isOpen = r.idx === openIndex;
+          <div className="min-w-0">
+            <div className="border bg-[#f6f2e8]">
+              {items.map((it, i) => {
+                const isOpen = i === openIndex;
 
                 return (
-                  <div key={r.idx} className="border-b border-zinc-200">
+                  <div key={i} className="border-b last:border-b-0">
                     <button
                       type="button"
-                      onClick={() => setOpenIndex(isOpen ? -1 : r.idx)}
-                      className={[
-                        "w-full text-left flex items-start justify-between gap-6",
-                        "px-6 py-5 md:px-8 md:py-6",
-                        "transition-colors",
-                        isOpen ? "bg-[#F3EEE2]" : "bg-white hover:bg-zinc-50",
-                      ].join(" ")}
+                      className="flex w-full items-center justify-between gap-6 px-6 py-5 text-left"
+                      onClick={() => toggle(i)}
                     >
-                      <div className="min-w-0 flex items-start gap-3">
-                        <span className="font-[var(--font-display)] text-[16px] md:text-[18px] text-zinc-900">
-                          {r.number}
-                        </span>
-                        <span className="font-[var(--font-display)] text-[16px] md:text-[18px] text-zinc-900">
-                          {r.title}
-                        </span>
-                      </div>
+                      <span className="font-serif text-[16px] text-foreground">
+                        {i + 1}. {it.title}
+                      </span>
 
-                      <span className="shrink-0 text-zinc-700 text-xl leading-none">
+                      <span
+                        className={cn(
+                          "select-none font-sans text-xl leading-none text-foreground/70",
+                          isOpen && "text-foreground"
+                        )}
+                        aria-hidden
+                      >
                         {isOpen ? "×" : "+"}
                       </span>
                     </button>
 
                     {isOpen && (
-                      <div className="bg-[#F3EEE2] px-6 pb-6 md:px-8 md:pb-8">
-                        <p className="text-[14px] md:text-[15px] leading-7 text-zinc-700 max-w-[760px]">
-                          {r.description}
+                      <div className="px-6 pb-6 pt-0">
+                        <p className="font-sans text-sm leading-[1.7] text-foreground/70">
+                          {it.description}
                         </p>
                       </div>
                     )}

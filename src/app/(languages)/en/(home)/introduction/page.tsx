@@ -1,46 +1,46 @@
-import { Hero } from "@/app/(introduction)/components/Hero"
+import { Hero } from "@/app/(introduction)/components/Hero";
 import { OverviewSection } from "@/app/(introduction)/components/OverviewSection";
+import { VisionSection } from "@/app/(introduction)/components/VisionSection";
 import { QuoteSection } from "@/app/(introduction)/components/QuoteSection";
 import { CoreFunctionsSection } from "@/app/(introduction)/components/CoreFunctionsSection";
-// Optional (nếu Toro đã có):
-// import { VisionSection } from "../../../(introduction)/components/VisionSection";
-// import { TeamSection } from "../../../(introduction)/components/TeamSection";
+import { TeamSection } from "@/app/(introduction)/components/TeamSection";
 
-// ===== Images (replace bằng asset export từ Figma / public) =====
-const heroImage =
-  "https://www.figma.com/api/mcp/asset/REPLACE_INTRO_HERO";
+// ===== HERO =====
+const heroImage = "/figma/introduction/intro-hero.jpg";
 
-const overviewMainImage =
-  "https://www.figma.com/api/mcp/asset/REPLACE_INTRO_OVERVIEW_MAIN";
-
+// ===== OVERVIEW =====
+const overviewMainImage = "/figma/introduction/origin-main.jpg";
 const overviewThumbs = [
-  "https://www.figma.com/api/mcp/asset/REPLACE_INTRO_OVERVIEW_THUMB_1",
-  "https://www.figma.com/api/mcp/asset/REPLACE_INTRO_OVERVIEW_THUMB_2",
-];
+  "/figma/introduction/origin-thumb-1.jpg",
+  "/figma/introduction/origin-thumb-2.jpg",
+] as const;
 
-const quoteBannerImage =
-  "https://www.figma.com/api/mcp/asset/REPLACE_INTRO_QUOTE_BANNER";
+// ===== VISION =====
+const visionRightImage = "/figma/introduction/vision-right.jpg";
+const visionAvatar = "/figma/introduction/team-bao.jpg";
 
-// Optional
-// const visionRightImage = "https://www.figma.com/api/mcp/asset/REPLACE_INTRO_VISION_RIGHT";
-// const visionAvatar = "https://www.figma.com/api/mcp/asset/REPLACE_INTRO_VISION_AVATAR";
-// const teamImages = [
-//   "https://www.figma.com/api/mcp/asset/REPLACE_TEAM_1",
-//   "https://www.figma.com/api/mcp/asset/REPLACE_TEAM_2",
-//   "https://www.figma.com/api/mcp/asset/REPLACE_TEAM_3",
-//   "https://www.figma.com/api/mcp/asset/REPLACE_TEAM_4",
-// ];
+// ===== QUOTE =====
+const quoteBannerImage = "/figma/introduction/quote-banner.jpg";
 
-export default function IntroductionEN() {
+// ===== TEAM =====
+const teamImages = [
+  "/figma/introduction/team-bao.jpg",
+  "/figma/introduction/team-ngoc.jpg",
+  "/figma/introduction/team-cang.jpg",
+  "/figma/introduction/team-ty.jpg",
+] as const;
+
+export default function IntroductionPageEN() {
   return (
     <main>
-      <Hero
-        title="About us"
-        image={{ src: heroImage, alt: "About us hero" }}
-      />
+      <Hero title="About us" image={{ src: heroImage, alt: "About us hero" }} />
 
       <OverviewSection
-        leftImage={{ src: overviewMainImage, alt: "Origin overview" }}
+        leftImage={{
+          src: overviewMainImage,
+          alt: "Origin overview",
+          objectPosition: "50% 70%",
+        }}
         title={"THE ORIGIN – PERFECT\nBALANCE"}
         eyebrow="Overview"
         paragraphs={[
@@ -54,8 +54,6 @@ export default function IntroductionEN() {
         ]}
       />
 
-      {/* Optional: Vision (bật nếu Toro đã có VisionSection) */}
-      {/*
       <VisionSection
         title="VISION"
         paragraphs={[
@@ -71,7 +69,6 @@ export default function IntroductionEN() {
         }}
         rightImage={{ src: visionRightImage, alt: "Vision" }}
       />
-      */}
 
       <QuoteSection
         image={{ src: quoteBannerImage, alt: "Quote banner" }}
@@ -115,19 +112,39 @@ export default function IntroductionEN() {
         ]}
       />
 
-      {/* Optional: Team (bật nếu Toro đã có TeamSection) */}
-      {/*
       <TeamSection
         title="OUR TEAM"
-        intro="Our team is the heart of Primordial Hospitium. We are a diverse group of professionals united by a shared passion for hospitality and a commitment to excellence."
+        intro={
+          <>
+            Our team is the heart of <b>Primordial Hospitium</b>. We are a diverse
+            group of professionals united by a shared passion for hospitality and a
+            commitment to excellence. Meet the people behind our promise to deliver
+            exceptional service and meaningful, memorable experiences.
+          </>
+        }
         members={[
-          { name: "Bao Nguyen", role: "CO-FOUNDER & DIRECTOR OF BUSINESS DEVELOPMENT", image: { src: teamImages[0], alt: "Bao Nguyen" } },
-          { name: "Nguyen Ngoc", role: "CHIEF FINANCIAL OFFICER", image: { src: teamImages[1], alt: "Nguyen Ngoc" } },
-          { name: "Cang Lam", role: "DIRECTOR OF OPERATION - ADVISOR", image: { src: teamImages[2], alt: "Cang Lam" } },
-          { name: "Ty Nguyen", role: "DIRECTOR OF SALE & MARKETING - ADVISOR", image: { src: teamImages[3], alt: "Ty Nguyen" } },
+          {
+            name: "Bao Nguyen",
+            role: "CO-FOUNDER & DIRECTOR OF BUSINESS DEVELOPMENT",
+            image: { src: teamImages[0], alt: "Bao Nguyen" },
+          },
+          {
+            name: "Nguyen Ngoc",
+            role: "CHIEF FINANCIAL OFFICER",
+            image: { src: teamImages[1], alt: "Nguyen Ngoc" },
+          },
+          {
+            name: "Cang Lam",
+            role: "DIRECTOR OF OPERATION - ADVISOR",
+            image: { src: teamImages[2], alt: "Cang Lam" },
+          },
+          {
+            name: "Ty Nguyen",
+            role: "DIRECTOR OF SALE & MARKETING - ADVISOR",
+            image: { src: teamImages[3], alt: "Ty Nguyen" },
+          },
         ]}
       />
-      */}
     </main>
   );
 }

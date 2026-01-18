@@ -1,40 +1,24 @@
 import Image from "next/image";
+import { Container } from "@/components/ui/container";
 
-export type QuoteSectionProps = {
+type Img = { src: string; alt: string };
+
+interface QuoteSectionProps {
+  image: Img;
   text: string;
-  image: { src: string; alt: string };
-  height?: number;
-  heightMobile?: number;
-  overlayClassName?: string;
-};
+}
 
-export function QuoteSection({
-  text,
-  image,
-  height = 340,
-  heightMobile = 260,
-  overlayClassName = "bg-black/35",
-}: QuoteSectionProps) {
+export function QuoteSection({ image, text }: QuoteSectionProps) {
   return (
-    <section
-      className="relative w-full overflow-hidden"
-      style={{ height: `clamp(${heightMobile}px, 28vw, ${height}px)` }}
-    >
-      <Image
-        src={image.src}
-        alt={image.alt}
-        fill
-        className="object-cover"
-        sizes="100vw"
-      />
+    <section className="relative h-[260px] w-full overflow-hidden">
+      <Image src={image.src} alt={image.alt} fill className="object-cover" />
+      <div className="absolute inset-0 bg-black/35" />
 
-      <div className={`absolute inset-0 ${overlayClassName}`} />
-
-      <div className="absolute inset-0 flex items-center justify-center px-6">
-        <p className="text-center font-[var(--font-display)] text-white text-[20px] md:text-[28px] leading-[1.25] tracking-[-0.01em] max-w-[860px]">
-          {text}
-        </p>
-      </div>
+      <Container>
+        <div className="relative flex h-[260px] items-center justify-center text-center">
+          <p className="font-display text-2xl text-white md:text-3xl">{text}</p>
+        </div>
+      </Container>
     </section>
   );
 }
