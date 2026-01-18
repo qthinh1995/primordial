@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
-import parse from "html-react-parser";
+import { Key } from "lucide-react";
 
 interface PartnershipSectionProps {
   badge: string;
@@ -11,6 +11,7 @@ interface PartnershipSectionProps {
   buttonText: string;
   buttonHref: string;
   image: string;
+  classwidth: string;
 }
 
 export function PartnershipSection({
@@ -20,6 +21,7 @@ export function PartnershipSection({
   buttonText,
   buttonHref,
   image,
+  classwidth,
 }: PartnershipSectionProps) {
   return (
     <section className="bg-background py-[64px] md:py-[120px]">
@@ -36,9 +38,10 @@ export function PartnershipSection({
           </h2>
 
 
-          <div className="font-sans mb-[10px] md:mb-0 text-[16px] leading-[1.6] tracking-[-0.3px] md:text-xl md:leading-[28px] md:tracking-[-0.6px] text-foreground">
-            {parse(description)}
+          <div className={classwidth}>
+          {String(description).replace(/\\n/g, "\n").split("**").map((part,i) => (i % 2 === 1 ? (<strong key={i} className="font-semibold" >{part}</strong>) : (<span key={i}>{part}</span>)))}
           </div>
+          
           <div className="md:hidden">
           <Link href={buttonHref}>
             <Button size="lg">{buttonText}</Button>

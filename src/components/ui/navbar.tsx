@@ -51,12 +51,12 @@ export function Navbar({ content, logo, className }: NavbarProps) {
   return (
     <>
       {/* ================= NAVBAR ================= */}
-<header className={cn("sticky top-0 z-50 w-full", className)}>
+<header className={cn("sticky z-50 w-full", className)}>
   {/* Blur background */}
-  <div className="absolute inset-0 bg-black/60 backdrop-blur-md" />
+  <div className="absolute inset-0 bg-black/60 backdrop-blur-md pointer-events-none" />
 
   {/* INNER WRAPPER – KHÔNG Container */}
-  <div className="relative z-10 mx-auto flex h-[88px] w-full max-w-[1440px] items-center justify-between px-4 md:px-12">
+  <div className="relative z-10 mx-auto flex h-[80px] w-full max-w-[1440px] items-center justify-between px-4 md:px-12">
     
     {/* LEFT */}
     <div className="flex items-center gap-12 ml-[-20px] md:ml-[-25px]">
@@ -70,7 +70,7 @@ export function Navbar({ content, logo, className }: NavbarProps) {
 
       {/* DESKTOP NAV */}
       <nav className="hidden lg:flex items-center gap-8">
-        {content.items.map((item, i) => (
+        {content.items.map((item, i) => ( 
           <Link
             key={i}
             href={item.href}

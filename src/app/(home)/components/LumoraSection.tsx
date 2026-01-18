@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
-import parse from 'html-react-parser';
 
 interface LumoraSectionProps {
   badge: string;
@@ -11,6 +10,7 @@ interface LumoraSectionProps {
   buttonText: string;
   buttonHref: string;
   images: string[];
+
 }
 
 export function LumoraSection({
@@ -38,11 +38,29 @@ export function LumoraSection({
               </div>
 
               <div className="flex flex-col gap-10 items-center md:flex-row md:items-start md:justify-between w-full">
-                <div className="max-w-[879px] font-sans text-[16px] leading-[1.6] tracking-[-0.3px] text-foreground text-center md:text-left md:text-lg md:leading-[1.4] md:tracking-[-0.54px]">
-                  {parse(description)}
+                <div className="max-w-[879px] font-sans text-[16px] leading-[1.6] tracking-[-0.3px] text-foreground text-center md:text-left md:text-lg md:leading-[1.4] md:tracking-[-0.54px] md:space-y-6">
+                  {String(description)
+                  .replace(/\\n/g, "\n")
+                  .split("\n")
+                  .map(s => s.trim())
+                  .filter(Boolean)
+                  .map((line, i) => (
+                    <p key={i}>
+                      {line.split("**").map((part, j) =>
+                        j % 2 === 1 ? (
+                          <strong key={j} className="font-semibold">
+                            {part}
+                          </strong>
+                        ) : (
+                          <span key={j}>{part}</span>
+                        )
+                      )}
+                    </p>
+                  ))}
+
                 </div>
 
-                <Link href={buttonHref} className="shrink-0">
+                <Link href={buttonHref} className="shrink-0 md:mt-12">
                   <Button>{buttonText}</Button>
                 </Link>
               </div>

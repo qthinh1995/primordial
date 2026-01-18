@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
-import parse from "html-react-parser";
 
 interface HWBSectionProps {
   badge: string;
@@ -40,19 +39,20 @@ export function HWBSection({
                     text-[32px] leading-[1.5] tracking-[-1.2px]
                      md:leading-[40px]
                     lg:text-[44px] lg:leading-[1.4] lg:tracking-[-1.76px]
+                  
                   "
                 >
-                  {parse(title)}
+                  {String(title).split("\\n").map(s => s.trim()).filter(Boolean).map((line,i) =>(<p key={i}>{line}</p>))}
                 </h2>
               </div>
 
               <div
                 className="
                   font-sans text-base leading-[1.6] tracking-[-0.3px]
-                  lg:text-lg lg:leading-[1.4] lg:tracking-[-0.54px]
+                  lg:text-lg lg:leading-[1.4] lg:tracking-[-0.54px] md:space-y-6
                 "
               >
-                {parse(description)}
+                {String(description).split("\\n").map(s => s.trim()).filter(Boolean).map((line,i) =>(<p key={i}>{line}</p>))}
               </div>
             </div>
 
