@@ -70,47 +70,47 @@ src/
 │   │       ├── StoufferSection.tsx
 │   │       └── ...
 │   ├── (introduction)/
-│   │   ├── en/
+│   │   ├── en/introduction/
 │   │   │   └── page.tsx
-│   │   ├── vi/
+│   │   ├── vi/introduction/
 │   │   │   └── page.tsx
 │   │   └── components/
 │   │       ├── StorySection.tsx
 │   │       └── ...
 │   ├── (ecosystem)/
-│   │   ├── en/
+│   │   ├── en/ecosystem/
 │   │   │   └── page.tsx
-│   │   ├── vi/
+│   │   ├── vi/ecosystem/
 │   │   │   └── page.tsx
 │   │   └── components/
 │   ├── (stouffer-hotels)/
-│   │   ├── en/
+│   │   ├── en/stouffer-hotels/
 │   │   │   └── page.tsx
-│   │   ├── vi/
+│   │   ├── vi/stouffer-hotels/
 │   │   │   └── page.tsx
 │   │   └── components/
 │   ├── (hoteliers-without-borders)/
-│   │   ├── en/
+│   │   ├── en/hoteliers-without-borders/
 │   │   │   └── page.tsx
-│   │   ├── vi/
+│   │   ├── vi/hoteliers-without-borders/
 │   │   │   └── page.tsx
 │   │   └── components/
 │   ├── (lumora)/
-│   │   ├── en/
+│   │   ├── en/lumora/
 │   │   │   └── page.tsx
-│   │   ├── vi/
+│   │   ├── vi/lumora/
 │   │   │   └── page.tsx
 │   │   └── components/
 │   ├── (partnerships)/
-│   │   ├── en/
+│   │   ├── en/partnerships/
 │   │   │   └── page.tsx
-│   │   ├── vi/
+│   │   ├── vi/partnerships/
 │   │   │   └── page.tsx
 │   │   └── components/
 │   └── (contact)/
-│       ├── en/
+│       ├── en/contact/
 │       │   └── page.tsx
-│       ├── vi/
+│       ├── vi/contact/
 │       │   └── page.tsx
 │       └── components/
 ├── components/
@@ -129,7 +129,7 @@ src/
 ### 2. Localization Approach
 
 - **No i18n library**: Components receive localized text as props
-- **Separate pages**: Each language has its own page file (`en/page.tsx`, `vi/page.tsx`)
+- **Separate pages**: Each language has its own page file. Home pages are at `en/page.tsx` and `vi/page.tsx`, while other pages are at `en/{page-name}/page.tsx` and `vi/{page-name}/page.tsx` (e.g., `en/introduction/page.tsx`, `vi/introduction/page.tsx`)
 - **Shared components**: Components in route group `components/` folder accept text content as props
 - **Global components**: UI components in `src/components/ui/` are language-agnostic
 
@@ -181,8 +181,11 @@ Before building sections, you need your global styles set up so the AI doesn't h
 
 ### Phase 5: Introduction Page
 
-6. **Introduction page** (`src/app/(introduction)/en/page.tsx` and `src/app/(introduction)/vi/page.tsx`)
-
+6. **Introduction page** (`src/app/(introduction)/en/introduction/page.tsx` and `src/app/(introduction)/vi/introduction/page.tsx`)
+Implement this design from Figma.
+en: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?node-id=834-6879&m=dev
+vi: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?node-id=1231-3551&m=dev
+mobile: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?node-id=1032-7332&m=dev
    - Use Figma API to download all images needed for this page
    - Create page-specific components in `src/app/(introduction)/components/`:
      - `Hero.tsx` - Hero section
@@ -196,7 +199,7 @@ Before building sections, you need your global styles set up so the AI doesn't h
 
 ### Phase 6: Ecosystem Page
 
-7. **Ecosystem page** (`src/app/(ecosystem)/en/page.tsx` and `src/app/(ecosystem)/vi/page.tsx`)
+7. **Ecosystem page** (`src/app/(ecosystem)/en/ecosystem/page.tsx` and `src/app/(ecosystem)/vi/ecosystem/page.tsx`)
 
    - Use Figma API to download all images needed for this page
    - Create page-specific components in `src/app/(ecosystem)/components/`:
@@ -210,7 +213,7 @@ Before building sections, you need your global styles set up so the AI doesn't h
 
 ### Phase 7: Stouffer Hotels Page
 
-8. **Stouffer Hotels page** (`src/app/(stouffer-hotels)/en/page.tsx` and `src/app/(stouffer-hotels)/vi/page.tsx`)
+8. **Stouffer Hotels page** (`src/app/(stouffer-hotels)/en/stouffer-hotels/page.tsx` and `src/app/(stouffer-hotels)/vi/stouffer-hotels/page.tsx`)
 
    - Use Figma API to download all images needed for this page
    - Create page-specific components in `src/app/(stouffer-hotels)/components/`:
@@ -226,7 +229,7 @@ Before building sections, you need your global styles set up so the AI doesn't h
 
 ### Phase 8: Hoteliers Without Borders Page
 
-9. **Hoteliers Without Borders page** (`src/app/(hoteliers-without-borders)/en/page.tsx` and `src/app/(hoteliers-without-borders)/vi/page.tsx`)
+9. **Hoteliers Without Borders page** (`src/app/(hoteliers-without-borders)/en/hoteliers-without-borders/page.tsx` and `src/app/(hoteliers-without-borders)/vi/hoteliers-without-borders/page.tsx`)
 
    - Use Figma API to download all images needed for this page
    - Create page-specific components in `src/app/(hoteliers-without-borders)/components/`:
@@ -240,7 +243,7 @@ Before building sections, you need your global styles set up so the AI doesn't h
 
 ### Phase 9: Lumora Page
 
-10. **Lumora page** (`src/app/(lumora)/en/page.tsx` and `src/app/(lumora)/vi/page.tsx`)
+10. **Lumora page** (`src/app/(lumora)/en/lumora/page.tsx` and `src/app/(lumora)/vi/lumora/page.tsx`)
 
     - Use Figma API to download all images needed for this page
     - Create page-specific components in `src/app/(lumora)/components/`:
@@ -254,7 +257,7 @@ Before building sections, you need your global styles set up so the AI doesn't h
 
 ### Phase 10: Partnerships Page
 
-11. **Partnerships page** (`src/app/(partnerships)/en/page.tsx` and `src/app/(partnerships)/vi/page.tsx`)
+11. **Partnerships page** (`src/app/(partnerships)/en/partnerships/page.tsx` and `src/app/(partnerships)/vi/partnerships/page.tsx`)
 
     - Use Figma API to download all images needed for this page
     - Create page-specific components in `src/app/(partnerships)/components/`:
@@ -270,7 +273,7 @@ Before building sections, you need your global styles set up so the AI doesn't h
 
 ### Phase 11: Contact Page
 
-12. **Contact page** (`src/app/(contact)/en/page.tsx` and `src/app/(contact)/vi/page.tsx`)
+12. **Contact page** (`src/app/(contact)/en/contact/page.tsx` and `src/app/(contact)/vi/contact/page.tsx`)
 
     - Use Figma API to download all images needed for this page
     - Create page-specific components in `src/app/(contact)/components/`:
@@ -397,38 +400,38 @@ Each route group contains separate pages for each language:
 
 **Introduction:**
 
-- `src/app/(introduction)/en/page.tsx`
-- `src/app/(introduction)/vi/page.tsx`
+- `src/app/(introduction)/en/introduction/page.tsx`
+- `src/app/(introduction)/vi/introduction/page.tsx`
 
 **Ecosystem:**
 
-- `src/app/(ecosystem)/en/page.tsx`
-- `src/app/(ecosystem)/vi/page.tsx`
+- `src/app/(ecosystem)/en/ecosystem/page.tsx`
+- `src/app/(ecosystem)/vi/ecosystem/page.tsx`
 
 **Stouffer Hotels:**
 
-- `src/app/(stouffer-hotels)/en/page.tsx`
-- `src/app/(stouffer-hotels)/vi/page.tsx`
+- `src/app/(stouffer-hotels)/en/stouffer-hotels/page.tsx`
+- `src/app/(stouffer-hotels)/vi/stouffer-hotels/page.tsx`
 
 **Hoteliers Without Borders:**
 
-- `src/app/(hoteliers-without-borders)/en/page.tsx`
-- `src/app/(hoteliers-without-borders)/vi/page.tsx`
+- `src/app/(hoteliers-without-borders)/en/hoteliers-without-borders/page.tsx`
+- `src/app/(hoteliers-without-borders)/vi/hoteliers-without-borders/page.tsx`
 
 **Lumora:**
 
-- `src/app/(lumora)/en/page.tsx`
-- `src/app/(lumora)/vi/page.tsx`
+- `src/app/(lumora)/en/lumora/page.tsx`
+- `src/app/(lumora)/vi/lumora/page.tsx`
 
 **Partnerships:**
 
-- `src/app/(partnerships)/en/page.tsx`
-- `src/app/(partnerships)/vi/page.tsx`
+- `src/app/(partnerships)/en/partnerships/page.tsx`
+- `src/app/(partnerships)/vi/partnerships/page.tsx`
 
 **Contact:**
 
-- `src/app/(contact)/en/page.tsx`
-- `src/app/(contact)/vi/page.tsx`
+- `src/app/(contact)/en/contact/page.tsx`
+- `src/app/(contact)/vi/contact/page.tsx`
 
 ## Design Considerations
 
@@ -443,7 +446,7 @@ Each route group contains separate pages for each language:
 
 - **Localization Approach**: No i18n library - components receive localized text as props
 - **Route Structure**: Pages are organized using Next.js route groups `(home)`, `(introduction)`, etc.
-- **Language Routes**: Each page has separate routes: `/en/` and `/vi/` (e.g., `/en/`, `/vi/`, `/en/introduction`, `/vi/introduction`)
+- **Language Routes**: Each page has separate routes: `/en/` and `/vi/` for home (e.g., `/en/`, `/vi/`), and `/en/{page-name}` and `/vi/{page-name}` for other pages (e.g., `/en/introduction`, `/vi/introduction`, `/en/ecosystem`, `/vi/ecosystem`)
 - **Component Props**: All components accept text content as props, making them reusable across both language versions
 - **Default Language**: Vietnamese (vi) can be set as the default route (e.g., redirect `/` to `/vi/`)
 - **Language Switcher**: Implement a language switcher component that links between `/en/` and `/vi/` routes
