@@ -1,8 +1,8 @@
-import { Hero } from "../components/Hero";
-import { StoufferSection } from "../components/StoufferSection";
-import { HWBSection } from "../components/HWBSection";
-import { LumoraSection } from "../components/LumoraSection";
-import { PartnershipSection } from "../components/PartnershipSection";
+import { Hero } from "../../../(home)/components/Hero";
+import { StoufferSection } from "../../../(home)/components/StoufferSection";
+import { HWBSection } from "../../../(home)/components/HWBSection";
+import { LumoraSection } from "../../../(home)/components/LumoraSection";
+import { PartnershipSection } from "../../../(home)/components/PartnershipSection";
 
 // Hero images - these will be replaced with actual image paths
 const heroImages = [

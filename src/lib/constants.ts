@@ -4,7 +4,7 @@
 import type { FooterContent } from "@/components/ui/footer";
 
 export const NAVIGATION_ITEMS = [
-  { label: "Home", href: "/" },
+  { label: "Home", href: "/home" },
   { label: "Introduction", href: "/introduction" },
   { label: "Ecosystem", href: "/ecosystem" },
   { label: "Stouffer Hotels", href: "/stouffer-hotels" },
@@ -34,7 +34,7 @@ export const FOOTER_CONTENT_EN: FooterContent = {
   siteNav: {
     title: "Website",
     items: [
-      { label: "Home", href: "/en" },
+      { label: "Home", href: "/en/home" },
       { label: "Introduction", href: "/en/introduction" },
       { label: "Partners & Links", href: "/en/partnerships" },
       { label: "News & Stories", href: "/en/news" },
@@ -77,7 +77,7 @@ export const FOOTER_CONTENT_VI: FooterContent = {
   siteNav: {
     title: "Trang web",
     items: [
-      { label: "Trang chủ", href: "/vi" },
+      { label: "Trang chủ", href: "/vi/home" },
       { label: "Giới thiệu", href: "/vi/introduction" },
       { label: "Đối tác & Liên kết", href: "/vi/partnerships" },
       { label: "Tin tức & Câu chuyện", href: "/vi/news" },
@@ -123,7 +123,7 @@ export interface NavContent {
 
 export const NAV_CONTENT_EN: NavContent = {
   items: [
-    { label: "Home", href: "/en" },
+    { label: "Home", href: "/en/" },
     { label: "Introduction", href: "/en/introduction" },
     { label: "Ecosystem", href: "/en/ecosystem" },
     { label: "Partners & Affiliates", href: "/en/partnerships" },
@@ -145,7 +145,7 @@ export const NAV_CONTENT_EN: NavContent = {
 // Navigation content for Vietnamese
 export const NAV_CONTENT_VI: NavContent = {
   items: [
-    { label: "Trang chủ", href: "/vi" },
+    { label: "Trang chủ", href: "/vi/" },
     { label: "Giới thiệu", href: "/vi/introduction" },
     { label: "Hệ sinh thái", href: "/vi/ecosystem" },
     { label: "Đối tác", href: "/vi/partnerships" },

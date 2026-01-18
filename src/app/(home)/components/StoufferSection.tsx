@@ -31,7 +31,6 @@ export function StoufferSection({
 
     let rafId: number;
     let isDragging = false;
-
     const start = () => (isDragging = true);
     const end = () => (isDragging = false);
 
