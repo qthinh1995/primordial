@@ -1,0 +1,255 @@
+{
+  "metadata": {
+    "description": "Tracking file for Figma image assets downloaded to local public folder",
+    "created": "2025-01-18",
+    "source": "Home page images from Figma MCP assets"
+  },
+  "images": {
+    "hero": {
+      "category": "Hero Section",
+      "files": [
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/251e8876-a52e-4c7e-9e3b-a84d4e30e84d",
+          "localPath": "/hero-1.jpg",
+          "publicPath": "public/hero-1.jpg",
+          "index": 0
+        },
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/c3016c54-bbc5-42fb-8f9b-a99eac03ac7c",
+          "localPath": "/hero-2.jpg",
+          "publicPath": "public/hero-2.jpg",
+          "index": 1
+        },
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/a49a23c1-851e-4703-858a-3ac5cfe06f29",
+          "localPath": "/hero-3.jpg",
+          "publicPath": "public/hero-3.jpg",
+          "index": 2
+        },
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/f703562f-8562-4318-919c-0e4c71759355",
+          "localPath": "/hero-4.jpg",
+          "publicPath": "public/hero-4.jpg",
+          "index": 3
+        }
+      ]
+    },
+    "stouffer": {
+      "category": "Stouffer Hotels Section",
+      "files": [
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/115ab436-d65c-424b-b395-4c9814479961",
+          "localPath": "/stouffer-1.jpg",
+          "publicPath": "public/stouffer-1.jpg",
+          "index": 0
+        },
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/3d08b2e0-d3b6-4fbd-9e96-1a20bfd9211e",
+          "localPath": "/stouffer-2.jpg",
+          "publicPath": "public/stouffer-2.jpg",
+          "index": 1
+        },
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/dc03a565-2169-4a9a-a060-26cb6a155882",
+          "localPath": "/stouffer-3.jpg",
+          "publicPath": "public/stouffer-3.jpg",
+          "index": 2
+        },
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/487cf1df-59e4-410e-8983-39869e32a97f",
+          "localPath": "/stouffer-4.jpg",
+          "publicPath": "public/stouffer-4.jpg",
+          "index": 3
+        },
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/2dd346ba-e1c1-408f-982e-73b2630d0597",
+          "localPath": "/stouffer-5.jpg",
+          "publicPath": "public/stouffer-5.jpg",
+          "index": 4
+        }
+      ]
+    },
+    "lumora": {
+      "category": "Lumora Section",
+      "files": [
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/6732359e-a0be-43c0-9bb2-ffde598bc0e8",
+          "localPath": "/lumora-1.jpg",
+          "publicPath": "public/lumora-1.jpg",
+          "index": 0
+        },
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/c85507b8-d8ec-4fb1-9429-882c51e75e3a",
+          "localPath": "/lumora-2.jpg",
+          "publicPath": "public/lumora-2.jpg",
+          "index": 1
+        },
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/7f2a7fe3-48ea-4d2e-8593-48bb4bef2444",
+          "localPath": "/lumora-3.jpg",
+          "publicPath": "public/lumora-3.jpg",
+          "index": 2
+        }
+      ]
+    },
+    "partnership": {
+      "category": "Partnership Section",
+      "files": [
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/5324af3e-7587-45a4-81cf-ef2a9e97ad99",
+          "localPath": "/partnership.jpg",
+          "publicPath": "public/partnership.jpg",
+          "index": 0
+        }
+      ]
+    },
+    "hwb": {
+      "category": "Hoteliers Without Borders Section",
+      "files": [
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/6030590d-99e0-4e1a-a8f1-aab1b6ea44f0",
+          "localPath": "/hwb.jpg",
+          "publicPath": "public/hwb.jpg",
+          "index": 0
+        }
+      ]
+    },
+    "introduction": {
+      "category": "Introduction Page",
+      "files": [
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/af16cee6-55ce-448c-9c91-73b49d8a9886",
+          "localPath": "/introduction-hero.jpg",
+          "publicPath": "public/introduction-hero.jpg",
+          "index": 0
+        },
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/c1e09740-c7cc-4cd4-b1bd-7ee51d95e854",
+          "localPath": "/introduction-story-1.jpg",
+          "publicPath": "public/introduction-story-1.jpg",
+          "index": 1
+        },
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/0d4b30d2-ec52-477d-9f3b-1a0005cca618",
+          "localPath": "/introduction-story-2.jpg",
+          "publicPath": "public/introduction-story-2.jpg",
+          "index": 2
+        },
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/d4c84026-3c13-4394-8786-6168385943ad",
+          "localPath": "/introduction-story-3.jpg",
+          "publicPath": "public/introduction-story-3.jpg",
+          "index": 3
+        },
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/91ba4ae1-b648-447b-bb3b-04426b2ae7f4",
+          "localPath": "/introduction-vision.jpg",
+          "publicPath": "public/introduction-vision.jpg",
+          "index": 4
+        },
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/6a505b7e-d206-4ad9-a4cf-b300c399b4b2",
+          "localPath": "/introduction-vision-value.jpg",
+          "publicPath": "public/introduction-vision-value.jpg",
+          "index": 5
+        },
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/7045630d-b3d1-42c8-84e7-489775ac910d",
+          "localPath": "/introduction-team-member-1.jpg",
+          "publicPath": "public/introduction-team-member-1.jpg",
+          "index": 6
+        },
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/8890004c-0f33-4b58-9837-432eeb448aee",
+          "localPath": "/introduction-team-member-2.jpg",
+          "publicPath": "public/introduction-team-member-2.jpg",
+          "index": 7
+        },
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/66bdd25f-6029-415a-9135-4216bbfebdd7",
+          "localPath": "/introduction-team-member-3.jpg",
+          "publicPath": "public/introduction-team-member-3.jpg",
+          "index": 8
+        },
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/05446a27-5b8f-4d9c-84fc-071c35e163ed",
+          "localPath": "/introduction-team-member-4.jpg",
+          "publicPath": "public/introduction-team-member-4.jpg",
+          "index": 9
+        }
+      ]
+    },
+    "ecosystem": {
+      "category": "Ecosystem Page",
+      "files": [
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/677c6de2-a2e7-4937-986b-ee56c8e426cf",
+          "localPath": "/ecosystem-hero.jpg",
+          "publicPath": "public/ecosystem-hero.jpg",
+          "index": 0,
+          "note": "Used for both EN and VI versions"
+        },
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/ca289a91-0d30-4153-a2b8-6eb3e07249a6",
+          "localPath": "/ecosystem-stouffer-logo.jpg",
+          "publicPath": "public/ecosystem-stouffer-logo.jpg",
+          "index": 1,
+          "note": "Used for both EN and VI versions"
+        },
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/0e0b6ec3-5f3a-4c53-9805-0379b6dbe27f",
+          "localPath": "/ecosystem-hwb-logo.jpg",
+          "publicPath": "public/ecosystem-hwb-logo.jpg",
+          "index": 2,
+          "note": "Used for both EN and VI versions"
+        },
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/0d1525d6-9c3c-4ba9-a786-0523d1bca073",
+          "localPath": "/ecosystem-lumora-logo.jpg",
+          "publicPath": "public/ecosystem-lumora-logo.jpg",
+          "index": 3,
+          "note": "Used for both EN and VI versions"
+        },
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/b1daf2ca-adae-49bf-861d-67a5749024b0",
+          "localPath": "/ecosystem-project-1.jpg",
+          "publicPath": "public/ecosystem-project-1.jpg",
+          "index": 4,
+          "note": "Used for both EN and VI versions"
+        },
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/d4e66afa-0a37-4a22-a22e-4346f080015c",
+          "localPath": "/ecosystem-project-2.jpg",
+          "publicPath": "public/ecosystem-project-2.jpg",
+          "index": 5,
+          "note": "Used for both EN and VI versions"
+        },
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/795d2ce4-81a0-44f3-a842-a4b73e55944a",
+          "localPath": "/ecosystem-project-3.jpg",
+          "publicPath": "public/ecosystem-project-3.jpg",
+          "index": 6,
+          "note": "Used for both EN and VI versions"
+        },
+        {
+          "originalUrl": "https://www.figma.com/api/mcp/asset/3e4038f5-2880-4c3b-ac4c-55a11ebf585a",
+          "localPath": "/ecosystem-quote.jpg",
+          "publicPath": "public/ecosystem-quote.jpg",
+          "index": 7,
+          "note": "Used for both EN and VI versions"
+        }
+      ]
+    }
+  },
+  "usage": {
+    "pages": [
+      "src/app/(home)/vi/page.tsx",
+      "src/app/(home)/en/page.tsx",
+      "src/app/(introduction)/en/introduction/page.tsx",
+      "src/app/(introduction)/vi/introduction/page.tsx",
+      "src/app/(ecosystem)/en/ecosystem/page.tsx",
+      "src/app/(ecosystem)/vi/ecosystem/page.tsx"
+    ],
+    "note": "These images are used in the home page components: Hero, StoufferSection, LumoraSection, PartnershipSection, and HWBSection. Introduction page images are used in Hero, StorySection, VisionSection, and TeamSection components for both English and Vietnamese versions. Ecosystem page images are used in Hero, PillarsSection, ProjectsSection, and QuoteSection components for both English and Vietnamese versions."
+  }
+}

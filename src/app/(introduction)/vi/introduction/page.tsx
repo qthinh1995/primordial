@@ -5,31 +5,24 @@ import { KeyFunctionsSection } from "../../components/KeyFunctionsSection";
 import { TeamSection } from "../../components/TeamSection";
 
 // Hero image
-const heroImage =
-  "https://www.figma.com/api/mcp/asset/4a5a5527-fe24-4356-a50b-729063e8ae77";
+const heroImage = "/introduction-hero.jpg";
 
 // Story section images
-const storyImage =
-  "https://www.figma.com/api/mcp/asset/dbd37389-0ee8-435a-ab89-879d5545f2f5";
-const storyImage2 =
-  "https://www.figma.com/api/mcp/asset/c5d7ed1e-f816-43bd-a621-2b5ae1564020";
-const storyImage3 =
-  "https://www.figma.com/api/mcp/asset/aa730f87-e3bd-4a01-bae0-e849238d320d";
+const storyImage = "/introduction-story-1.jpg";
+const storyImage2 = "/introduction-story-2.jpg";
+const storyImage3 = "/introduction-story-3.jpg";
 
 // Vision section images
-const visionImage =
-  "https://www.figma.com/api/mcp/asset/61425eac-1ae2-4af2-ba8e-96da788dab23";
-const visionValueImage =
-  "https://www.figma.com/api/mcp/asset/7812fda2-b85d-4cfd-9e0d-4535e5ca64d4";
-const teamMemberImage =
-  "https://www.figma.com/api/mcp/asset/04cf04af-9251-4e81-82fd-b8e25bcf0750";
+const visionImage = "/introduction-vision.jpg";
+const visionValueImage = "/introduction-vision-value.jpg";
+const teamMemberImage = "/introduction-team-member-1.jpg";
 
 // Team member images
 const teamImages = {
-  member1: "https://www.figma.com/api/mcp/asset/04cf04af-9251-4e81-82fd-b8e25bcf0750",
-  member2: "https://www.figma.com/api/mcp/asset/c97a9aa3-98fb-4f4e-be9a-70facf9da92e",
-  member3: "https://www.figma.com/api/mcp/asset/19f254fd-8f76-4d42-b17e-b7bd30023eeb",
-  member4: "https://www.figma.com/api/mcp/asset/ea70a96f-70a4-4e72-a1a0-ee7ada526489",
+  member1: "/introduction-team-member-1.jpg",
+  member2: "/introduction-team-member-2.jpg",
+  member3: "/introduction-team-member-3.jpg",
+  member4: "/introduction-team-member-4.jpg",
 };
 
 export default function IntroductionPage() {

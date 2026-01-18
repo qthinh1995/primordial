@@ -5,28 +5,20 @@ import { ProjectsSection } from "../../components/ProjectsSection";
 import { QuoteSection } from "../../components/QuoteSection";
 
 // Hero image
-const heroImage =
-  "https://www.figma.com/api/mcp/asset/677c6de2-a2e7-4937-986b-ee56c8e426cf";
+const heroImage = "/ecosystem-hero.jpg";
 
 // Pillar logo images
-const stoufferLogo =
-  "https://www.figma.com/api/mcp/asset/ca289a91-0d30-4153-a2b8-6eb3e07249a6";
-const hwbLogo =
-  "https://www.figma.com/api/mcp/asset/0e0b6ec3-5f3a-4c53-9805-0379b6dbe27f";
-const lumoraLogo =
-  "https://www.figma.com/api/mcp/asset/0d1525d6-9c3c-4ba9-a786-0523d1bca073";
+const stoufferLogo = "/ecosystem-stouffer-logo.jpg";
+const hwbLogo = "/ecosystem-hwb-logo.jpg";
+const lumoraLogo = "/ecosystem-lumora-logo.jpg";
 
 // Project images
-const projectImage1 =
-  "https://www.figma.com/api/mcp/asset/b1daf2ca-adae-49bf-861d-67a5749024b0";
-const projectImage2 =
-  "https://www.figma.com/api/mcp/asset/d4e66afa-0a37-4a22-a22e-4346f080015c";
-const projectImage3 =
-  "https://www.figma.com/api/mcp/asset/795d2ce4-81a0-44f3-a842-a4b73e55944a";
+const projectImage1 = "/ecosystem-project-1.jpg";
+const projectImage2 = "/ecosystem-project-2.jpg";
+const projectImage3 = "/ecosystem-project-3.jpg";
 
 // Quote section image
-const quoteImage =
-  "https://www.figma.com/api/mcp/asset/3e4038f5-2880-4c3b-ac4c-55a11ebf585a";
+const quoteImage = "/ecosystem-quote.jpg";
 
 export default function EcosystemPage() {
   return (
