@@ -200,7 +200,9 @@ mobile: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?
 ### Phase 6: Ecosystem Page
 
 7. **Ecosystem page** (`src/app/(ecosystem)/en/ecosystem/page.tsx` and `src/app/(ecosystem)/vi/ecosystem/page.tsx`)
-
+en: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?node-id=834-6840&m=dev
+vi: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?node-id=1231-3501&m=dev
+mobile: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?node-id=1248-6491&m=dev
    - Use Figma API to download all images needed for this page
    - Create page-specific components in `src/app/(ecosystem)/components/`:
      - `Hero.tsx` - Hero section
