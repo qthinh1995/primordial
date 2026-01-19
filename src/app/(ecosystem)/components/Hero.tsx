@@ -23,7 +23,7 @@ export function Hero({ title, description, image }: HeroProps) {
           priority
         />
       </div>
-      
+
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/49 to-transparent" />
 

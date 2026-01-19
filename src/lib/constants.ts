@@ -20,7 +20,10 @@ export const FOOTER_CONTENT_EN: FooterContent = {
   contact: {
     email: {
       label: "Email",
-      addresses: ["bao.nguyen@primordial.com.vn", "phuong.mai@primordial.com.vn"],
+      addresses: [
+        "bao.nguyen@primordial.com.vn",
+        "phuong.mai@primordial.com.vn",
+      ],
     },
     phone: {
       label: "Phone",
@@ -45,7 +48,10 @@ export const FOOTER_CONTENT_EN: FooterContent = {
     title: "Ecosystem",
     items: [
       { label: "Stouffer Hotels™", href: "/en/stouffer-hotels" },
-      { label: "Hoteliers Without Borders™", href: "/en/hoteliers-without-borders" },
+      {
+        label: "Hoteliers Without Borders™",
+        href: "/en/hoteliers-without-borders",
+      },
       { label: "Lumora IX.IX Agenda™", href: "/en/lumora" },
     ],
   },
@@ -63,7 +69,10 @@ export const FOOTER_CONTENT_VI: FooterContent = {
   contact: {
     email: {
       label: "Email",
-      addresses: ["bao.nguyen@primordial.com.vn", "phuong.mai@primordial.com.vn"],
+      addresses: [
+        "bao.nguyen@primordial.com.vn",
+        "phuong.mai@primordial.com.vn",
+      ],
     },
     phone: {
       label: "Số điện thoại",
@@ -88,7 +97,10 @@ export const FOOTER_CONTENT_VI: FooterContent = {
     title: "Hệ sinh thái",
     items: [
       { label: "Stouffer Hotels™", href: "/vi/stouffer-hotels" },
-      { label: "Hoteliers Without Borders™", href: "/vi/hoteliers-without-borders" },
+      {
+        label: "Hoteliers Without Borders™",
+        href: "/vi/hoteliers-without-borders",
+      },
       { label: "Lumora IX.IX Agenda™", href: "/vi/lumora" },
     ],
   },
@@ -156,7 +168,8 @@ export const NAV_CONTENT_VI: NavContent = {
   languageLabel: "VN",
   languageHref: "/vi",
   mobileContactLabel: "Liên hệ",
-  mobileCopyright: "© 2025 Primordial Hospitium · Tất cả các quyền được bảo lưu.",
+  mobileCopyright:
+    "© 2025 Primordial Hospitium · Tất cả các quyền được bảo lưu.",
   mobileSocialLinks: [
     { name: "LinkedIn", href: "#", icon: "/figma/menu-linkedin.png" },
     { name: "YouTube", href: "#", icon: "/figma/menu-youtube.png" },

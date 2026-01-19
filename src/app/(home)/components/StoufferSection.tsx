@@ -99,12 +99,12 @@ export function StoufferSection({
                   index % images.length === 0
                     ? "w-[85vw] max-w-[420px] md:w-[427px]"
                     : index % images.length === 1
-                    ? "w-[70vw] max-w-[260px] md:w-[214px]"
-                    : index % images.length === 2
-                    ? "w-[85vw] max-w-[420px] md:w-[426px]"
-                    : index % images.length === 3
-                    ? "w-[75vw] max-w-[280px] md:w-[240px]"
-                    : "w-[90vw] max-w-[640px] md:w-[640px]"
+                      ? "w-[70vw] max-w-[260px] md:w-[214px]"
+                      : index % images.length === 2
+                        ? "w-[85vw] max-w-[420px] md:w-[426px]"
+                        : index % images.length === 3
+                          ? "w-[75vw] max-w-[280px] md:w-[240px]"
+                          : "w-[90vw] max-w-[640px] md:w-[640px]"
                 }
               `}
             >

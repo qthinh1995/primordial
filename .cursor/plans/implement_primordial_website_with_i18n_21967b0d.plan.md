@@ -44,7 +44,7 @@ todos:
 
 ## Overview
 
-Implement the complete Primordial hospitality website from Figma: 
+Implement the complete Primordial hospitality website from Figma:
 https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?node-id=834-5994&p=f&t=xRqByBq0tuWGjOx1-0
 with Vietnamese and English language support. The site includes multiple pages with complex layouts, hero sections, content blocks, and interactive elements. Each page group uses route groups with separate `en` and `vi` folders, and components receive localized text as props.
 
@@ -55,8 +55,9 @@ with Vietnamese and English language support. The site includes multiple pages w
 Pages are organized using Next.js route groups. Each route group contains:
 
 - `en/` folder for English pages
-- `vi/` folder for Vietnamese pages  
+- `vi/` folder for Vietnamese pages
 - `components/` folder for page-specific reusable components
+
 ```
 src/
 ├── app/
@@ -125,7 +126,6 @@ src/
     └── constants.ts (shared constants and data)
 ```
 
-
 ### 2. Localization Approach
 
 - **No i18n library**: Components receive localized text as props
@@ -138,11 +138,9 @@ src/
 ### Phase 1: Foundation Setup
 
 1. **Install dependencies**
-
    - Install Shadcn UI
 
 2. **Set up project structure**
-
    - Create route groups for each page: `(home)`, `(introduction)`, `(ecosystem)`, `(stouffer-hotels)`, `(hoteliers-without-borders)`, `(lumora)`, `(partnerships)`, `(contact)`
    - Create `en/` and `vi/` folders within each route group
    - Create `components/` folder within each route group for page-specific components
@@ -157,7 +155,6 @@ Before building sections, you need your global styles set up so the AI doesn't h
 "I am starting a new Next.js 15 project from a Figma design. First, look at the provided Figma design: https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?node-id=834-6879&m=dev. Extract the color palette and update tailwind.config.ts with these specific theme names (primary, secondary, accent). Set up the typography in app/layout.tsx using next/font/google to match the design. Create a components/ui/container.tsx that handles the max-width and horizontal padding for all sections based on the design's grid."
 
 4. **Extract and configure design tokens**
-
    - Extract color palette from Figma design
    - Update `tailwind.config.ts` with theme colors (primary, secondary, accent)
    - Set up typography in `app/layout.tsx` using `next/font/google` to match design
@@ -166,7 +163,6 @@ Before building sections, you need your global styles set up so the AI doesn't h
 ### Phase 4: Home Page Implementation
 
 5. **Home page** (`src/app/(home)/en/page.tsx` and `src/app/(home)/vi/page.tsx`)
-
    - Use Figma API to download all images needed for this page
    - Create page-specific components in `src/app/(home)/components/`:
      - `Hero.tsx` - Hero section with banner slides (4 images), accepts text content as props
@@ -182,10 +178,10 @@ Before building sections, you need your global styles set up so the AI doesn't h
 ### Phase 5: Introduction Page
 
 6. **Introduction page** (`src/app/(introduction)/en/introduction/page.tsx` and `src/app/(introduction)/vi/introduction/page.tsx`)
-Implement this design from Figma.
-en: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?node-id=834-6879&m=dev
-vi: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?node-id=1231-3551&m=dev
-mobile: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?node-id=1032-7332&m=dev
+   Implement this design from Figma.
+   en: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?node-id=834-6879&m=dev
+   vi: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?node-id=1231-3551&m=dev
+   mobile: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?node-id=1032-7332&m=dev
    - Use Figma API to download all images needed for this page
    - Create page-specific components in `src/app/(introduction)/components/`:
      - `Hero.tsx` - Hero section
@@ -200,9 +196,9 @@ mobile: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?
 ### Phase 6: Ecosystem Page
 
 7. **Ecosystem page** (`src/app/(ecosystem)/en/ecosystem/page.tsx` and `src/app/(ecosystem)/vi/ecosystem/page.tsx`)
-en: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?node-id=834-6840&m=dev
-vi: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?node-id=1231-3501&m=dev
-mobile: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?node-id=1248-6491&m=dev
+   en: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?node-id=834-6840&m=dev
+   vi: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?node-id=1231-3501&m=dev
+   mobile: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?node-id=1248-6491&m=dev
    - Use Figma API to download all images needed for this page
    - Create page-specific components in `src/app/(ecosystem)/components/`:
      - `Hero.tsx` - Hero section
@@ -216,7 +212,6 @@ mobile: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?
 ### Phase 7: Stouffer Hotels Page
 
 8. **Stouffer Hotels page** (`src/app/(stouffer-hotels)/en/stouffer-hotels/page.tsx` and `src/app/(stouffer-hotels)/vi/stouffer-hotels/page.tsx`)
-
    - Use Figma API to download all images needed for this page
    - Create page-specific components in `src/app/(stouffer-hotels)/components/`:
      - `Hero.tsx` - Hero section
@@ -232,7 +227,6 @@ mobile: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?
 ### Phase 8: Hoteliers Without Borders Page
 
 9. **Hoteliers Without Borders page** (`src/app/(hoteliers-without-borders)/en/hoteliers-without-borders/page.tsx` and `src/app/(hoteliers-without-borders)/vi/hoteliers-without-borders/page.tsx`)
-
    - Use Figma API to download all images needed for this page
    - Create page-specific components in `src/app/(hoteliers-without-borders)/components/`:
      - `Hero.tsx` - Hero section
@@ -246,7 +240,6 @@ mobile: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?
 ### Phase 9: Lumora Page
 
 10. **Lumora page** (`src/app/(lumora)/en/lumora/page.tsx` and `src/app/(lumora)/vi/lumora/page.tsx`)
-
     - Use Figma API to download all images needed for this page
     - Create page-specific components in `src/app/(lumora)/components/`:
       - `Hero.tsx` - Hero section
@@ -260,7 +253,6 @@ mobile: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?
 ### Phase 10: Partnerships Page
 
 11. **Partnerships page** (`src/app/(partnerships)/en/partnerships/page.tsx` and `src/app/(partnerships)/vi/partnerships/page.tsx`)
-
     - Use Figma API to download all images needed for this page
     - Create page-specific components in `src/app/(partnerships)/components/`:
       - `Hero.tsx` - Hero section
@@ -276,7 +268,6 @@ mobile: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?
 ### Phase 11: Contact Page
 
 12. **Contact page** (`src/app/(contact)/en/contact/page.tsx` and `src/app/(contact)/vi/contact/page.tsx`)
-
     - Use Figma API to download all images needed for this page
     - Create page-specific components in `src/app/(contact)/components/`:
       - `Hero.tsx` - Hero section
@@ -291,14 +282,12 @@ mobile: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?
 ### Phase 12: Functionality
 
 13. **Functionality implementation**
-
     - Implement interactive features across all pages
     - Add form validation for all contact forms
     - Create language switcher component that links between `/en/` and `/vi/` routes
     - Add SEO metadata for all pages (title, description, Open Graph tags)
     - Use Shadcn UI to create base components if needed
     - Implement text and image fade in on scroll animations across all pages
-
 
 ## Key Files to Create/Modify
 

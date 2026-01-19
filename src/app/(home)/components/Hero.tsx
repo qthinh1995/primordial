@@ -13,10 +13,9 @@ interface HeroProps {
 }
 
 export function Hero({ title, description, images }: HeroProps) {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true },
-    [Autoplay({ delay: 5000 })]
-  );
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+    Autoplay({ delay: 5000 }),
+  ]);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   useEffect(() => {
@@ -55,7 +54,7 @@ export function Hero({ title, description, images }: HeroProps) {
         <Container className="px-4 md:px-12">
           <div className="mx-auto max-w-[960px] text-center">
             <h1 className="mb-6 font-display font-normal text-white text-[32px] leading-[1.25] tracking-normal sm:text-[50px] sm:leading-[1.2] md:text-[60px] md:leading-[1.15] md:tracking-[-0.02em] lg:text-[72px] lg:leading-[1.1] lg:tracking-[-0.04em]">
-          {title}
+              {title}
             </h1>
             <p className="font-sans mx-auto text-[16px] md:text-lg leading-[1.4] tracking-[-0.54px] text-[#eaeaea]">
               {description}

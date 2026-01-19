@@ -80,7 +80,6 @@ export function Footer({ content, logo, className }: FooterProps) {
       {/* BACKGROUND CHÍNH – GIỮ NGUYÊN */}
       <div className="bg-[var(--yellow-50)] flex flex-col gap-20 items-start md:items-center py-20 w-full">
         <Container className="flex flex-col gap-10 px-4 md:px-12 md:gap-20 ">
-
           {/* ================= LOGO + TAGLINE ================= */}
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between md:text-left w-full">
             <div className="flex justify-start">
@@ -103,7 +102,6 @@ export function Footer({ content, logo, className }: FooterProps) {
 
           {/* ================= 3 COLUMNS ================= */}
           <div className="flex flex-col mt-[-20px] md:mt-0 md:flex-row gap-10 md:gap-16 items-start w-full">
-
             {/* -------- SITE NAV (MOBILE FIRST) -------- */}
             <div className="order-1 md:order-2 flex flex-1 flex-col gap-2">
               <p className="font-sans font-bold leading-6 text-base text-black tracking-[-0.32px] py-2">
@@ -140,7 +138,6 @@ export function Footer({ content, logo, className }: FooterProps) {
 
             {/* -------- CONTACT (MOBILE LAST) -------- */}
             <div className="order-3 md:order-1 flex flex-1 flex-col gap-5 items-start">
-
               {/* EMAIL */}
               <div className="flex flex-col gap-1 w-full">
                 <p className="font-sans font-bold">
@@ -159,32 +156,31 @@ export function Footer({ content, logo, className }: FooterProps) {
                 </div>
               </div>
 
-             {/* PHONE */}
-            <div className="flex flex-col gap-1 w-full">
-              <p className="font-sans font-bold">
-                {content.contact.phone.label}
-              </p>
+              {/* PHONE */}
+              <div className="flex flex-col gap-1 w-full">
+                <p className="font-sans font-bold">
+                  {content.contact.phone.label}
+                </p>
 
-              <div className="flex gap-1 flex-wrap items-center">
-                {content.contact.phone.numbers.map((phone, index) => (
-                  <div key={index} className="flex items-center">
-                    {index > 0 && (
-                      <span className="mx-2 text-black/60 select-none">
-                        |
-                      </span>
-                    )}
+                <div className="flex gap-1 flex-wrap items-center">
+                  {content.contact.phone.numbers.map((phone, index) => (
+                    <div key={index} className="flex items-center">
+                      {index > 0 && (
+                        <span className="mx-2 text-black/60 select-none">
+                          |
+                        </span>
+                      )}
 
-                    <a
-                      href={`tel:${phone.replace(/\s/g, "")}`}
-                      className="hover:opacity-80 transition-opacity whitespace-nowrap"
-                    >
-                      {phone}
-                    </a>
-                  </div>
-                ))}
+                      <a
+                        href={`tel:${phone.replace(/\s/g, "")}`}
+                        className="hover:opacity-80 transition-opacity whitespace-nowrap"
+                      >
+                        {phone}
+                      </a>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-
 
               {/* ADDRESS */}
               <div className="flex flex-col gap-1 w-full">
@@ -197,7 +193,7 @@ export function Footer({ content, logo, className }: FooterProps) {
           </div>
 
           {/* ================= DIVIDER ================= */}
-          <div className="w-full h-px bg-black/60"/>
+          <div className="w-full h-px bg-black/60" />
 
           {/* ================= BOTTOM ================= */}
           <div className="flex flex-col gap-6 text-left md:flex-row md:items-center md:justify-between md:text-left w-full">
@@ -207,7 +203,7 @@ export function Footer({ content, logo, className }: FooterProps) {
 
             <div className="flex order-1 md:order-2 md:justify-end gap-4">
               {/* LinkedIn */}
-             <a
+              <a
                 href="https://www.linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -235,7 +231,7 @@ export function Footer({ content, logo, className }: FooterProps) {
               </a>
 
               {/* YouTube */}
-             <a
+              <a
                 href="https://www.youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -259,7 +255,7 @@ export function Footer({ content, logo, className }: FooterProps) {
               </a>
 
               {/* Facebook */}
-             <a
+              <a
                 href="https://www.facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -281,10 +277,8 @@ export function Footer({ content, logo, className }: FooterProps) {
                   />
                 </svg>
               </a>
-
             </div>
           </div>
-
         </Container>
       </div>
     </footer>

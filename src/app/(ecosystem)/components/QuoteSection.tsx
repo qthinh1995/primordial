@@ -57,9 +57,7 @@ export function QuoteSection({ quote, image }: QuoteSectionProps) {
       <Container className="z-10 relative">
         <p
           className={`mx-auto max-w-[960px] text-center font-display text-[32px] font-normal leading-[1.5] text-white transition-all duration-1000 ${
-            isVisible
-              ? "translate-y-0 opacity-100"
-              : "translate-y-4 opacity-0"
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
           }`}
         >
           {quote}

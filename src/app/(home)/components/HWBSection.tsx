@@ -2,11 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
+import { ReactNode } from "react";
 
 interface HWBSectionProps {
   badge: string;
-  title: string;
-  description: string;
+  title: ReactNode;
+  description: ReactNode;
   buttonText: string;
   buttonHref: string;
   image: string;
@@ -23,36 +24,22 @@ export function HWBSection({
   return (
     <section className="bg-background py-[64px] md:py-[96px] lg:py-[123px]">
       <Container className="px-4 md:px-12">
-        <div className="flex flex-col gap-10 md:gap-12 lg:flex-row lg:items-center lg:gap-16">
-
+        <div className="flex lg:flex-row flex-col lg:items-center gap-10 md:gap-12 lg:gap-16">
           {/* TEXT – luôn ở trên mobile */}
-          <div className="order-1 flex flex-1 flex-col gap-10 text-center lg:order-2 lg:text-left">
+          <div className="flex flex-col flex-1 gap-10 order-1 lg:order-2 lg:text-left text-center">
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-3 md:w-[576px]">
-                <p className="font-sans text-sm md:text-base font-bold tracking-[-0.32px] text-accent">
+                <p className="font-sans font-bold text-accent text-sm md:text-base tracking-[-0.32px]">
                   {badge}
                 </p>
 
-                <h2
-                  className=" w-[343px] mx-auto md:w-full
-                    font-display
-                    text-[32px] leading-[1.5] tracking-[-1.2px]
-                     md:leading-[40px]
-                    lg:text-[44px] lg:leading-[1.4] lg:tracking-[-1.76px]
-                  
-                  "
-                >
-                  {String(title).split("\\n").map(s => s.trim()).filter(Boolean).map((line,i) =>(<p key={i}>{line}</p>))}
+                <h2 className="mx-auto w-[343px] md:w-full font-display text-[32px] lg:text-[44px] leading-[1.5] md:leading-[40px] lg:leading-[1.4] tracking-[-1.2px] lg:tracking-[-1.76px]">
+                  {title}
                 </h2>
               </div>
 
-              <div
-                className="
-                  font-sans text-base leading-[1.6] tracking-[-0.3px]
-                  lg:text-lg lg:leading-[1.4] lg:tracking-[-0.54px] md:space-y-6
-                "
-              >
-                {String(description).split("\\n").map(s => s.trim()).filter(Boolean).map((line,i) =>(<p key={i}>{line}</p>))}
+              <div className="md:space-y-6 font-sans text-base lg:text-lg leading-[1.6] lg:leading-[1.4] tracking-[-0.3px] lg:tracking-[-0.54px]">
+                {description}
               </div>
             </div>
 
@@ -64,16 +51,7 @@ export function HWBSection({
           </div>
 
           {/* IMAGE – mobile nằm dưới, desktop nằm trái */}
-          <div
-            className="
-              order-2
-              relative w-full overflow-hidden
-              aspect-[3/4]
-              md:aspect-[4/5]
-              lg:order-1 lg:w-[648px] lg:h-[778px] lg:aspect-auto
-              shrink-0
-            "
-          >
+          <div className="relative order-2 lg:order-1 w-full lg:w-[648px] lg:h-[778px] aspect-[3/4] md:aspect-[4/5] lg:aspect-auto overflow-hidden shrink-0">
             <Image
               src={image}
               alt="Hoteliers Without Borders"
@@ -82,7 +60,6 @@ export function HWBSection({
               priority
             />
           </div>
-
         </div>
       </Container>
     </section>

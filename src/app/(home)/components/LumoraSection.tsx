@@ -2,15 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
+import { ReactNode } from "react";
 
 interface LumoraSectionProps {
   badge: string;
-  title: string;
-  description: string;
+  title: ReactNode;
+  description: ReactNode;
   buttonText: string;
   buttonHref: string;
   images: string[];
-
 }
 
 export function LumoraSection({
@@ -26,50 +26,32 @@ export function LumoraSection({
       <Container className="px-4 md:px-12">
         <div className="flex flex-col gap-16">
           {/* TEXT */}
-            <div className="flex flex-col gap-6 text-center md:text-left items-center md:items-start">
-              <div className="flex flex-col gap-3">
-                <p className="font-sans text-base font-bold tracking-[-0.32px] text-accent">
-                  {badge}
-                </p>
+          <div className="flex flex-col items-center md:items-start gap-6 md:text-left text-center">
+            <div className="flex flex-col gap-3">
+              <p className="font-sans font-bold text-accent text-base tracking-[-0.32px]">
+                {badge}
+              </p>
 
-                <h2 className="font-display text-[32px] leading-[40px] tracking-[-1.2px] text-foreground md:text-[44px] md:leading-[1.4] md:tracking-[-1.76px]">
-                  {title}
-                </h2>
-              </div>
-
-              <div className="flex flex-col gap-10 items-center md:flex-row md:items-start md:justify-between w-full">
-                <div className="max-w-[879px] font-sans text-[16px] leading-[1.6] tracking-[-0.3px] text-foreground text-center md:text-left md:text-lg md:leading-[1.4] md:tracking-[-0.54px] md:space-y-6">
-                  {String(description)
-                  .replace(/\\n/g, "\n")
-                  .split("\n")
-                  .map(s => s.trim())
-                  .filter(Boolean)
-                  .map((line, i) => (
-                    <p key={i}>
-                      {line.split("**").map((part, j) =>
-                        j % 2 === 1 ? (
-                          <strong key={j} className="font-semibold">
-                            {part}
-                          </strong>
-                        ) : (
-                          <span key={j}>{part}</span>
-                        )
-                      )}
-                    </p>
-                  ))}
-
-                </div>
-
-                <Link href={buttonHref} className="shrink-0 md:mt-12">
-                  <Button>{buttonText}</Button>
-                </Link>
-              </div>
+              <h2 className="font-display text-[32px] text-foreground md:text-[44px] leading-[40px] md:leading-[1.4] tracking-[-1.2px] md:tracking-[-1.76px]">
+                {title}
+              </h2>
             </div>
-         <div className="flex gap-4 md:gap-6 overflow-x-auto md:px-0">
+
+            <div className="flex md:flex-row flex-col md:justify-between items-center md:items-start gap-10 w-full">
+              <div className="md:space-y-6 max-w-[879px] font-sans text-[16px] text-foreground md:text-lg md:text-left text-center leading-[1.6] md:leading-[1.4] tracking-[-0.3px] md:tracking-[-0.54px]">
+                {description}
+              </div>
+
+              <Link href={buttonHref} className="md:mt-12 shrink-0">
+                <Button>{buttonText}</Button>
+              </Link>
+            </div>
+          </div>
+          <div className="flex gap-4 md:gap-6 md:px-0 overflow-x-auto">
             {images.map((image, index) => (
               <div
                 key={index}
-                className="relative min-w-[320px] aspect-[320/481] md:min-w-0 md:flex-1 md:aspect-[432/518]"
+                className="relative md:flex-1 min-w-[320px] md:min-w-0 aspect-[320/481] md:aspect-[432/518]"
               >
                 <Image
                   src={image}
@@ -81,7 +63,6 @@ export function LumoraSection({
               </div>
             ))}
           </div>
-
         </div>
       </Container>
     </section>

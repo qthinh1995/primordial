@@ -28,10 +28,7 @@ const teamImages = {
 export default function IntroductionPage() {
   return (
     <main>
-      <Hero
-        title="About us"
-        image={heroImage}
-      />
+      <Hero title="About us" image={heroImage} />
       <StorySection
         title="The Origin - Perfect Balance"
         overviewTitle="Overview"

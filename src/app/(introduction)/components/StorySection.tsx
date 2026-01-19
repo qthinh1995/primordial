@@ -58,15 +58,12 @@ export function StorySection({
           <div className="relative w-full md:w-[648px] h-[864px] shrink-0">
             <div
               className={`h-full w-full transition-all duration-1000 delay-200 ${
-                isVisible ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"
+                isVisible
+                  ? "translate-x-0 opacity-100"
+                  : "-translate-x-8 opacity-0"
               }`}
             >
-              <Image
-                src={image}
-                alt={imageAlt}
-                fill
-                className="object-cover"
-              />
+              <Image src={image} alt={imageAlt} fill className="object-cover" />
             </div>
           </div>
 
@@ -86,7 +83,9 @@ export function StorySection({
               </h3>
               <div
                 className={`flex flex-col gap-6 font-sans text-lg leading-6 tracking-[0.18px] text-foreground transition-all duration-1000 delay-300 ${
-                  isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+                  isVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-4 opacity-0"
                 }`}
               >
                 {content.map((paragraph, index) => (
@@ -99,7 +98,9 @@ export function StorySection({
             {additionalImages.length > 0 && (
               <div
                 className={`mt-auto flex gap-6 transition-all duration-1000 delay-500 ${
-                  isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+                  isVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-4 opacity-0"
                 }`}
               >
                 {additionalImages.map((img, index) => (

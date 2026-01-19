@@ -85,7 +85,7 @@ export default function EcosystemPage() {
             title: "Khác biệt hoá & tạo dấu ấn",
             subtitle: "EXPERIENCE · Lumora IX.IX Agenda™",
             description:
-              "Khi nền tảng đã vững, Lumora được triển khai để tạo chiều sâu trải nghiệm và bản sắc cảm xúc. Các chương trình của Lumora không nhằm \"làm cho vui\", mà để giúp dự án trở nên đáng nhớ, có câu chuyện và tăng giá trị thương hiệu trong dài hạn.",
+              'Khi nền tảng đã vững, Lumora được triển khai để tạo chiều sâu trải nghiệm và bản sắc cảm xúc. Các chương trình của Lumora không nhằm "làm cho vui", mà để giúp dự án trở nên đáng nhớ, có câu chuyện và tăng giá trị thương hiệu trong dài hạn.',
           },
         ]}
       />

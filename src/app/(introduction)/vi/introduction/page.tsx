@@ -28,10 +28,7 @@ const teamImages = {
 export default function IntroductionPage() {
   return (
     <main>
-      <Hero
-        title="VỀ CHÚNG TÔI"
-        image={heroImage}
-      />
+      <Hero title="VỀ CHÚNG TÔI" image={heroImage} />
       <StorySection
         title="KHỞI NGUYÊN - CÂN BẰNG TRỌN VẸN"
         overviewTitle="Giới thiệu chung"

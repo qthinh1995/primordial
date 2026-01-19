@@ -51,78 +51,80 @@ export function Navbar({ content, logo, className }: NavbarProps) {
   return (
     <>
       {/* ================= NAVBAR ================= */}
-<header className={cn("sticky z-50 w-full", className)}>
-  {/* Blur background */}
-  <div className="absolute inset-0 bg-black/60 backdrop-blur-md pointer-events-none" />
+      <header className={cn("sticky z-50 w-full", className)}>
+        {/* Blur background */}
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-md pointer-events-none" />
 
-  {/* INNER WRAPPER – KHÔNG Container */}
-  <div className="relative z-10 mx-auto flex h-[80px] w-full max-w-[1440px] items-center justify-between px-4 md:px-12">
-    
-    {/* LEFT */}
-    <div className="flex items-center gap-12 ml-[-20px] md:ml-[-25px]">
-      <Link href={content.items[0]?.href || "/"} className="flex items-center">
-        <Image
-          {...logoConfig}
-          className="h-auto w-auto"
-          priority
-        />
-      </Link>
+        {/* INNER WRAPPER – KHÔNG Container */}
+        <div className="relative z-10 mx-auto flex h-[80px] w-full max-w-[1440px] items-center justify-between px-4 md:px-12">
+          {/* LEFT */}
+          <div className="flex items-center gap-12 ml-[-20px] md:ml-[-25px]">
+            <Link
+              href={content.items[0]?.href || "/"}
+              className="flex items-center"
+            >
+              <Image {...logoConfig} className="h-auto w-auto" priority />
+            </Link>
 
-      {/* DESKTOP NAV */}
-      <nav className="hidden lg:flex items-center gap-8">
-        {content.items.map((item, i) => ( 
-          <Link
-            key={i}
-            href={item.href}
-            className={cn(
-              "relative flex items-center h-[52px]",
-              "text-white text-base",
-              "after:absolute after:left-0 after:-bottom-[6px]",
-              "after:h-[2px] after:w-full after:origin-left",
-              "after:scale-x-0 after:bg-white",
-              "after:transition-transform after:duration-300",
-              "hover:after:scale-x-100",
-              isActive(item.href) && "after:scale-x-100"
-            )}
+            {/* DESKTOP NAV */}
+            <nav className="hidden lg:flex items-center gap-8">
+              {content.items.map((item, i) => (
+                <Link
+                  key={i}
+                  href={item.href}
+                  className={cn(
+                    "relative flex items-center h-[52px]",
+                    "text-white text-base",
+                    "after:absolute after:left-0 after:-bottom-[6px]",
+                    "after:h-[2px] after:w-full after:origin-left",
+                    "after:scale-x-0 after:bg-white",
+                    "after:transition-transform after:duration-300",
+                    "hover:after:scale-x-100",
+                    isActive(item.href) && "after:scale-x-100"
+                  )}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* RIGHT */}
+          <div className="hidden lg:flex items-center gap-6">
+            <Link
+              href={content.contactHref}
+              className="text-white font-semibold"
+            >
+              {content.contactLabel}
+            </Link>
+
+            <span className="h-4 w-px bg-white/40" />
+
+            <Link
+              href={isVietnamese ? "/en" : "/vi"}
+              className="text-white font-semibold"
+            >
+              {isVietnamese ? "EN" : "VN"}
+            </Link>
+          </div>
+
+          {/* MOBILE BUTTON */}
+          <button
+            onClick={() => setOpen(true)}
+            className="lg:hidden flex h-[44px] w-[44px] items-center justify-center text-white"
+            aria-label="Open menu"
           >
-            {item.label}
-          </Link>
-        ))}
-      </nav>
-    </div>
-
-    {/* RIGHT */}
-    <div className="hidden lg:flex items-center gap-6">
-      <Link
-        href={content.contactHref}
-        className="text-white font-semibold"
-      >
-        {content.contactLabel}
-      </Link>
-
-      <span className="h-4 w-px bg-white/40" />
-
-      <Link
-        href={isVietnamese ? "/en" : "/vi"}
-        className="text-white font-semibold"
-      >
-        {isVietnamese ? "EN" : "VN"}
-      </Link>
-    </div>
-
-    {/* MOBILE BUTTON */}
-    <button
-      onClick={() => setOpen(true)}
-      className="lg:hidden flex h-[44px] w-[44px] items-center justify-center text-white"
-      aria-label="Open menu"
-    >
-      <svg width="24" height="24" viewBox="0 0 24 24">
-        <path stroke="currentColor" strokeWidth="2" strokeLinecap="round" d="M3 6h18M3 12h18M3 18h18" />
-      </svg>
-    </button>
-  </div>
-</header>
-
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <path
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                d="M3 6h18M3 12h18M3 18h18"
+              />
+            </svg>
+          </button>
+        </div>
+      </header>
 
       {/* ================= MOBILE MENU ================= */}
       {open && (
@@ -188,9 +190,7 @@ export function Navbar({ content, logo, className }: NavbarProps) {
                 ))}
               </div>
 
-              <p className="text-sm text-white/80">
-                {content.mobileCopyright}
-              </p>
+              <p className="text-sm text-white/80">{content.mobileCopyright}</p>
             </div>
           </aside>
         </>

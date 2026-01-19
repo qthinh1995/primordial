@@ -5,12 +5,7 @@ import { LumoraSection } from "../components/LumoraSection";
 import { PartnershipSection } from "../components/PartnershipSection";
 
 // Hero images
-const heroImages = [
-  "/hero-1.jpg",
-  "/hero-2.jpg",
-  "/hero-3.jpg",
-  "/hero-4.jpg",
-];
+const heroImages = ["/hero-1.jpg", "/hero-2.jpg", "/hero-3.jpg", "/hero-4.jpg"];
 
 // Stouffer Hotels images
 const stoufferImages = [
@@ -22,11 +17,7 @@ const stoufferImages = [
 ];
 
 // Lumora images
-const lumoraImages = [
-  "/lumora-1.jpg",
-  "/lumora-2.jpg",
-  "/lumora-3.jpg",
-];
+const lumoraImages = ["/lumora-1.jpg", "/lumora-2.jpg", "/lumora-3.jpg"];
 
 // Partnership image
 const partnershipImage = "/partnership.jpg";
@@ -52,8 +43,29 @@ export default function HomePage() {
       />
       <HWBSection
         badge="WORK · TALENT PLATFORM"
-        title="KHÁCH SẠN\nKHÔNG BIÊN GIỚI"
-        description="Hoteliers Without Borders là nền tảng điều phối nhân sự hospitality linh hoạt, kết nối các chuyên gia giàu kinh nghiệm với khách sạn và khu nghỉ dưỡng cho nhu cầu ngắn hạn, theo mùa hoặc theo dự án - khi tuyển dụng toàn thời gian không còn là giải pháp tối ưu.\nNền tảng được thiết kế để giúp khách sạn tiếp cận đúng người, đúng thời điểm, đồng thời giúp nhân sự ngành khách sạn mở rộng cơ hội nghề nghiệp theo cách chủ động."
+        title={
+          <>
+            KHÁCH SẠN
+            <br />
+            KHÔNG BIÊN GIỚI
+          </>
+        }
+        description={
+          <>
+            <p>
+              Hoteliers Without Borders là nền tảng điều phối nhân sự
+              hospitality linh hoạt, kết nối các chuyên gia giàu kinh nghiệm với
+              khách sạn và khu nghỉ dưỡng cho nhu cầu ngắn hạn, theo mùa hoặc
+              theo dự án - khi tuyển dụng toàn thời gian không còn là giải pháp
+              tối ưu.
+            </p>
+            <p>
+              Nền tảng được thiết kế để giúp khách sạn tiếp cận đúng người, đúng
+              thời điểm, đồng thời giúp nhân sự ngành khách sạn mở rộng cơ hội
+              nghề nghiệp theo cách chủ động.
+            </p>
+          </>
+        }
         buttonText="ĐĂNG KÝ THAM GIA"
         buttonHref="/vi/hoteliers-without-borders"
         image={hwbImage}
@@ -61,8 +73,24 @@ export default function HomePage() {
       <LumoraSection
         badge="TRẢI NGHIỆM"
         title="LUMORA IX.IX AGENDA"
-        description="Lumora IX.IX Agenda là nền tảng trải nghiệm và văn hoá trong hệ sinh thái Primordial, chuyên kiến tạo các **chương trình, sự kiện và hợp tác sáng tạo** được tuyển chọn - lấy khách sạn và không gian lưu trú làm trung tâm.\n 
-        Lumora tập trung xây dựng những khoảnh khắc có chiều sâu cảm xúc, góp phần định hình bản sắc thương hiệu, tăng giá trị trải nghiệm và tạo dấu ấn lâu dài trong tâm trí khách hàng."
+        description={
+          <>
+            <p>
+              Lumora IX.IX Agenda là nền tảng trải nghiệm và văn hoá trong hệ
+              sinh thái Primordial, chuyên kiến tạo các{" "}
+              <strong className="font-semibold">
+                chương trình, sự kiện và hợp tác sáng tạo
+              </strong>{" "}
+              được tuyển chọn - lấy khách sạn và không gian lưu trú làm trung
+              tâm.
+            </p>
+            <p>
+              Lumora tập trung xây dựng những khoảnh khắc có chiều sâu cảm xúc,
+              góp phần định hình bản sắc thương hiệu, tăng giá trị trải nghiệm
+              và tạo dấu ấn lâu dài trong tâm trí khách hàng.
+            </p>
+          </>
+        }
         buttonText="Khám phá ngay"
         buttonHref="/vi/lumora"
         images={lumoraImages}

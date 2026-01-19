@@ -22,7 +22,8 @@ const playfairDisplay = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "Primordial Hospitium",
-  description: "Primordial is an independent hospitality advisory and coordination platform",
+  description:
+    "Primordial is an independent hospitality advisory and coordination platform",
 };
 
 export default function RootLayout({
