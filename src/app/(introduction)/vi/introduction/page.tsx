@@ -2,40 +2,43 @@ import { Hero } from "@/app/(introduction)/components/Hero";
 import { OverviewSection } from "@/app/(introduction)/components/OverviewSection";
 import { VisionSection } from "@/app/(introduction)/components/VisionSection";
 import { QuoteSection } from "@/app/(introduction)/components/QuoteSection";
-import { CoreFunctionsSection } from "@/app/(introduction)/components/CoreFunctionsSection";
 import { TeamSection } from "@/app/(introduction)/components/TeamSection";
+import { CoreFunctionsSection } from "@/app/(introduction)/components/CoreFunctionsSection";
 
 // ===== HERO =====
-const heroImage = "/figma/introduction/intro-hero.jpg";
+const heroImages = [
+  "https://www.figma.com/api/mcp/asset/251e8876-a52e-4c7e-9e3b-a84d4e30e84d",
+  "https://www.figma.com/api/mcp/asset/c3016c54-bbc5-42fb-8f9b-a99eac03ac7c",
+  "https://www.figma.com/api/mcp/asset/a49a23c1-851e-4703-858a-3ac5cfe06f29",
+  "https://www.figma.com/api/mcp/asset/f703562f-8562-4318-919c-0e4c71759355",
+];
 
 // ===== OVERVIEW =====
-const overviewMainImage = "/figma/Origin1.jpg";
-const overviewThumbs = [
-  "/figma/Origin1.jpg",
-  "/figma/Origin2.jpg",
-  "/figma/Origin3.jpg",
-  
-] as const;
+const overviewMainImage = "/figma/origin1.jpg";
+const overviewThumbs = ["/figma/origin2.jpg", "/figma/origin3.jpg"] as const;
 
 // ===== VISION =====
-const visionRightImage = "/figma/Vision1.png";
+const visionRightImage = "/figma/vision1.png";
 const visionAvatar = "/figma/introduction/team-bao.jpg";
 
 // ===== QUOTE =====
-const quoteBannerImage = "/figma/Centered on.png";
+const quoteBannerImage = "/figma/centered-on.png";
 
 // ===== TEAM =====
 const teamImages = [
-  "/figma/introduction/team-bao.jpg",
-  "/figma/introduction/team-ngoc.jpg",
-  "/figma/introduction/team-cang.jpg",
-  "/figma/introduction/team-ty.jpg",
+  "/figma/team-bao.jpg",
+  "/figma/team-ngoc.jpg",
+  "/figma/team-cang.jpg",
+  "/figma/team-ty.jpg",
 ] as const;
 
 export default function IntroductionPageVI() {
   return (
     <main>
-      <Hero title="Giới thiệu" image={{ src: heroImage, alt: "Giới thiệu hero" }} />
+      <Hero
+        title="VỀ CHÚNG TÔI"
+        images={heroImages}
+         />
 
       <OverviewSection
         leftImage={{
@@ -47,19 +50,19 @@ export default function IntroductionPageVI() {
         eyebrow="Giới thiệu chung"
         paragraphs={[
           "Primordial là nền tảng tư vấn và điều phối độc lập trong lĩnh vực khách sạn – nghỉ dưỡng, đồng hành cùng chủ đầu tư tại những điểm giao thoa quan trọng giữa thiết kế, vận hành và hiệu quả thương mại.",
-          "Chúng tôi không vận hành thay, không áp đặt mô hình.Primordial hiện diện để giúp các dự án nhìn rõ bức tranh dài hạn, đưa ra quyết định đúng ở từng giai đoạn và phát triển đúng với bản chất của mình.",
-          "Đó là cách chúng tôi kiến tạo sự cân bằng - giữa tầm nhìn và thực tế, giữa trải nghiệm và hiệu quả bền vững.Giữa tầm nhìn và thực tế, giữa trải nghiệm và hiệu quả bền vững.",
+          "Chúng tôi không vận hành thay, không áp đặt mô hình. Primordial hiện diện để giúp các dự án nhìn rõ bức tranh dài hạn, đưa ra quyết định đúng ở từng giai đoạn và phát triển đúng với bản chất của mình.",
+          "Đó là cách chúng tôi kiến tạo sự cân bằng - giữa tầm nhìn và thực tế, giữa trải nghiệm và hiệu quả bền vững.",
         ]}
         thumbs={[
-          { src: overviewThumbs[1], alt: "Ảnh minh hoạ 1" },
-          { src: overviewThumbs[2], alt: "Ảnh minh hoạ 2" },
+          { src: overviewThumbs[0], alt: "Ảnh minh hoạ 1" },
+          { src: overviewThumbs[1], alt: "Ảnh minh hoạ 2" },
         ]}
       />
 
       <VisionSection
         title="TẦM NHÌN"
         paragraphs={[
-          "Primordial tin rằng một dự án khách sạn bền vững được định hình ngay từ đầu — bắt đầu từ những quyết định sớm nhất về thiết kế, cấu trúc và logic thương mại.",
+          "**Primordial** tin rằng một dự án khách sạn bền vững được định hình ngay từ đầu — bắt đầu từ những quyết định sớm nhất về thiết kế, cấu trúc và logic thương mại.",
           "Chúng tôi nhìn khách sạn như một hệ thống liên kết, nơi trải nghiệm, vận hành và hiệu quả tài chính không thể tách rời; và mỗi lựa chọn đều tác động trực tiếp đến dòng tiền cũng như tiềm năng tăng trưởng dài hạn.",
           "Vì vậy, Primordial tham gia ở tầng chiến lược sớm, cung cấp góc nhìn độc lập kết hợp tư duy thiết kế, logic vận hành và phân tích tài chính — giúp chủ đầu tư ra quyết định đúng và dẫn dắt dự án tới thành công bền vững.",
         ]}
@@ -74,7 +77,7 @@ export default function IntroductionPageVI() {
 
       <QuoteSection
         image={{ src: quoteBannerImage, alt: "Banner trích dẫn" }}
-        text="Lấy chủ đầu tư làm trung tâm, dẫn dắt bởi vận hành, dựa trên nền tảng tài chính."
+        text="Lấy chủ đầu tư làm trung tâm,\ndẫn dắt bởi vận hành, dựa trên nền tảng tài chính."
       />
 
       <CoreFunctionsSection
@@ -123,23 +126,23 @@ export default function IntroductionPageVI() {
         }
         members={[
           {
-            name: "Bảo Nguyễn",
-            role: "CO-FOUNDER & DIRECTOR OF BUSINESS DEVELOPMENT",
-            image: { src: teamImages[0], alt: "Bảo Nguyễn" },
+            name: "Bao Nguyen",
+            role: "CO-FOUNDER & DIRECTOR OF\nBUSINESS DEVELOPMENT",
+            image: { src: teamImages[0], alt: "Bao Nguyen" },
           },
           {
-            name: "Nguyễn Ngọc",
+            name: "Mai Phuong",
             role: "CHIEF FINANCIAL OFFICER",
-            image: { src: teamImages[1], alt: "Nguyễn Ngọc" },
+            image: { src: teamImages[1], alt: "Mai Phuong" },
           },
           {
             name: "Cang Lam",
-            role: "Director of Operation - Advisor",
+            role: "DIRECTOR OF OPERATION -\nADVISOR",
             image: { src: teamImages[2], alt: "Cang Lam" },
           },
           {
             name: "Ty Nguyen",
-            role: "Director of Sale & Marketing - Advisor",
+            role: "DIRECTOR OF SALE &\nMARKETING - ADVISOR",
             image: { src: teamImages[3], alt: "Ty Nguyen" },
           },
         ]}

@@ -6,21 +6,26 @@ import { CoreFunctionsSection } from "@/app/(introduction)/components/CoreFuncti
 import { TeamSection } from "@/app/(introduction)/components/TeamSection";
 
 // ===== HERO =====
-const heroImage = "/figma/introduction/intro-hero.jpg";
+const heroImages = [
+  "https://www.figma.com/api/mcp/asset/251e8876-a52e-4c7e-9e3b-a84d4e30e84d",
+  "https://www.figma.com/api/mcp/asset/c3016c54-bbc5-42fb-8f9b-a99eac03ac7c",
+  "https://www.figma.com/api/mcp/asset/a49a23c1-851e-4703-858a-3ac5cfe06f29",
+  "https://www.figma.com/api/mcp/asset/f703562f-8562-4318-919c-0e4c71759355",
+];
 
 // ===== OVERVIEW =====
-const overviewMainImage = "/figma/introduction/origin-main.jpg";
+const overviewMainImage = "/figma/origin1.jpg";
 const overviewThumbs = [
-  "/figma/introduction/origin-thumb-1.jpg",
-  "/figma/introduction/origin-thumb-2.jpg",
+  "/figma/origin2.jpg",
+  "/figma/origin3.jpg",
 ] as const;
 
 // ===== VISION =====
-const visionRightImage = "/figma/introduction/vision-right.jpg";
+const visionRightImage = "/figma/vision1.png";
 const visionAvatar = "/figma/introduction/team-bao.jpg";
 
 // ===== QUOTE =====
-const quoteBannerImage = "/figma/introduction/quote-banner.jpg";
+const quoteBannerImage = "/figma/centered-on.png";
 
 // ===== TEAM =====
 const teamImages = [
@@ -33,7 +38,10 @@ const teamImages = [
 export default function IntroductionPageEN() {
   return (
     <main>
-      <Hero title="About us" image={{ src: heroImage, alt: "About us hero" }} />
+      <Hero 
+      title="About us" 
+      images={heroImages}
+       />
 
       <OverviewSection
         leftImage={{
@@ -57,10 +65,7 @@ export default function IntroductionPageEN() {
       <VisionSection
         title="VISION"
         paragraphs={[
-          "Primordial believes that a sustainable hospitality project is shaped from the very beginning - starting with the earliest decisions around design, structure, and commercial logic.",
-          "We view hospitality as an interconnected system where experience, operations, and financial performance are inseparable, and where every choice directly impacts cash flow and long-term growth potential.",
-          "For this reason, Primordial operates at the earliest strategic level, providing an independent perspective that integrates design thinking, operational logic, and financial analysis - enabling owners to make informed decisions and guide their projects toward sustainable, long-term success.",
-        ]}
+                 "Primordial believes that a sustainable hospitality project is shaped from the very beginning - starting with the earliest decisions around design, structure, and commercial logic. We view hospitality as an interconnected system where experience, operations, and financial performance are inseparable, and where every choice directly impacts cash flow and long-term growth potential. For this reason, Primordial operates at the earliest strategic level, providing an independent perspective that integrates design thinking, operational logic, and financial analysis - enabling owners to make informed decisions and guide their projects toward sustainable, long-term success."]}
         feature={{
           avatar: { src: visionAvatar, alt: "Bao Nguyen" },
           name: "Bao Nguyen",
@@ -72,7 +77,7 @@ export default function IntroductionPageEN() {
 
       <QuoteSection
         image={{ src: quoteBannerImage, alt: "Quote banner" }}
-        text="Centered on the owner, guided by operations, grounded in financial discipline."
+        text="Centered on the owner, guided by operations, grounded in\nfinancial discipline."
       />
 
       <CoreFunctionsSection

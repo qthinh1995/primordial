@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Container } from "./container";
 import { cn } from "@/lib/utils";
 import type { NavContent } from "@/lib/constants";
 
@@ -43,86 +42,93 @@ export function Navbar({ content, logo, className }: NavbarProps) {
     };
   }, [open]);
 
-  const isActive = (href: string) =>
-    href === "/en" || href === "/vi"
-      ? pathname === href || pathname === `${href}/`
-      : pathname.startsWith(href);
+  const normalize = (p: string) => (p.length > 1 ? p.replace(/\/+$/, "") : p);
+
+    const isActive = (href: string) => {
+      const p = normalize(pathname);
+      const h = normalize(href);
+
+      // Home route should be exact only
+      if (h === "/en" || h === "/vi") return p === h;
+
+      return p === h || p.startsWith(h + "/");
+    };
+
+
+  // ✅ Switch language but keep the current path (NOT redirect to home)
+  function switchLangPath(p: string) {
+    const clean = (p || "/vi").split("?")[0].split("#")[0];
+
+    if (clean === "/vi") return "/en";
+    if (clean === "/en") return "/vi";
+
+    if (clean.startsWith("/vi/")) return clean.replace("/vi/", "/en/");
+    if (clean.startsWith("/en/")) return clean.replace("/en/", "/vi/");
+
+    return "/vi" + (clean.startsWith("/") ? clean : `/${clean}`);
+  }
+
+  const langHref = switchLangPath(pathname);
 
   return (
     <>
       {/* ================= NAVBAR ================= */}
-<header className={cn("sticky z-50 w-full", className)}>
-  {/* Blur background */}
-  <div className="absolute inset-0 bg-black/60 backdrop-blur-md pointer-events-none" />
+      <header className={cn("sticky z-50 w-full", className)}>
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-md pointer-events-none" />
+        <div className="relative z-10 mx-auto flex h-[80px] w-full max-w-[1440px] items-center justify-between px-4 md:px-12">
+          <div className="flex items-center gap-12 ml-[-20px] md:ml-[-25px]">
+            <Link href={content.items[0]?.href || "/"} className="flex items-center">
+              <Image {...logoConfig} className="h-auto w-auto" priority />
+            </Link>
+            {/* DESKTOP NAV */}
+            <nav className="hidden lg:flex items-center gap-8">
+              {content.items.map((item, i) => (
+                <Link
+                  key={i}
+                  href={item.href}
+                  className={cn(
+                    "relative flex items-center h-[52px]",
+                    "text-white text-base",
+                    "after:absolute after:left-0 after:-bottom-[6px]",
+                    "after:h-[2px] after:w-full after:origin-left",
+                    "after:scale-x-0 after:bg-white",
+                    "after:transition-transform after:duration-300",
+                    "hover:after:scale-x-100",
+                    isActive(item.href) && "after:scale-x-100"
+                  )}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+          <div className="hidden lg:flex items-center gap-6">
+            <Link href={content.contactHref} className="text-white font-semibold">
+              {content.contactLabel}
+            </Link>
+            <span className="h-4 w-px bg-white/40" />
+            <Link href={langHref} className="text-white font-semibold">
+              {isVietnamese ? "EN" : "VN"}
+            </Link>
+          </div>
 
-  {/* INNER WRAPPER – KHÔNG Container */}
-  <div className="relative z-10 mx-auto flex h-[80px] w-full max-w-[1440px] items-center justify-between px-4 md:px-12">
-    
-    {/* LEFT */}
-    <div className="flex items-center gap-12 ml-[-20px] md:ml-[-25px]">
-      <Link href={content.items[0]?.href || "/"} className="flex items-center">
-        <Image
-          {...logoConfig}
-          className="h-auto w-auto"
-          priority
-        />
-      </Link>
-
-      {/* DESKTOP NAV */}
-      <nav className="hidden lg:flex items-center gap-8">
-        {content.items.map((item, i) => ( 
-          <Link
-            key={i}
-            href={item.href}
-            className={cn(
-              "relative flex items-center h-[52px]",
-              "text-white text-base",
-              "after:absolute after:left-0 after:-bottom-[6px]",
-              "after:h-[2px] after:w-full after:origin-left",
-              "after:scale-x-0 after:bg-white",
-              "after:transition-transform after:duration-300",
-              "hover:after:scale-x-100",
-              isActive(item.href) && "after:scale-x-100"
-            )}
+          {/* MOBILE BUTTON */}
+          <button
+            onClick={() => setOpen(true)}
+            className="lg:hidden flex h-[44px] w-[44px] items-center justify-center text-white"
+            aria-label="Open menu"
           >
-            {item.label}
-          </Link>
-        ))}
-      </nav>
-    </div>
-
-    {/* RIGHT */}
-    <div className="hidden lg:flex items-center gap-6">
-      <Link
-        href={content.contactHref}
-        className="text-white font-semibold"
-      >
-        {content.contactLabel}
-      </Link>
-
-      <span className="h-4 w-px bg-white/40" />
-
-      <Link
-        href={isVietnamese ? "/en" : "/vi"}
-        className="text-white font-semibold"
-      >
-        {isVietnamese ? "EN" : "VN"}
-      </Link>
-    </div>
-
-    {/* MOBILE BUTTON */}
-    <button
-      onClick={() => setOpen(true)}
-      className="lg:hidden flex h-[44px] w-[44px] items-center justify-center text-white"
-      aria-label="Open menu"
-    >
-      <svg width="24" height="24" viewBox="0 0 24 24">
-        <path stroke="currentColor" strokeWidth="2" strokeLinecap="round" d="M3 6h18M3 12h18M3 18h18" />
-      </svg>
-    </button>
-  </div>
-</header>
-
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <path
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                d="M3 6h18M3 12h18M3 18h18"
+              />
+            </svg>
+          </button>
+        </div>
+      </header>
 
       {/* ================= MOBILE MENU ================= */}
       {open && (
@@ -134,20 +140,12 @@ export function Navbar({ content, logo, className }: NavbarProps) {
           />
 
           {/* PANEL */}
-          <aside className="fixed right-0 top-0 z-50 h-full w-[320px] bg-[#121212]/95 animate-in slide-in-from-right duration-300">
+          <aside className="fixed right-0 top-0 z-50 h-full w-[320px] bg-[#121212]/95 animate-in slide-in-from-right duration-300 flex flex-col">
             {/* HEADER */}
             <div className="h-[88px] flex items-center justify-between px-6">
-              <Image
-                {...logoConfig}
-                className="h-[52px] w-auto object-contain"
-              />
+              <Image {...logoConfig} className="h-[52px] w-auto object-contain" />
               <button onClick={() => setOpen(false)} aria-label="Close menu">
-                <Image
-                  src="/figma/menu-close.png"
-                  alt="Close"
-                  width={24}
-                  height={24}
-                />
+                <Image src="/figma/menu-close.png" alt="Close" width={24} height={24} />
               </button>
             </div>
 
@@ -176,6 +174,13 @@ export function Navbar({ content, logo, className }: NavbarProps) {
               >
                 {content.mobileContactLabel}
               </Link>
+              <Link
+                href={langHref}
+                onClick={() => setOpen(false)}
+                className="text-white font-semibold"
+              >
+                {isVietnamese ? "EN" : "VN"}
+              </Link>
             </nav>
 
             {/* FOOTER */}
@@ -188,9 +193,7 @@ export function Navbar({ content, logo, className }: NavbarProps) {
                 ))}
               </div>
 
-              <p className="text-sm text-white/80">
-                {content.mobileCopyright}
-              </p>
+              <p className="text-sm text-white/80">{content.mobileCopyright}</p>
             </div>
           </aside>
         </>
