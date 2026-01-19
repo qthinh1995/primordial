@@ -10,7 +10,7 @@ interface QuoteSectionProps {
 
 export function QuoteSection({ image, text }: QuoteSectionProps) {
   return (
-    <section className="relative h-[260px] w-full overflow-hidden">
+    <section className="relative h-[512px] w-full overflow-hidden">
       <Image src={image.src} alt={image.alt} fill className="object-cover" />
       <div className="absolute inset-0 bg-black/35" />
 
