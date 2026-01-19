@@ -24,22 +24,22 @@ export function VisionSection({
   return (
     <section className="bg-background py-[120px]">
       <Container>
-        <div className="grid grid-cols-1 items-start gap-14 lg:grid-cols-[1fr_1.25fr] lg:gap-20">
+        <div className="items-start gap-14 lg:gap-20 grid grid-cols-1 lg:grid-cols-[1fr_1.25fr]">
           {/* LEFT */}
           <div className="min-w-0">
-            <h2 className="font-display text-[44px] leading-[1.1] text-foreground">
+            <h2 className="font-display text-[44px] text-foreground leading-[1.1]">
               {title}
             </h2>
 
-            <div className="mt-6 space-y-4 font-sans text-[15px] leading-[1.7] text-foreground/70">
+            <div className="space-y-4 mt-6 font-sans text-[15px] text-foreground/70 leading-[1.7]">
               {paragraphs.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
             </div>
 
             {/* FEATURE */}
-            <div className="mt-10 grid grid-cols-[96px_1fr] items-start gap-5">
-              <div className="relative h-24 w-24 overflow-hidden bg-muted">
+            <div className="items-start gap-5 grid grid-cols-[96px_1fr] mt-10">
+              <div className="relative bg-muted w-24 h-24 overflow-hidden">
                 <Image
                   src={feature.avatar.src}
                   alt={feature.avatar.alt}
@@ -52,10 +52,10 @@ export function VisionSection({
                 <div className="font-sans font-semibold text-foreground">
                   {feature.name}
                 </div>
-                <div className="mt-1 font-serif text-sm italic text-accent">
+                <div className="mt-1 font-serif text-accent text-sm italic">
                   {feature.role}
                 </div>
-                <p className="mt-3 font-sans text-sm leading-[1.7] text-foreground/70">
+                <p className="mt-3 font-sans text-foreground/70 text-sm leading-[1.7]">
                   {feature.bio}
                 </p>
               </div>
@@ -63,7 +63,7 @@ export function VisionSection({
           </div>
 
           {/* RIGHT */}
-          <div className="relative aspect-[16/9] w-full overflow-hidden bg-muted">
+          <div className="relative bg-muted w-full aspect-[16/9] overflow-hidden">
             <Image
               src={rightImage.src}
               alt={rightImage.alt}

@@ -18,26 +18,26 @@ export function TeamSection({ title, intro, members }: TeamSectionProps) {
   return (
     <section className="bg-background py-[120px]">
       <Container>
-        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[260px_1fr] lg:gap-20">
-          <h2 className="font-display text-[44px] leading-[1.1] text-foreground">
+        <div className="items-start gap-10 lg:gap-20 grid grid-cols-1 lg:grid-cols-[260px_1fr]">
+          <h2 className="font-display text-[44px] text-foreground leading-[1.1]">
             {title}
           </h2>
-          <div className="max-w-[680px] font-sans text-[15px] leading-[1.7] text-foreground/70">
+          <div className="max-w-[680px] font-sans text-[15px] text-foreground/70 leading-[1.7]">
             {intro}
           </div>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-14">
           {members.map((m) => (
             <div key={m.name}>
-              <div className="relative aspect-[3/4] w-full overflow-hidden bg-muted">
+              <div className="relative bg-muted w-full aspect-[3/4] overflow-hidden">
                 <Image src={m.image.src} alt={m.image.alt} fill className="object-cover" />
               </div>
 
               <div className="mt-5 font-sans font-medium text-foreground">
                 {m.name}
               </div>
-              <div className="mt-2 font-serif text-sm italic text-accent">
+              <div className="mt-2 font-serif text-accent text-sm italic">
                 {m.role}
               </div>
             </div>

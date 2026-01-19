@@ -13,7 +13,7 @@ interface HeroProps {
 
 export function Hero({ title, image }: HeroProps) {
   return (
-    <section className="relative h-[600px] w-full overflow-hidden">
+    <section className="relative w-full h-[600px] overflow-hidden">
       <Image
         src={image.src}
         alt={image.alt}
@@ -25,8 +25,8 @@ export function Hero({ title, image }: HeroProps) {
       <div className="absolute inset-0 bg-black/30" />
 
       <Container>
-        <div className="relative flex h-[600px] items-center justify-center text-center">
-          <h1 className="font-display text-[52px] leading-[1.05] tracking-[-0.6px] text-white md:text-[64px]">
+        <div className="relative flex justify-center items-center h-[600px] text-center">
+          <h1 className="font-display text-[52px] text-white md:text-[64px] leading-[1.05] tracking-[-0.6px]">
             {title}
           </h1>
         </div>
