@@ -13,9 +13,9 @@ const storyImage2 = "/introduction-story-2.jpg";
 const storyImage3 = "/introduction-story-3.jpg";
 
 // Vision section images
-const visionImage = "/introduction-vision.jpg";
+const visionImage = "/introduction-vision-1.jpg";
 const visionValueImage = "/introduction-vision-value.jpg";
-const teamMemberImage = "/introduction-team-member-1.jpg";
+const teamMemberImage = "/introduction-vision.jpg";
 
 // Team member images
 const teamImages = {
@@ -44,8 +44,7 @@ export default function IntroductionPage() {
       <VisionSection
         title="VISION"
         content={[
-          "Primordial believes that a sustainable hospitality project is shaped from the very beginning - starting with the earliest decisions around design, structure, and commercial logic. We view hospitality as an interconnected system where experience, operations, and financial performance are inseparable, and where every choice directly impacts cash flow and long-term growth potential.",
-          "For this reason, Primordial operates at the earliest strategic level, providing an independent perspective that integrates design thinking, operational logic, and financial analysis - enabling owners to make informed decisions and guide their projects toward sustainable, long-term success.",
+          "Primordial believes that a sustainable hospitality project is shaped from the very beginning - starting with the earliest decisions around design, structure, and commercial logic. We view hospitality as an interconnected system where experience, operations, and financial performance are inseparable, and where every choice directly impacts cash flow and long-term growth potential. For this reason, Primordial operates at the earliest strategic level, providing an independent perspective that integrates design thinking, operational logic, and financial analysis - enabling owners to make informed decisions and guide their projects toward sustainable, long-term success."
         ]}
         teamMember={{
           name: "Bao Nguyen",
@@ -94,7 +93,16 @@ export default function IntroductionPage() {
       />
       <TeamSection
         title="OUR TEAM"
-        description="Our team is the heart of Primordial Hospitium. We are a diverse group of professionals united by a shared passion for hospitality and a commitment to excellence. Meet the people behind our promise to deliver exceptional service and meaningful, memorable experiences."
+        description={
+          <>
+        <p>
+          Our team is the heart of
+          <strong className="font-semibold"> Primordial Hospitium</strong>
+          . We are a diverse group of professionals united by a shared passion for hospitality and a commitment to excellence. Meet the people behind our promise to deliver exceptional service and meaningful, memorable experiences.
+        </p>
+          </>
+        }
+        
         members={[
           {
             name: "Bao Nguyen",

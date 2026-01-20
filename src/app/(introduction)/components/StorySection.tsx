@@ -48,14 +48,14 @@ export function StorySection({
   return (
     <section
       ref={sectionRef}
-      className={`py-[120px] transition-opacity duration-1000 ${
+      className={`py-[64px] md:py-[120px] transition-opacity duration-1000 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
-      <Container>
+      <Container className="px-4 lg:px-12">
         <div className="flex md:flex-row flex-col md:items-start gap-16">
           {/* Image */}
-          <div className="relative w-full md:w-[648px] h-[864px] shrink-0">
+          <div className="relative w-full h-[457.33px] md:w-[648px] md:h-[864px] shrink-0">
             <div
               className={`h-full w-full transition-all duration-1000 delay-200 ${
                 isVisible
@@ -69,7 +69,7 @@ export function StorySection({
 
           {/* Text Content */}
           <div className="flex flex-col flex-1 gap-10">
-            <h2 className="font-display font-normal text-[44px] text-black uppercase leading-[1.4] tracking-[-1.76px]">
+            <h2 className="font-display font-normal text-[32px] md:text-[44px] text-black uppercase leading-[1.4] tracking-[-1.76px]">
               {title}
             </h2>
 
@@ -82,7 +82,7 @@ export function StorySection({
                 {overviewTitle}
               </h3>
               <div
-                className={`flex flex-col gap-6 font-sans text-lg leading-6 tracking-[0.18px] text-foreground transition-all duration-1000 delay-300 ${
+                className={`flex flex-col gap-6 font-sans text-base md:text-lg leading-6 tracking-[0.18px] text-foreground transition-all duration-1000 delay-300 ${
                   isVisible
                     ? "translate-y-0 opacity-100"
                     : "translate-y-4 opacity-0"
@@ -97,7 +97,7 @@ export function StorySection({
             {/* Additional Images */}
             {additionalImages.length > 0 && (
               <div
-                className={`mt-auto flex gap-6 transition-all duration-1000 delay-500 ${
+                className={`mt-auto flex gap-4 md:gap-6 transition-all duration-1000 delay-500 ${
                   isVisible
                     ? "translate-y-0 opacity-100"
                     : "translate-y-4 opacity-0"
@@ -106,7 +106,7 @@ export function StorySection({
                 {additionalImages.map((img, index) => (
                   <div
                     key={index}
-                    className="relative flex-1 aspect-[403/302.25]"
+                    className="relative flex-1 aspect-[4/3] md:aspect-[403/302.25]"
                   >
                     <Image
                       src={img}
