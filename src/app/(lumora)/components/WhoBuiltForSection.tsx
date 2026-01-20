@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
-import { useEffect, useRef, useState } from "react";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 interface TextBlock {
   title: string;
@@ -29,29 +29,7 @@ export function WhoBuiltForSection({
   conclusion,
   image,
 }: WhoBuiltForSectionProps) {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
+  const { ref: sectionRef, isVisible } = useIntersectionObserver<HTMLElement>();
 
   return (
     <section

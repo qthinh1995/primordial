@@ -19,9 +19,9 @@ export function Hero({ tag, title, subtitle, description, image }: HeroProps) {
   }, []);
 
   return (
-    <section className="relative w-full h-[1024px] max-md:h-[600px] overflow-hidden flex flex-col justify-end">
+    <section className="relative flex flex-col justify-end w-full h-[1024px] max-md:h-[600px] overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 bottom-[-300px] max-md:bottom-0 bg-black z-[1]">
+      <div className="bottom-[-300px] max-md:bottom-0 z-[1] absolute inset-0 bg-black">
         <Image
           src={image}
           alt={title}
@@ -40,14 +40,14 @@ export function Hero({ tag, title, subtitle, description, image }: HeroProps) {
           isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
         }`}
       >
-        <div className="max-w-[1440px] mx-auto">
-          <div className="flex gap-20 max-md:flex-col max-md:gap-6 items-start max-md:items-center max-md:justify-center max-md:h-[500px]">
+        <div className="mx-auto max-w-[1440px]">
+          <div className="flex max-md:flex-col max-md:justify-center items-start max-md:items-center gap-20 max-md:gap-6 max-md:h-[500px]">
             {/* Left Column - Title */}
-            <div className="flex flex-col gap-3 shrink-0 max-md:text-center">
-              <p className="font-sans font-bold text-base leading-6 tracking-[-0.32px] text-white uppercase">
+            <div className="flex flex-col gap-3 max-md:text-center shrink-0">
+              <p className="font-sans font-bold text-white text-base uppercase leading-6 tracking-[-0.32px]">
                 {tag}
               </p>
-              <h1 className="font-display font-normal text-[72px] max-md:text-[32px] text-white leading-[80px] max-md:leading-normal tracking-[-2.88px] max-md:tracking-[-1.28px]">
+              <h1 className="font-display font-normal text-[72px] text-white max-md:text-[32px] leading-[80px] max-md:leading-normal tracking-[-2.88px] max-md:tracking-[-1.28px]">
                 {title}
                 {subtitle && (
                   <>
@@ -59,8 +59,8 @@ export function Hero({ tag, title, subtitle, description, image }: HeroProps) {
             </div>
 
             {/* Right Column - Description */}
-            <div className="flex flex-col gap-5 flex-1 text-white max-md:text-center">
-              <p className="font-sans text-lg max-md:text-base leading-[1.4] max-md:leading-6 tracking-[-0.54px] max-md:tracking-[-0.32px] text-[#eaeaea]">
+            <div className="flex flex-col flex-1 gap-5 text-white max-md:text-center">
+              <p className="font-sans text-[#eaeaea] max-md:text-base text-lg leading-[1.4] max-md:leading-6 tracking-[-0.54px] max-md:tracking-[-0.32px]">
                 {description}
               </p>
             </div>

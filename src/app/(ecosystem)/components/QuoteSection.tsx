@@ -1,7 +1,7 @@
 "use client";
 
 import { Container } from "@/components/ui/container";
-import { useEffect, useRef, useState } from "react";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import Image from "next/image";
 
 interface QuoteSectionProps {
@@ -10,29 +10,7 @@ interface QuoteSectionProps {
 }
 
 export function QuoteSection({ quote, image }: QuoteSectionProps) {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
+  const { ref: sectionRef, isVisible } = useIntersectionObserver<HTMLElement>();
 
   return (
     <section

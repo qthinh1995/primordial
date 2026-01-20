@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
-import { useEffect, useRef, useState } from "react";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { ReactNode } from "react";
 
 interface TeamMember {
@@ -29,29 +29,7 @@ export function VisionSection({
   valueStatement,
   valueImage,
 }: VisionSectionProps) {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
+  const { ref: sectionRef, isVisible } = useIntersectionObserver<HTMLElement>();
 
   return (
     <>
@@ -93,28 +71,27 @@ export function VisionSection({
                   }`}
                 >
                   <div className="grid grid-2 md:flex gap-4">
-                  <div className="relative w-full h-[455px] md:w-[144px] md:h-[190px] overflow-hidden shrink-0">
-                    <Image
-                      src={teamMember.image}
-                      alt={teamMember.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="grid grid-2 flex md:flex-col flex-2 gap-5">
-                    <div className="flex flex-col gap-3 md:gap-0">
-                      <p className="font-display font-semibold mt-4 md:mt-0 text-foreground text:lg md:text-xl leading-7 tracking-[-0.6px]">
-                        {teamMember.name}
-                      </p>
-                      <p className="font-display font-normal text-accent text-sm italic uppercase leading-normal">
-                        {teamMember.role}
+                    <div className="relative w-full h-[455px] md:w-[144px] md:h-[190px] overflow-hidden shrink-0">
+                      <Image
+                        src={teamMember.image}
+                        alt={teamMember.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="grid grid-2 flex md:flex-col flex-2 gap-5">
+                      <div className="flex flex-col gap-3 md:gap-0">
+                        <p className="font-display font-semibold mt-4 md:mt-0 text-foreground text:lg md:text-xl leading-7 tracking-[-0.6px]">
+                          {teamMember.name}
+                        </p>
+                        <p className="font-display font-normal text-accent text-sm italic uppercase leading-normal">
+                          {teamMember.role}
+                        </p>
+                      </div>
+                      <p className="font-sans text-foreground text-base leading-6 tracking-[-0.32px]">
+                        {teamMember.bio}
                       </p>
                     </div>
-                    <p className="font-sans text-foreground text-base leading-6 tracking-[-0.32px]">
-                      {teamMember.bio}
-                    </p>
-                  </div>
-
                   </div>
                 </div>
               )}

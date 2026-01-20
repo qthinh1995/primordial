@@ -1,10 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import { Container } from "@/components/ui/container";
-import { useEffect, useRef, useState } from "react";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { cn } from "@/lib/utils";
-import {ReactNode} from "react";
-
+import { ReactNode } from "react";
 
 interface Function {
   title: string;
@@ -20,30 +20,8 @@ export function KeyFunctionsSection({
   title,
   functions,
 }: KeyFunctionsSectionProps) {
-  const [isVisible, setIsVisible] = useState(false);
+  const { ref: sectionRef, isVisible } = useIntersectionObserver<HTMLElement>();
   const [expandedIndex, setExpandedIndex] = useState<number>(0); // First item expanded by default
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
 
   const toggleFunction = (index: number) => {
     setExpandedIndex(expandedIndex === index ? -1 : index);
@@ -61,7 +39,9 @@ export function KeyFunctionsSection({
         <div className="flex flex-col gap-10 md:gap-16 md:flex-row md:items-start">
           {/* Title */}
           <div className="w-full shrink-0 md:w-[416px]">
-            <span className="md:hidden block w-full text-red-500 text-center italic font-bold font-sans">PRIMORDIAL COMPANY LIMITED</span>
+            <span className="md:hidden block w-full text-red-500 text-center italic font-bold font-sans">
+              PRIMORDIAL COMPANY LIMITED
+            </span>
             <h2 className="font-display text-center text-[32px] md:text-[44px] font-normal leading-[1.4] tracking-[-1.76px] text-black uppercase">
               {title}
             </h2>

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { Container } from "@/components/ui/container";
 
 interface ImplementTPOSectionProps {
@@ -17,25 +17,7 @@ export function ImplementTPOSection({
   image1,
   image2,
 }: ImplementTPOSectionProps) {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  const { ref: sectionRef, isVisible } = useIntersectionObserver<HTMLElement>();
 
   return (
     <section

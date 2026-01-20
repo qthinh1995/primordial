@@ -1,7 +1,7 @@
 "use client";
 
 import { Container } from "@/components/ui/container";
-import { useEffect, useRef, useState } from "react";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -27,29 +27,7 @@ export function PillarsSection({
   description,
   pillars,
 }: PillarsSectionProps) {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
+  const { ref: sectionRef, isVisible } = useIntersectionObserver<HTMLElement>();
 
   return (
     <section
@@ -61,22 +39,22 @@ export function PillarsSection({
       <Container>
         <div className="flex md:flex-row flex-col gap-16">
           {/* Left Column - Title */}
-          <div className="w-full shrink-0 md:w-[416px]">
+          <div className="w-full md:w-[416px] shrink-0">
             <div className="flex flex-col gap-3 mb-8">
-              <p className="font-sans font-bold text-[16px] text-[#d21c27] tracking-[-0.32px] text-center md:text-left">
+              <p className="font-sans font-bold text-[#d21c27] text-[16px] md:text-left text-center tracking-[-0.32px]">
                 {subtitle}
               </p>
-              <h2 className="font-display font-normal text-[44px] text-black leading-[1.4] tracking-[-1.76px] uppercase">
+              <h2 className="font-display font-normal text-[44px] text-black uppercase leading-[1.4] tracking-[-1.76px]">
                 {title}
               </h2>
             </div>
-            <p className="font-sans text-lg leading-[1.4] tracking-[-0.54px] text-[#2c2c2c]">
+            <p className="font-sans text-[#2c2c2c] text-lg leading-[1.4] tracking-[-0.54px]">
               {description}
             </p>
           </div>
 
           {/* Right Column - Pillars */}
-          <div className="flex flex-1 flex-col gap-3">
+          <div className="flex flex-col flex-1 gap-3">
             {pillars.map((pillar, index) => (
               <div
                 key={index}
@@ -88,29 +66,29 @@ export function PillarsSection({
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 {/* Logo */}
-                <div className="bg-white h-[56px] w-[120px] shrink-0 relative flex items-center justify-center">
+                <div className="relative flex justify-center items-center bg-white w-[120px] h-[56px] shrink-0">
                   <div className="relative w-full h-full">
                     <Image
                       src={pillar.logoImage}
                       alt={pillar.title}
                       fill
                       sizes="120px"
-                      className="object-contain p-2"
+                      className="p-2 object-contain"
                     />
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="flex flex-1 flex-col gap-2">
-                  <div className="flex items-center gap-2 justify-between">
-                    <h3 className="font-sans font-semibold text-[20px] text-[#2c2c2c] leading-[28px] tracking-[-0.6px] flex-1">
+                <div className="flex flex-col flex-1 gap-2">
+                  <div className="flex justify-between items-center gap-2">
+                    <h3 className="flex-1 font-sans font-semibold text-[#2c2c2c] text-[20px] leading-[28px] tracking-[-0.6px]">
                       {pillar.title}
                     </h3>
-                    <p className="font-sans font-bold text-[14px] text-[#d21c27] leading-[20px] tracking-[-0.28px] text-right">
+                    <p className="font-sans font-bold text-[#d21c27] text-[14px] text-right leading-[20px] tracking-[-0.28px]">
                       {pillar.tag}
                     </p>
                   </div>
-                  <p className="font-sans text-base leading-6 tracking-[-0.32px] text-[#2c2c2c]">
+                  <p className="font-sans text-[#2c2c2c] text-base leading-6 tracking-[-0.32px]">
                     {pillar.description}
                   </p>
                 </div>
@@ -119,7 +97,7 @@ export function PillarsSection({
                 {pillar.link && (
                   <Link
                     href={pillar.link}
-                    className="bg-[#e4d4b4] p-2 rounded-[2px] shrink-0 flex items-center justify-center"
+                    className="flex justify-center items-center bg-[#e4d4b4] p-2 rounded-[2px] shrink-0"
                   >
                     <svg
                       width="24"

@@ -1,7 +1,7 @@
 "use client";
 
 import { Container } from "@/components/ui/container";
-import { useEffect, useRef, useState } from "react";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import Image from "next/image";
 
 interface Project {
@@ -21,29 +21,7 @@ export function ProjectsSection({
   description,
   projects,
 }: ProjectsSectionProps) {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
+  const { ref: sectionRef, isVisible } = useIntersectionObserver<HTMLElement>();
 
   return (
     <section
@@ -61,7 +39,7 @@ export function ProjectsSection({
                 {title}
               </h2>
             </div>
-            <p className="flex-1 font-sans text-lg leading-[1.4] tracking-[-0.54px] text-[#2c2c2c]">
+            <p className="flex-1 font-sans text-[#2c2c2c] text-lg leading-[1.4] tracking-[-0.54px]">
               {description}
             </p>
           </div>
@@ -79,7 +57,7 @@ export function ProjectsSection({
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 {/* Image */}
-                <div className="relative aspect-[386/200] w-full">
+                <div className="relative w-full aspect-[386/200]">
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -91,10 +69,10 @@ export function ProjectsSection({
 
                 {/* Content */}
                 <div className="flex flex-col gap-4">
-                  <h3 className="font-sans font-bold text-lg leading-[1.4] tracking-[-0.54px] text-[#121212]">
+                  <h3 className="font-sans font-bold text-[#121212] text-lg leading-[1.4] tracking-[-0.54px]">
                     {project.title}
                   </h3>
-                  <p className="font-sans text-lg leading-[1.4] tracking-[-0.54px] text-[#2c2c2c]">
+                  <p className="font-sans text-[#2c2c2c] text-lg leading-[1.4] tracking-[-0.54px]">
                     {project.description}
                   </p>
                 </div>

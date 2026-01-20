@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { Container } from "@/components/ui/container";
 
 interface FormLabels {
@@ -24,8 +25,7 @@ interface ContactFormSectionProps {
 }
 
 export function ContactFormSection({ labels }: ContactFormSectionProps) {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
+  const { ref: sectionRef, isVisible } = useIntersectionObserver<HTMLElement>();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -33,23 +33,6 @@ export function ContactFormSection({ labels }: ContactFormSectionProps) {
     phone: "",
     message: "",
   });
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
