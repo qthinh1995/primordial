@@ -21,7 +21,7 @@ todos:
     content: "Phase 6: Ecosystem Page - Build ecosystem page with strategic pillars, timeline, and project cards for both languages"
     status: pending
   - id: phase-7-stouffer-hotels-page
-    content: "Phase 7: Stouffer Hotels Page - Build Stouffer Hotels page with introduction, cards, marketing, and carousel sections for both languages"
+    content: "Phase 7: Stouffer Hotels Page - Build Stouffer Hotels page split into hero, introduction, is/is-not cards, marketing, identity carousel, and contact CTA sections for both languages"
     status: pending
   - id: phase-8-hoteliers-without-borders-page
     content: "Phase 8: Hoteliers Without Borders Page - Build page with hero, what is HWB, value sections, and images for both languages"
@@ -212,14 +212,25 @@ Before building sections, you need your global styles set up so the AI doesn't h
 ### Phase 7: Stouffer Hotels Page
 
 8. **Stouffer Hotels page** (`src/app/(stouffer-hotels)/en/stouffer-hotels/page.tsx` and `src/app/(stouffer-hotels)/vi/stouffer-hotels/page.tsx`)
+   en: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?node-id=834-6694&m=dev
+   vi: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?node-id=1231-3392&m=dev
+   mobile: @https://www.figma.com/design/qgT174PzzZHOMcjA0XVasm/Primordial-Website?node-id=1248-6993&m=dev
    - Use Figma API to download all images needed for this page
    - Create page-specific components in `src/app/(stouffer-hotels)/components/`:
-     - `Hero.tsx` - Hero section
-     - `IntroductionSection.tsx` - Introduction section
-     - `WhatIsStoufferSection.tsx` - What is Stouffer section with cards (is/is not)
-     - `MarketingSection.tsx` - Marketing & Partnership section
-     - `IdentitySection.tsx` - Independent Identity section with image carousel
-     - `ContactSection.tsx` - Contact section
+     - `Hero.tsx` - Section A (Hero): hero layout + background imagery; localized headline/subheadline/CTA via props
+     - `IntroductionSection.tsx` - Section B (Introduction): intro copy + supporting image(s); localized heading/body via props
+     - `WhatIsStoufferSection.tsx` - Section C (What is Stouffer): “Is” and “Is Not” cards; items passed as localized arrays via props; ensure mobile stacking matches design
+     - `MarketingSection.tsx` - Section D (Marketing & Partnership): content blocks + iconography/imagery per Figma; localized headings/body via props
+     - `IdentitySection.tsx` - Section E (Independent Identity): image carousel; slide images provided as list from page; include accessible navigation labels
+     - `ContactSection.tsx` - Section F (Contact / CTA): CTA copy + button; button links to correct language route (e.g., `/en/contact` vs `/vi/contact`)
+   - Page composition (wiring):
+     - Import each section component and pass localized props
+     - Centralize per-language content in each page file (strings + arrays)
+   - Cross-cutting requirements (apply to all sections A–F):
+     - Assets: use Figma downloads for all imagery
+     - Responsiveness: verify 1440 and 375 layouts (and intermediate breakpoints)
+     - Animation: if the project uses scroll fade-in, apply consistently to each section
+     - Shadcn UI: use global UI primitives if needed (buttons, inputs, etc.), but keep section components responsible for layout
    - Each language page passes localized content to components
    - Use Shadcn UI to create base components if needed
    - Implement text and image fade in on scroll animations
