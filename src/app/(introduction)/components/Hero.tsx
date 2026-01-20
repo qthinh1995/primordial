@@ -23,7 +23,7 @@ export function Hero({ title, image }: HeroProps) {
       <div className="z-10 relative flex justify-center items-center h-full">
         <Container className="z-10">
           <div className="mx-auto px-4 max-w-[800px] text-center">
-            <h1 className="font-display font-normal text-[72px] text-white max-md:text-[48px] leading-[80px] max-md:leading-[56px] tracking-[-2.88px]">
+            <h1 className="text-[32px] font-display font-normal md:text-[72px] text-white max-md:text-[48px] leading-[80px] max-md:leading-[56px] tracking-[-2.88px]">
               {title}
             </h1>
           </div>

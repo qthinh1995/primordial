@@ -3,10 +3,12 @@
 import { Container } from "@/components/ui/container";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
+import {ReactNode} from "react";
+
 
 interface Function {
   title: string;
-  description: string;
+  description: ReactNode;
 }
 
 interface KeyFunctionsSectionProps {
@@ -51,15 +53,16 @@ export function KeyFunctionsSection({
     <section
       ref={sectionRef}
       className={cn(
-        "py-[120px] transition-opacity duration-1000",
+        "py-[64px] md:py-[120px] transition-opacity duration-1000",
         isVisible ? "opacity-100" : "opacity-0"
       )}
     >
-      <Container>
-        <div className="flex flex-col gap-16 md:flex-row md:items-start">
+      <Container className="px-4 md:px-12">
+        <div className="flex flex-col gap-10 md:gap-16 md:flex-row md:items-start">
           {/* Title */}
           <div className="w-full shrink-0 md:w-[416px]">
-            <h2 className="font-display text-[44px] font-normal leading-[1.4] tracking-[-1.76px] text-black uppercase">
+            <span className="md:hidden block w-full text-red-500 text-center italic font-bold font-sans">PRIMORDIAL COMPANY LIMITED</span>
+            <h2 className="font-display text-center text-[32px] md:text-[44px] font-normal leading-[1.4] tracking-[-1.76px] text-black uppercase">
               {title}
             </h2>
           </div>
@@ -84,7 +87,7 @@ export function KeyFunctionsSection({
                     onClick={() => toggleFunction(index)}
                     className="flex items-center justify-between gap-4 text-left"
                   >
-                    <h3 className="font-display text-xl font-bold leading-7 tracking-[-0.6px] text-foreground flex-1">
+                    <h3 className="font-display text-lg md:text-xl font-bold leading-7 tracking-[-0.6px] text-foreground flex-1">
                       {func.title}
                     </h3>
                     <div className="shrink-0 size-6">
@@ -124,7 +127,7 @@ export function KeyFunctionsSection({
                     </div>
                   </button>
                   {isExpanded && (
-                    <p
+                    <div
                       className={cn(
                         "mt-5 font-sans text-base leading-6 tracking-[-0.32px] text-foreground transition-all duration-500",
                         isVisible
@@ -133,7 +136,7 @@ export function KeyFunctionsSection({
                       )}
                     >
                       {func.description}
-                    </p>
+                    </div>
                   )}
                 </div>
               );

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
+import { ReactNode } from "react";
 
 interface TeamMember {
   name: string;
@@ -13,7 +14,7 @@ interface TeamMember {
 
 interface TeamSectionProps {
   title: string;
-  description: string;
+  description:ReactNode;
   members: TeamMember[];
 }
 
@@ -46,24 +47,24 @@ export function TeamSection({ title, description, members }: TeamSectionProps) {
     <section
       ref={sectionRef}
       className={cn(
-        "py-[120px] transition-opacity duration-1000",
+        "py-[64px] md:py-[120px] transition-opacity duration-1000",
         isVisible ? "opacity-100" : "opacity-0"
       )}
     >
-      <Container>
-        <div className="flex flex-col gap-16">
+      <Container className="px-4 md:px-12">
+        <div className="flex flex-col gap-6 md:gap-16">
           {/* Header */}
-          <div className="flex md:flex-row flex-col md:justify-between md:items-start gap-16">
-            <h2 className="font-display font-normal text-[44px] text-black uppercase leading-[1.4] tracking-[-1.76px] shrink-0">
+          <div className="flex md:flex-row flex-col md:justify-between md:items-start gap-6 md:gap-16">
+            <h2 className="font-display font-normal text-[32px] md:text-[44px] text-black uppercase leading-[1.4] tracking-[-1.76px] shrink-0">
               {title}
             </h2>
-            <p className="max-w-[648px] font-sans text-foreground text-lg leading-[1.4] tracking-[-0.54px]">
+            <div className="max-w-[648px] font-sans text-foreground text-base md:text-lg leading-[1.4] tracking-[-0.54px]">
               {description}
-            </p>
+            </div>
           </div>
 
           {/* Team Cards */}
-          <div className="gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          <div className="gap-4 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
             {members.map((member, index) => (
               <div
                 key={index}
@@ -86,7 +87,7 @@ export function TeamSection({ title, description, members }: TeamSectionProps) {
                   />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <h3 className="font-display font-semibold text-foreground text-xl leading-7 tracking-[-0.6px]">
+                  <h3 className="font-display font-semibold text-foreground text-lg md:text-xl leading-7 tracking-[-0.6px]">
                     {member.name}
                   </h3>
                   <p className="font-display font-normal text-accent text-sm italic uppercase leading-normal">

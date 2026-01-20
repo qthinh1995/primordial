@@ -13,13 +13,13 @@ const storyImage2 = "/introduction-story-2.jpg";
 const storyImage3 = "/introduction-story-3.jpg";
 
 // Vision section images
-const visionImage = "/introduction-vision.jpg";
+const visionImage = "/introduction-vision-1.jpg";
 const visionValueImage = "/introduction-vision-value.jpg";
-const teamMemberImage = "/introduction-team-member-1.jpg";
+const teamMemberImage = "/introduction-vision.jpg";
 
 // Team member images
 const teamImages = {
-  member1: "/introduction-team-member-1.jpg",
+  member1: "/introduction-vision.jpg",
   member2: "/introduction-team-member-2.jpg",
   member3: "/introduction-team-member-3.jpg",
   member4: "/introduction-team-member-4.jpg",
@@ -55,7 +55,15 @@ export default function IntroductionPage() {
           image: teamMemberImage,
         }}
         image={visionImage}
-        valueStatement="Lấy chủ đầu tư làm trung tâm, dẫn dắt bởi vận hành, dựa trên nền tảng tài chính"
+        valueStatement={<>
+        <p>
+          Lấy chủ đầu tư làm trung tâm, 
+        </p>
+        <p>
+          dẫn dắt bởi vận hành, dựa trên nền tảng tài chính.
+        </p>
+
+        </>}
         valueImage={visionValueImage}
       />
       <KeyFunctionsSection
@@ -95,7 +103,15 @@ export default function IntroductionPage() {
       />
       <TeamSection
         title="ĐỘI NGŨ VẬN HÀNH"
-        description="Đội ngũ của chúng tôi là trái tim của Primordial Hospitium. Chúng tôi là một nhóm đa dạng các chuyên gia với niềm đam mê chung về ngành khách sạn và sự xuất sắc. Hãy làm quen với những gương mặt đứng sau cam kết của chúng tôi trong việc cung cấp dịch vụ xuất sắc và những trải nghiệm khó quên."
+        description={
+          <>
+            <p>Đội ngũ của chúng tôi là trái tim của
+               <strong className="font-semibold"> Primordial Hospitium
+              </strong>
+            . Chúng tôi là một nhóm đa dạng các chuyên gia với niềm đam mê chung về ngành khách sạn và sự xuất sắc. Hãy làm quen với những gương mặt đứng sau cam kết của chúng tôi trong việc cung cấp dịch vụ xuất sắc và những trải nghiệm khó quên.
+            </p>
+          </>
+        }
         members={[
           {
             name: "Bao Nguyen",
