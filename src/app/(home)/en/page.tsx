@@ -1,4 +1,4 @@
-import { Hero } from "../components/Hero";
+import { HomeCarouselHero } from "@/components/hero";
 import { StoufferSection } from "../components/StoufferSection";
 import { HWBSection } from "../components/HWBSection";
 import { LumoraSection } from "../components/LumoraSection";
@@ -28,7 +28,7 @@ const hwbImage = "/hwb.jpg";
 export default function HomePage() {
   return (
     <main>
-      <Hero
+      <HomeCarouselHero
         title="Redefining How Hotels Are Designed and Operated"
         description="Where design, operations, and financial performance converge within a unified hospitality ecosystem.
                       Primordial is an independent hospitality advisory and coordination platform,

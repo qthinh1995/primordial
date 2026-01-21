@@ -1,4 +1,4 @@
-import { Hero } from "../../components/Hero";
+import { LumoraHero } from "@/components/hero";
 import { WhatIsLumoraSection } from "../../components/WhatIsLumoraSection";
 import { WhenActivatedSection } from "../../components/WhenActivatedSection";
 import { WhoBuiltForSection } from "../../components/WhoBuiltForSection";
@@ -13,7 +13,7 @@ const lumoraImage4 = "/lumora/lumora-4.jpg";
 export default function LumoraPage() {
   return (
     <main>
-      <Hero
+      <LumoraHero
         tag="Where Hospitality Becomes Memory"
         title="Curated Experiences."
         subtitle="Designed to Be Remembered"

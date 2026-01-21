@@ -1,4 +1,4 @@
-import { Hero } from "../components/Hero";
+import { HomeCarouselHero } from "@/components/hero";
 import { StoufferSection } from "../components/StoufferSection";
 import { HWBSection } from "../components/HWBSection";
 import { LumoraSection } from "../components/LumoraSection";
@@ -28,7 +28,7 @@ const hwbImage = "/hwb.jpg";
 export default function HomePage() {
   return (
     <main>
-      <Hero
+      <HomeCarouselHero
         title="Tái định nghĩa cách khách sạn được thiết kế và vận hành"
         description="Nơi thiết kế, vận hành và hiệu quả tài chính gặp nhau trong một hệ sinh thái thống nhất. Primordial là nền tảng tư vấn và điều phối độc lập trong lĩnh vực khách sạn – nghỉ dưỡng, đồng hành cùng chủ đầu tư từ ý tưởng đến vận hành ổn định và sinh lợi."
         images={heroImages}

@@ -1,4 +1,4 @@
-import { Hero } from "../../components/Hero";
+import { CenteredFixedAnimatedHero } from "@/components/hero";
 import { LogosSection } from "../../components/LogosSection";
 import { TPOModelSection } from "../../components/TPOModelSection";
 import { ImplementTPOSection } from "../../components/ImplementTPOSection";
@@ -23,7 +23,7 @@ const partnerLogos = [
 export default function PartnershipsPage() {
   return (
     <main>
-      <Hero
+      <CenteredFixedAnimatedHero
         title="Partner & Affiliates"
         description={
           <p>

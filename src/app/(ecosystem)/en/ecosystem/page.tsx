@@ -1,4 +1,4 @@
-import { Hero } from "../../components/Hero";
+import { CenteredFixedHero } from "@/components/hero";
 import { PillarsSection } from "../../components/PillarsSection";
 import { TimelineSection } from "../../components/TimelineSection";
 import { ProjectsSection } from "../../components/ProjectsSection";
@@ -23,7 +23,7 @@ const quoteImage = "/ecosystem-quote.jpg";
 export default function EcosystemPage() {
   return (
     <main>
-      <Hero
+      <CenteredFixedHero
         title="Ecosystem"
         description="An ecosystem designed for lasting connection. Three strategic pillars — Stay · People · Experience — connected and orchestrated through a long-term, integrated mindset."
         image={heroImage}

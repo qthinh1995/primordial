@@ -1,4 +1,4 @@
-import { Hero } from "../../components/Hero";
+import { CenteredFixedHero } from "@/components/hero";
 import { StorySection } from "../../components/StorySection";
 import { VisionSection } from "../../components/VisionSection";
 import { KeyFunctionsSection } from "../../components/KeyFunctionsSection";
@@ -28,7 +28,7 @@ const teamImages = {
 export default function IntroductionPage() {
   return (
     <main>
-      <Hero title="VỀ CHÚNG TÔI" image={heroImage} />
+      <CenteredFixedHero title="VỀ CHÚNG TÔI" image={heroImage} />
       <StorySection
         title="KHỞI NGUYÊN - CÂN BẰNG TRỌN VẸN"
         overviewTitle="Giới thiệu chung"
@@ -55,15 +55,12 @@ export default function IntroductionPage() {
           image: teamMemberImage,
         }}
         image={visionImage}
-        valueStatement={<>
-        <p>
-          Lấy chủ đầu tư làm trung tâm, 
-        </p>
-        <p>
-          dẫn dắt bởi vận hành, dựa trên nền tảng tài chính.
-        </p>
-
-        </>}
+        valueStatement={
+          <>
+            <p>Lấy chủ đầu tư làm trung tâm,</p>
+            <p>dẫn dắt bởi vận hành, dựa trên nền tảng tài chính.</p>
+          </>
+        }
         valueImage={visionValueImage}
       />
       <KeyFunctionsSection
@@ -104,13 +101,14 @@ export default function IntroductionPage() {
       <TeamSection
         title="ĐỘI NGŨ VẬN HÀNH"
         description={
-          <>
-            <p>Đội ngũ của chúng tôi là trái tim của
-               <strong className="font-semibold"> Primordial Hospitium
-              </strong>
-            . Chúng tôi là một nhóm đa dạng các chuyên gia với niềm đam mê chung về ngành khách sạn và sự xuất sắc. Hãy làm quen với những gương mặt đứng sau cam kết của chúng tôi trong việc cung cấp dịch vụ xuất sắc và những trải nghiệm khó quên.
-            </p>
-          </>
+          <p>
+            Đội ngũ của chúng tôi là trái tim của{" "}
+            <strong className="font-semibold">Primordial Hospitium</strong>.
+            Chúng tôi là một nhóm đa dạng các chuyên gia với niềm đam mê chung
+            về ngành khách sạn và sự xuất sắc. Hãy làm quen với những gương mặt
+            đứng sau cam kết của chúng tôi trong việc cung cấp dịch vụ xuất sắc
+            và những trải nghiệm khó quên.
+          </p>
         }
         members={[
           {

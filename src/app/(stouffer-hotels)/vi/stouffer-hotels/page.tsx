@@ -1,4 +1,4 @@
-import { Hero } from "../../components/Hero";
+import { FullscreenSplitHero } from "@/components/hero";
 import { IntroductionSection } from "../../components/IntroductionSection";
 import { WhatIsStoufferSection } from "../../components/WhatIsStoufferSection";
 import { MarketingSection } from "../../components/MarketingSection";
@@ -29,7 +29,7 @@ const galleryImages = [
 export default function StoufferHotelsPage() {
   return (
     <main>
-      <Hero
+      <FullscreenSplitHero
         title="STOUFFER HOTELS™ "
         description="Một nền tảng liên kết thương hiệu dành cho các khách sạn và khu nghỉ dưỡng độc lập, giúp gia tăng giá trị thương hiệu và chuẩn mực vận hành trong khi chủ đầu tư vẫn giữ toàn quyền kiểm soát."
         image={heroImage}

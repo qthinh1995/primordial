@@ -1,4 +1,4 @@
-import { Hero } from "../../components/Hero";
+import { CenteredFixedSubtitleHero } from "@/components/hero";
 import { ContactFormSection } from "../../components/ContactFormSection";
 import { OfficesSection } from "../../components/OfficesSection";
 
@@ -9,7 +9,7 @@ const officeImage = "/contact/office-phuquoc.jpg";
 export default function ContactPage() {
   return (
     <main>
-      <Hero
+      <CenteredFixedSubtitleHero
         title="Liên hệ"
         subtitle="Cảm thấy hứng thú với Primordial Hospitality."
         image={heroImage}

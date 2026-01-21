@@ -1,4 +1,4 @@
-import { Hero } from "../../components/Hero";
+import { FullscreenSplitHero } from "@/components/hero";
 import { WhatIsHWBSection } from "../../components/WhatIsHWBSection";
 import { ValueSection } from "../../components/ValueSection";
 
@@ -9,7 +9,7 @@ const valueImage = "/hwb/hwb-value.jpg";
 export default function HoteliersWithoutBordersPage() {
   return (
     <main>
-      <Hero
+      <FullscreenSplitHero
         tagline="Where Hospitality Becomes Memory"
         title="Hospitality Works Best When People Arrive at the Right Time"
         description="Hoteliers Without Borders™ is a flexible hospitality talent network, designed to support projects precisely when full-time hiring is no longer the optimal solution."

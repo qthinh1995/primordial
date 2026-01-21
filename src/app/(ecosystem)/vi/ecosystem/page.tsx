@@ -1,4 +1,4 @@
-import { Hero } from "../../components/Hero";
+import { CenteredFixedHero } from "@/components/hero";
 import { PillarsSection } from "../../components/PillarsSection";
 import { TimelineSection } from "../../components/TimelineSection";
 import { ProjectsSection } from "../../components/ProjectsSection";
@@ -23,7 +23,7 @@ const quoteImage = "/ecosystem-quote.jpg";
 export default function EcosystemPage() {
   return (
     <main>
-      <Hero
+      <CenteredFixedHero
         title="Hệ sinh thái"
         description="Một hệ sinh thái được thiết kế để kết nối bền vững. Ba trụ cột chiến lược — Lưu trú · Con người · Trải nghiệm — được kết nối và điều phối trong một tư duy dài hạn."
         image={heroImage}
