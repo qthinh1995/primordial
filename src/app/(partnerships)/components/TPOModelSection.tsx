@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { Container } from "@/components/ui/container";
+import { AnimatedSection } from "@/components/ui/animated-section";
 
 interface TPOItem {
   title: string;
@@ -63,20 +63,15 @@ export function TPOModelSection({
   items,
 }: TPOModelSectionProps) {
   const [openIndex, setOpenIndex] = useState(0);
-  const { ref: sectionRef, isVisible } = useIntersectionObserver<HTMLElement>();
 
   const toggleItem = (index: number) => {
     setOpenIndex(openIndex === index ? -1 : index);
   };
 
   return (
-    <section ref={sectionRef} className="py-[120px] max-md:py-16">
+    <section className="py-[120px] max-md:py-16">
       <Container>
-        <div
-          className={`flex gap-16 max-lg:flex-col items-start transition-all duration-1000 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-          }`}
-        >
+        <AnimatedSection className="flex gap-16 max-lg:flex-col items-start">
           {/* Left Column - Title and Description */}
           <div className="w-[648px] max-lg:w-full px-16 max-md:px-0 flex-shrink-0">
             <h2 className="font-display font-normal text-[44px] max-md:text-[32px] leading-[1.4] tracking-[-1.76px] max-md:tracking-[-1.28px] text-black mb-6">
@@ -126,7 +121,7 @@ export function TPOModelSection({
               );
             })}
           </div>
-        </div>
+        </AnimatedSection>
       </Container>
     </section>
   );

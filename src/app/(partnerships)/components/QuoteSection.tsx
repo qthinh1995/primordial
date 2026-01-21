@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import { AnimatedSection } from "@/components/ui/animated-section";
 
 interface QuoteSectionProps {
   quote: React.ReactNode;
@@ -9,13 +9,8 @@ interface QuoteSectionProps {
 }
 
 export function QuoteSection({ quote, image }: QuoteSectionProps) {
-  const { ref: sectionRef, isVisible } = useIntersectionObserver<HTMLElement>();
-
   return (
-    <section
-      ref={sectionRef}
-      className="relative w-full h-[512px] max-md:h-auto max-md:min-h-[400px] overflow-hidden flex items-center justify-center"
-    >
+    <section className="relative w-full h-[512px] max-md:h-auto max-md:min-h-[400px] overflow-hidden flex items-center justify-center">
       {/* Background Image */}
       <div className="absolute inset-0 z-[1]">
         <Image
@@ -30,15 +25,11 @@ export function QuoteSection({ quote, image }: QuoteSectionProps) {
       </div>
 
       {/* Quote Content */}
-      <div
-        className={`relative z-[2] px-12 max-md:px-4 py-[120px] max-md:py-16 text-center max-w-[960px] mx-auto transition-all duration-1000 ${
-          isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-        }`}
-      >
+      <AnimatedSection className="relative z-[2] px-12 max-md:px-4 py-[120px] max-md:py-16 text-center max-w-[960px] mx-auto">
         <div className="font-display font-normal text-[32px] max-md:text-[24px] leading-[1.5] text-white">
           {quote}
         </div>
-      </div>
+      </AnimatedSection>
     </section>
   );
 }

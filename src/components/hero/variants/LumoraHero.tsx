@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
 import { UnifiedHero } from "@/components/hero/UnifiedHero";
+import { AnimatedSection } from "@/components/ui/animated-section";
 
 interface LumoraHeroProps {
   tag: string;
@@ -18,13 +17,7 @@ export function LumoraHero({
   subtitle,
   description,
   image,
-}: LumoraHeroProps) {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
+}: Readonly<LumoraHeroProps>) {
   return (
     <UnifiedHero
       sectionClassName="flex h-[1024px] w-full flex-col justify-end overflow-hidden max-md:h-[600px]"
@@ -33,18 +26,17 @@ export function LumoraHero({
       imageAlt={title}
       overlayClassName="bg-linear-to-b from-black/20 via-black/50 to-black"
     >
-      <div
-        className={`relative z-[2] px-12 pb-20 transition-all duration-1000 max-md:px-4 max-md:pb-0 ${
-          isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-        }`}
+      <AnimatedSection
+        trigger="mount"
+        className="z-2 relative px-12 max-md:px-4 pb-20 max-md:pb-0"
       >
         <div className="mx-auto max-w-[1440px]">
-          <div className="flex items-start gap-20 max-md:h-[500px] max-md:flex-col max-md:items-center max-md:justify-center max-md:gap-6">
-            <div className="shrink-0 flex flex-col gap-3 max-md:text-center">
-              <p className="font-sans text-base font-bold uppercase leading-6 tracking-[-0.32px] text-white">
+          <div className="flex max-md:flex-col max-md:justify-center items-start max-md:items-center gap-20 max-md:gap-6 max-md:h-[500px]">
+            <div className="flex flex-col gap-3 max-md:text-center shrink-0">
+              <p className="font-sans font-bold text-white text-base uppercase leading-6 tracking-[-0.32px]">
                 {tag}
               </p>
-              <h1 className="font-display text-[72px] font-normal leading-[80px] tracking-[-2.88px] text-white max-md:text-[32px] max-md:leading-normal max-md:tracking-[-1.28px]">
+              <h1 className="font-display font-normal text-[72px] text-white max-md:text-[32px] leading-[80px] max-md:leading-normal tracking-[-2.88px] max-md:tracking-[-1.28px]">
                 {title}
                 {subtitle ? (
                   <>
@@ -55,14 +47,14 @@ export function LumoraHero({
               </h1>
             </div>
 
-            <div className="flex flex-1 flex-col gap-5 text-white max-md:text-center">
-              <p className="font-sans text-lg leading-[1.4] tracking-[-0.54px] text-[#eaeaea] max-md:text-base max-md:leading-6 max-md:tracking-[-0.32px]">
+            <div className="flex flex-col flex-1 gap-5 text-white max-md:text-center">
+              <p className="font-sans text-[#eaeaea] max-md:text-base text-lg leading-[1.4] max-md:leading-6 tracking-[-0.54px] max-md:tracking-[-0.32px]">
                 {description}
               </p>
             </div>
           </div>
         </div>
-      </div>
+      </AnimatedSection>
     </UnifiedHero>
   );
 }

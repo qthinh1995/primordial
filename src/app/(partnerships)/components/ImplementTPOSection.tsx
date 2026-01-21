@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { Container } from "@/components/ui/container";
+import { AnimatedSection } from "@/components/ui/animated-section";
 
 interface ImplementTPOSectionProps {
   title: string;
@@ -17,19 +17,10 @@ export function ImplementTPOSection({
   image1,
   image2,
 }: ImplementTPOSectionProps) {
-  const { ref: sectionRef, isVisible } = useIntersectionObserver<HTMLElement>();
-
   return (
-    <section
-      ref={sectionRef}
-      className="bg-[var(--yellow-50)] py-[120px] max-md:py-16"
-    >
+    <section className="bg-[var(--yellow-50)] py-[120px] max-md:py-16">
       <Container>
-        <div
-          className={`flex gap-16 max-lg:flex-col items-center transition-all duration-1000 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-          }`}
-        >
+        <AnimatedSection className="flex gap-16 max-lg:flex-col items-center">
           {/* Left Column - Images */}
           <div className="flex-1 relative h-[520px] max-md:h-[400px] w-full">
             <div className="absolute top-0 left-0 w-[480px] max-md:w-[280px] h-[320px] max-md:h-[200px]">
@@ -61,7 +52,7 @@ export function ImplementTPOSection({
               {description}
             </div>
           </div>
-        </div>
+        </AnimatedSection>
       </Container>
     </section>
   );

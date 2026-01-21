@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { Container } from "@/components/ui/container";
+import { AnimatedSection } from "@/components/ui/animated-section";
 
 interface ValueSectionProps {
   title: string;
@@ -11,16 +11,10 @@ interface ValueSectionProps {
 }
 
 export function ValueSection({ title, description, image }: ValueSectionProps) {
-  const { ref: sectionRef, isVisible } = useIntersectionObserver<HTMLElement>();
-
   return (
-    <section ref={sectionRef} className="py-[120px] max-md:py-16">
+    <section className="py-[120px] max-md:py-16">
       <Container>
-        <div
-          className={`flex gap-10 max-lg:flex-col items-center transition-all duration-1000 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-          }`}
-        >
+        <AnimatedSection className="flex gap-10 max-lg:flex-col items-center">
           {/* Left Column - Content */}
           <div className="w-[648px] max-lg:w-full px-16 max-md:px-0 flex-shrink-0">
             <h2 className="font-display font-normal text-[44px] max-md:text-[32px] leading-[1.4] tracking-[-1.76px] max-md:tracking-[-1.28px] text-black mb-6">
@@ -43,7 +37,7 @@ export function ValueSection({ title, description, image }: ValueSectionProps) {
               />
             </div>
           </div>
-        </div>
+        </AnimatedSection>
       </Container>
     </section>
   );

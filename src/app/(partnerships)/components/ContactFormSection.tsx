@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { Container } from "@/components/ui/container";
+import { AnimatedSection } from "@/components/ui/animated-section";
 
 interface FormLabels {
   title: string;
@@ -25,7 +25,6 @@ interface ContactFormSectionProps {
 }
 
 export function ContactFormSection({ labels }: ContactFormSectionProps) {
-  const { ref: sectionRef, isVisible } = useIntersectionObserver<HTMLElement>();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -41,13 +40,9 @@ export function ContactFormSection({ labels }: ContactFormSectionProps) {
   };
 
   return (
-    <section ref={sectionRef} className="py-[120px] max-md:py-16">
+    <section className="py-[120px] max-md:py-16">
       <Container>
-        <div
-          className={`flex flex-col items-center gap-10 transition-all duration-1000 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-          }`}
-        >
+        <AnimatedSection className="flex flex-col items-center gap-10">
           {/* Header */}
           <div className="text-center max-w-[960px]">
             <h2 className="font-display font-normal text-[44px] max-md:text-[32px] leading-[1.4] tracking-[-1.76px] max-md:tracking-[-1.28px] text-black mb-6">
@@ -181,7 +176,7 @@ export function ContactFormSection({ labels }: ContactFormSectionProps) {
               {labels.submitButton}
             </button>
           </form>
-        </div>
+        </AnimatedSection>
       </Container>
     </section>
   );
