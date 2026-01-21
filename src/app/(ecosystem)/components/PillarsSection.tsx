@@ -4,11 +4,12 @@ import { Container } from "@/components/ui/container";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import Image from "next/image";
 import Link from "next/link";
+import { ReactNode } from "react";
 
 interface Pillar {
   title: string;
   tag: string;
-  description: string;
+  description: ReactNode;
   logoImage: string;
   logoType: "Stouffer Hotels" | "Hoteliers Without Borders" | "Lumora";
   link?: string;
@@ -17,7 +18,7 @@ interface Pillar {
 interface PillarsSectionProps {
   subtitle: string;
   title: string;
-  description: string;
+  description: ReactNode;
   pillars: Pillar[];
 }
 
@@ -48,9 +49,9 @@ export function PillarsSection({
                 {title}
               </h2>
             </div>
-            <p className="font-sans text-[#2c2c2c] text-lg leading-[1.4] tracking-[-0.54px]">
+            <div className="font-sans text-[#2c2c2c] text-lg leading-[1.4] tracking-[-0.54px]">
               {description}
-            </p>
+            </div>
           </div>
 
           {/* Right Column - Pillars */}
@@ -88,9 +89,9 @@ export function PillarsSection({
                       {pillar.tag}
                     </p>
                   </div>
-                  <p className="font-sans text-[#2c2c2c] text-base leading-6 tracking-[-0.32px]">
+                  <div className="font-sans text-[#2c2c2c] text-base leading-6 tracking-[-0.32px]">
                     {pillar.description}
-                  </p>
+                  </div>
                 </div>
 
                 {/* Arrow Button */}

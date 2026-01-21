@@ -70,7 +70,7 @@ export function WhatIsHWBSection({
           </div>
 
           {/* Image */}
-          <div className="relative w-full aspect-[423/141] md:aspect-[1344/448]">
+          <div className="relative w-full aspect-[423/141] md:aspect-[1344/398]">
             <Image
               src={image}
               alt={title}

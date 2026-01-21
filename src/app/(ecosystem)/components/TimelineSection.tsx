@@ -2,17 +2,18 @@
 
 import { Container } from "@/components/ui/container";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import { ReactNode } from "react";
 
 interface Phase {
   number: string;
   title: string;
   subtitle: string;
-  description: string;
+  description: ReactNode;
 }
 
 interface TimelineSectionProps {
   title: string;
-  description: string;
+  description: ReactNode;
   phases: Phase[];
 }
 
@@ -37,9 +38,9 @@ export function TimelineSection({
             <h2 className="font-display font-normal text-[44px] text-black leading-[1.4] tracking-[-1.76px]">
               {title}
             </h2>
-            <p className="font-sans text-lg leading-[1.4] tracking-[-0.54px] text-[#2c2c2c]">
+            <div className="font-sans text-lg leading-[1.4] tracking-[-0.54px] text-[#2c2c2c]">
               {description}
-            </p>
+            </div>
           </div>
 
           {/* Timeline */}

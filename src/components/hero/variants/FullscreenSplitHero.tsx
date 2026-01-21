@@ -26,7 +26,7 @@ export function FullscreenSplitHero({
     >
       <div className="relative z-10 mx-auto flex min-h-screen flex-col justify-center px-4 py-10 md:justify-end md:px-20 md:pb-20 md:pt-[120px] max-w-[1440px]">
         <div className="flex w-full flex-col items-center gap-6 md:flex-row md:items-start md:gap-20">
-          <div className="flex w-full flex-col gap-2 md:flex-1 md:gap-3">
+          <div className="flex w-full flex-col gap-2 md:gap-3">
             {tagline ? (
               <p className="hidden font-sans text-base font-bold uppercase leading-6 tracking-[-0.32px] text-white md:block">
                 {tagline}
@@ -37,8 +37,8 @@ export function FullscreenSplitHero({
             </h1>
           </div>
 
-          <div className="flex w-full flex-col gap-5 md:flex-1">
-            <p className="font-sans text-base font-normal leading-6 tracking-[-0.32px] text-center text-[#eaeaea] md:text-left md:text-lg md:leading-[1.4] md:tracking-[-0.54px] md:text-white">
+          <div className="flex w-full flex-col gap-5 md:flex-1 ">
+            <p className="font-sans text-base font-normal leading-6 tracking-[-0.32px] text-center text-[#eaeaea] md:w-[281px] md:text-left md:text-lg md:leading-[1.4] md:tracking-[-0.54px] md:text-white">
               {description}
             </p>
             {subdescription ? (

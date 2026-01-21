@@ -54,7 +54,7 @@ export function BrandValuesGallerySection({
 
   return (
     <section className="bg-white py-16 md:py-[120px]">
-      <div className="max-w-[1344px] mx-auto px-4 md:px-12">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-12">
         <div className="flex flex-col gap-10 md:gap-16">
           {/* Header */}
           <div className="flex flex-col gap-6 md:flex-row md:gap-6 md:items-end md:justify-between">

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import { ReactNode } from "react";
 
 interface TextBlock {
   title: string;
@@ -11,7 +12,7 @@ interface TextBlock {
 
 interface WhoBuiltForSectionProps {
   title: string;
-  description: string;
+  description: ReactNode;
   suitedFor: TextBlock;
   coreValue: TextBlock;
   conclusion: {
@@ -51,9 +52,9 @@ export function WhoBuiltForSection({
             <h2 className="font-display font-normal text-[44px] max-md:text-[32px] text-black leading-[1.4] max-md:leading-normal tracking-[-1.76px] max-md:tracking-[-1.28px] uppercase max-md:text-center">
               {title}
             </h2>
-            <p className="font-sans text-lg max-md:text-base leading-[1.4] max-md:leading-6 tracking-[-0.54px] max-md:tracking-[-0.32px] text-[#2c2c2c] max-w-[763px]">
+            <div className="font-sans text-lg max-md:text-base leading-[1.4] max-md:leading-6 tracking-[-0.54px] max-md:tracking-[-0.32px] text-[#2c2c2c] max-w-[763px]">
               {description}
-            </p>
+            </div>
           </div>
 
           {/* Content */}

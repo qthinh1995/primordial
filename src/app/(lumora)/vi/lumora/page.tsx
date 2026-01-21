@@ -18,6 +18,7 @@ export default function LumoraPage() {
         title="Curated Experiences."
         subtitle="Designed to Be Remembered"
         description="Lumora IX.IX Agenda™ là nền tảng kiến tạo trải nghiệm và văn hoá, giúp không gian khách sạn vượt ra khỏi chức năng lưu trú để trở thành nơi cảm xúc được ghi nhớ và quay lại."
+        subdescription="Không tổ chức đại trà. Không chạy theo xu hướng ngắn hạn. Chỉ tập trung vào những khoảnh khắc có giá trị lâu dài."
         image={heroImage}
       />
       <WhatIsLumoraSection
@@ -25,12 +26,17 @@ export default function LumoraPage() {
         paragraphs={[
           {
             text: "A Curated Experiential Platform Lumora IX.IX Agenda™ được xây dựng như một nền tảng trải nghiệm được tuyển chọn, chuyên thiết kế các chương trình văn hoá, nghệ thuật và ẩm thực phù hợp với bối cảnh, không gian và định vị của từng dự án khách sạn.",
+            boldPhrases: ["nền tảng trải nghiệm được tuyển chọn"],
           },
           {
             text: "Lumora không hoạt động như một đơn vị tổ chức sự kiện thông thường. Chúng tôi không bán gói chương trình cố định và không áp đặt một ngôn ngữ trải nghiệm chung cho mọi dự án.",
           },
           {
             text: "Thay vào đó, Lumora làm việc chặt chẽ với Primordial để đảm bảo mỗi trải nghiệm được triển khai đều phục vụ cho bản sắc thương hiệu, trải nghiệm của khách và giá trị thương mại dài hạn.",
+            boldPhrases: [
+              "bản sắc thương hiệu, trải nghiệm của khách",
+              "giá trị thương mại dài hạn",
+            ],
           },
           {
             text: "Experience không phải là hoạt động thêm vào - mà là phần được thiết kế có chủ đích trong hệ sinh thái hospitality.",
@@ -70,7 +76,13 @@ export default function LumoraPage() {
       />
       <WhoBuiltForSection
         title="DÀNH CHO AI & GIÁ TRỊ MANG LẠI"
-        description="Lumora IX.IX Agenda™ được thiết kế cho những dự án coi trải nghiệm là một phần của chiến lược, không phải công cụ marketing ngắn hạn."
+        description={
+          <p>
+            Lumora IX.IX Agenda™ được thiết kế cho những dự án coi{" "}
+            <strong>trải nghiệm là một phần của chiến lược</strong>, không phải
+            công cụ marketing ngắn hạn.
+          </p>
+        }
         suitedFor={{
           title: "Phù hợp với",
           items: [

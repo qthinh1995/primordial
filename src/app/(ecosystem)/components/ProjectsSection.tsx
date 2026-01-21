@@ -3,16 +3,17 @@
 import { Container } from "@/components/ui/container";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import Image from "next/image";
+import { ReactNode } from "react";
 
 interface Project {
   title: string;
-  description: string;
+  description: ReactNode;
   image: string;
 }
 
 interface ProjectsSectionProps {
   title: string;
-  description: string;
+  description: ReactNode;
   projects: Project[];
 }
 
@@ -39,9 +40,9 @@ export function ProjectsSection({
                 {title}
               </h2>
             </div>
-            <p className="flex-1 font-sans text-[#2c2c2c] text-lg leading-[1.4] tracking-[-0.54px]">
+            <div className="flex-1 font-sans text-[#2c2c2c] text-lg leading-[1.4] tracking-[-0.54px]">
               {description}
-            </p>
+            </div>
           </div>
 
           {/* Project Cards */}

@@ -18,6 +18,7 @@ export default function LumoraPage() {
         title="Curated Experiences."
         subtitle="Designed to Be Remembered"
         description="Lumora IX.IX Agenda™ is an experiential and cultural platform that elevates hotel spaces beyond accommodation into places where emotions are remembered - and revisited."
+        subdescription="Not mass-produced. Not driven by short-term trends. Focused only on moments with lasting value."
         image={heroImage}
       />
       <WhatIsLumoraSection
@@ -25,6 +26,7 @@ export default function LumoraPage() {
         paragraphs={[
           {
             text: "A Curated Experiential Platform Lumora IX.IX Agenda™ is built as a curated experiential platform, dedicated to designing cultural, artistic, and culinary programs that are tailored to the context, space, and positioning of each hotel project.",
+            boldPhrases: ["curated experiential platform"],
           },
           {
             text: "Lumora does not operate as a conventional event agency. We do not sell fixed program packages, nor do we impose a uniform experiential language across different projects.",

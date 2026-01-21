@@ -35,6 +35,7 @@ export default function ContactPage() {
       <OfficesSection
         title="OFFICES"
         description="Our head office is located in Adelaide, Australia. We also operate a branch office in Phu Quoc, Vietnam. Both offices are staffed with hospitality professionals ready to support your needs."
+        classWidth="font-sans font-normal text-[#2c2c2c] text-base leading-6 md:text-xl md:leading-7 tracking-[-0.32px] md:tracking-[-0.6px] md:w-[834px]"
         office={{
           title: "Phu Quoc Island",
           emails: [

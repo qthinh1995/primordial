@@ -26,11 +26,15 @@ export default function PartnershipsPage() {
       <CenteredFixedAnimatedHero
         title="Partner & Affiliates"
         description={
-          <p>
-            Primordial Hospitium collaborates with independent hotel owners,
-            creative partners, and investors through a flexible Third-Party
-            Operator (TPO) model.
-          </p>
+          <>
+            <p>
+              Primordial Hospitium collaborates with independent hotel owners,
+            </p>
+            <p>
+              creative partners, and investors through a flexible Third-Party
+              Operator (TPO) model.
+            </p>
+          </>
         }
         image={heroImage}
       />
@@ -151,6 +155,7 @@ export default function PartnershipsPage() {
             </p>
           </>
         }
+        classWidth="font-display font-normal text-[32px] max-md:text-[24px] leading-[1.5] text-white lg:w-[960px] md:mx-auto"
         image={quoteImage}
       />
       <ContactFormSection

@@ -160,6 +160,7 @@ export default function PartnershipsPage() {
             </p>
           </>
         }
+        classWidth="font-display font-normal text-[32px] max-md:text-[24px] leading-[1.5] text-white lg:w-[1200px] md:mx-auto"
         image={quoteImage}
       />
       <ContactFormSection

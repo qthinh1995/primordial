@@ -25,19 +25,48 @@ export default function EcosystemPage() {
     <main>
       <CenteredFixedHero
         title="Hệ sinh thái"
-        description="Một hệ sinh thái được thiết kế để kết nối bền vững. Ba trụ cột chiến lược — Lưu trú · Con người · Trải nghiệm — được kết nối và điều phối trong một tư duy dài hạn."
+        description={
+          <p>
+            Một hệ sinh thái được thiết kế để kết nối bền vững. Ba trụ cột chiến
+            lược —{" "}
+            <strong className="font-bold text-white">
+              Lưu trú · Con người · Trải nghiệm{" "}
+            </strong>
+            — được kết nối và điều phối trong một tư duy dài hạn.
+          </p>
+        }
         image={heroImage}
       />
       <PillarsSection
         subtitle="THƯƠNG HIỆU PHỤ"
         title="BA TRỤ CỘT CHIẾN LƯỢC"
-        description="Lưu trú - Con người - Trải nghiệm. Hệ sinh thái Primordial được triển khai thông qua ba trụ cột, mỗi trụ cột giải quyết một bài toán cốt lõi trong vòng đời của một dự án."
+        description={
+          <>
+            <p className="italic">Lưu trú - Con người - Trải nghiệm.</p>
+            <p>
+              Hệ sinh thái Primordial được triển khai thông qua ba trụ cột, mỗi
+              trụ cột giải quyết một bài toán cốt lõi trong vòng đời của một dự
+              án.
+            </p>
+          </>
+        }
         pillars={[
           {
             title: "Stouffer Hotels™",
             tag: "STAY - LƯU TRÚ",
-            description:
-              "Stouffer Hotels™ là nền tảng soft-brand affiliation dành cho khách sạn và khu nghỉ dưỡng độc lập. Nền tảng này hỗ trợ định vị thương hiệu, cấu trúc vận hành và uy tín thị trường - trong khi chủ đầu tư vẫn giữ toàn quyền sở hữu, pháp lý và quyết định kinh doanh. Stouffer tập trung tạo kỷ luật vận hành và sự nhất quán, mà không làm mất đi bản sắc riêng của từng tài sản.",
+            description: (
+              <p>
+                Stouffer Hotels™ là nền tảng{" "}
+                <strong>soft-brand affiliation</strong> dành cho khách sạn và
+                khu nghỉ dưỡng độc lập. Nền tảng này hỗ trợ định vị thương hiệu,
+                cấu trúc vận hành và uy tín thị trường - trong khi chủ đầu tư
+                vẫn giữ toàn quyền sở hữu, pháp lý và quyết định kinh doanh.
+                Stouffer tập trung tạo{" "}
+                <strong>kỷ luật vận hành và sự nhất quán</strong> , mà không làm
+                mất đi bản sắc riêng của từng tài sản.
+              </p>
+            ),
+
             logoImage: stoufferLogo,
             logoType: "Stouffer Hotels",
             link: "/vi/stouffer-hotels",
@@ -45,8 +74,17 @@ export default function EcosystemPage() {
           {
             title: "Hoteliers Without Borders™",
             tag: "WORK - CON NGƯỜI",
-            description:
-              "Hoteliers Without Borders™ là nền tảng điều phối nhân sự hospitality linh hoạt, kết nối khách sạn với các chuyên gia giàu kinh nghiệm cho nhu cầu theo mùa hoặc theo dự án. Nền tảng này giúp khách sạn tiếp cận đúng người, đúng thời điểm, giảm áp lực payroll dài hạn và tăng khả năng thích ứng trong các giai đoạn cao điểm hoặc chuyển đổi.",
+            description: (
+              <p>
+                Hoteliers Without Borders™ là nền tảng điều phối{" "}
+                <strong>nhân sự hospitality linh hoạt</strong> , kết nối khách
+                sạn với các chuyên gia giàu kinh nghiệm cho nhu cầu theo mùa
+                hoặc theo dự án. Nền tảng này giúp khách sạn tiếp cận đúng
+                người, đúng thời điểm, giảm áp lực payroll dài hạn và tăng khả
+                năng thích ứng trong các giai đoạn cao điểm hoặc chuyển đổi.
+              </p>
+            ),
+
             logoImage: hwbLogo,
             logoType: "Hoteliers Without Borders",
             link: "/vi/hoteliers-without-borders",
@@ -64,7 +102,14 @@ export default function EcosystemPage() {
       />
       <TimelineSection
         title="MỘT HỆ SINH THÁI, ĐƯỢC SỬ DỤNG THEO TỪNG GIAI ĐOẠN."
-        description="Không phải mọi dự án đều cần triển khai toàn bộ hệ sinh thái cùng lúc. Primordial thiết kế hệ sinh thái để có thể kích hoạt linh hoạt, phù hợp với từng giai đoạn phát triển và nhu cầu thực tế của dự án."
+        description={
+          <p>
+            Không phải mọi dự án đều cần triển khai toàn bộ hệ sinh thái cùng
+            lúc. Primordial thiết kế hệ sinh thái để có thể{" "}
+            <strong>kích hoạt linh hoạt</strong> , phù hợp với từng giai đoạn
+            phát triển và nhu cầu thực tế của dự án.
+          </p>
+        }
         phases={[
           {
             number: "Giai đoạn 1",
@@ -91,7 +136,17 @@ export default function EcosystemPage() {
       />
       <ProjectsSection
         title="ĐƯỢC THIẾT KẾ CHO NHỮNG DỰ ÁN CẦN TƯ DUY DÀI HẠN"
-        description="Hệ sinh thái Primordial không được xây dựng cho tất cả mọi dự án. Nó được thiết kế cho những chủ đầu tư và tài sản cần cấu trúc rõ ràng, nhưng không muốn bị ràng buộc bởi mô hình cứng."
+        description={
+          <>
+            <p>
+              Hệ sinh thái Primordial không được xây dựng cho tất cả mọi dự án.
+            </p>
+            <p>
+              Nó được thiết kế cho những chủ đầu tư và tài sản cần cấu trúc rõ
+              ràng, nhưng không muốn bị ràng buộc bởi mô hình cứng.
+            </p>
+          </>
+        }
         projects={[
           {
             title: "Dành cho chủ khách sạn độc lập",

@@ -35,6 +35,7 @@ export default function ContactPage() {
       <OfficesSection
         title="Chi Nhánh"
         description="Văn phòng chính của chúng tôi nằm ở Adelaide, Úc. Chúng tôi cũng có một văn phòng chi nhánh tại Phú Quốc, Việt Nam. Cả hai văn phòng đều có đội ngũ chuyên gia trong ngành khách sạn sẵn sàng hỗ trợ bạn."
+        classWidth="font-sans font-normal text-[#2c2c2c] text-base leading-6 md:text-xl md:leading-7 tracking-[-0.32px] md:tracking-[-0.6px] md:w-[1060px] md:mx-auto"
         office={{
           title: "Chi nhánh Phú Quốc",
           emails: [

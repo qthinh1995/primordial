@@ -10,6 +10,7 @@ interface WhatIsLumoraSectionProps {
     text: string;
     isBold?: boolean;
     isHighlight?: boolean;
+    boldPhrases?: string[];
   }[];
   images: {
     src: string;
@@ -23,6 +24,30 @@ export function WhatIsLumoraSection({
   images,
 }: WhatIsLumoraSectionProps) {
   const { ref: sectionRef, isVisible } = useIntersectionObserver<HTMLElement>();
+
+  const renderBoldPhrases = (text: string, boldPhrases: string[] = []) => {
+    if (!boldPhrases || boldPhrases.length === 0) return text;
+
+    const pattern = new RegExp(
+      `(${boldPhrases
+        .map((p) => p.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+        .join("|")})`,
+      "g"
+    );
+
+    const parts = text.split(pattern);
+
+    return parts.map((part, index) => {
+      if (boldPhrases.includes(part)) {
+        return (
+          <span key={index} className="font-bold">
+            {part}
+          </span>
+        );
+      }
+      return <span key={index}>{part}</span>;
+    });
+  };
 
   return (
     <section
@@ -57,11 +82,17 @@ export function WhatIsLumoraSection({
               {paragraphs.map((paragraph, index) => (
                 <p
                   key={index}
-                  className={`${index !== paragraphs.length - 1 ? "mb-7 max-md:mb-4" : ""} ${
-                    paragraph.isBold ? "font-bold" : ""
-                  } ${paragraph.isHighlight ? "italic text-[#d21c27]" : ""}`}
+                  className={`${
+                    index !== paragraphs.length - 1 ? "mb-7 max-md:mb-4" : ""
+                  } ${paragraph.isBold ? "font-bold" : ""} ${
+                    paragraph.isHighlight ? "italic text-[#d21c27]" : ""
+                  }`}
                 >
-                  {paragraph.text}
+                  {/*renderBoldPhrases */}
+                  {renderBoldPhrases(
+                    paragraph.text,
+                    paragraph.boldPhrases || []
+                  )}
                 </p>
               ))}
             </div>

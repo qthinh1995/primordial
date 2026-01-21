@@ -8,6 +8,7 @@ interface LumoraHeroProps {
   title: string;
   subtitle?: string;
   description: string;
+  subdescription: string;
   image: string;
 }
 
@@ -16,12 +17,13 @@ export function LumoraHero({
   title,
   subtitle,
   description,
+  subdescription,
   image,
 }: Readonly<LumoraHeroProps>) {
   return (
     <UnifiedHero
-      sectionClassName="flex h-[1024px] w-full flex-col justify-end overflow-hidden max-md:h-[600px]"
-      backgroundClassName="bottom-[-300px] max-md:bottom-0 z-[1]"
+      sectionClassName="flex min-h-screen w-full flex-col justify-end overflow-hidden max-md:h-[600px]"
+      backgroundClassName="bottom-[-30px] max-md:bottom-0 z-[1]"
       image={image}
       imageAlt={title}
       overlayClassName="bg-linear-to-b from-black/20 via-black/50 to-black"
@@ -51,6 +53,7 @@ export function LumoraHero({
               <p className="font-sans text-[#eaeaea] max-md:text-base text-lg leading-[1.4] max-md:leading-6 tracking-[-0.54px] max-md:tracking-[-0.32px]">
                 {description}
               </p>
+              <p className="font-sans text-sm ">{subdescription}</p>
             </div>
           </div>
         </div>

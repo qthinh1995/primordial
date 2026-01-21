@@ -15,25 +15,25 @@ interface OfficesSectionProps {
   title: string;
   description: string;
   office: OfficeInfo;
+  classWidth: string;
 }
 
 export function OfficesSection({
   title,
   description,
   office,
+  classWidth,
 }: OfficesSectionProps) {
   return (
     <section className="bg-white px-4 md:px-0 py-16 md:pt-20 w-full">
       <div className="max-w-[1344px] mx-auto">
         <div className="flex flex-col gap-12">
           {/* Header */}
-          <div className="flex flex-col gap-6 items-center text-center max-w-[906px] mx-auto px-0 md:px-9">
+          <div className="flex flex-col gap-6 items-center text-center mx-auto px-0 md:px-9">
             <h2 className="font-display font-normal text-black text-[32px] leading-normal md:text-[44px] md:leading-[48px] tracking-[-1.28px] md:tracking-[-1.76px] uppercase">
               {title}
             </h2>
-            <p className="font-sans font-normal text-[#2c2c2c] text-base leading-6 md:text-xl md:leading-7 tracking-[-0.32px] md:tracking-[-0.6px]">
-              {description}
-            </p>
+            <p className={classWidth}>{description}</p>
           </div>
 
           {/* Office Card */}

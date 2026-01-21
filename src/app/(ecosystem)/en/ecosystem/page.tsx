@@ -25,7 +25,22 @@ export default function EcosystemPage() {
     <main>
       <CenteredFixedHero
         title="Ecosystem"
-        description="An ecosystem designed for lasting connection. Three strategic pillars — Stay · People · Experience — connected and orchestrated through a long-term, integrated mindset."
+        description={
+          <>
+            <p>
+              An ecosystem designed for lasting connection. Three strategic
+              pillars—
+              <strong className="font-bold text-white">
+                Stay · People · Experience
+              </strong>
+              —
+            </p>
+            <p>
+              connected and orchestrated through a long-term, integrated
+              mindset.
+            </p>
+          </>
+        }
         image={heroImage}
       />
       <PillarsSection
