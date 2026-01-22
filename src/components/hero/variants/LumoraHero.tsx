@@ -35,7 +35,7 @@ export function LumoraHero({
         <div className="mx-auto max-w-[1440px]">
           <div className="flex max-md:flex-col max-md:justify-center items-start max-md:items-center gap-20 max-md:gap-6 max-md:h-[500px]">
             <div className="flex flex-col gap-3 max-md:text-center shrink-0">
-              <p className="font-sans font-bold text-white text-base uppercase leading-6 tracking-[-0.32px]">
+              <p className="font-sans font-bold text-white text-base uppercase leading-6 tracking-[-0.32px] hidden md:block">
                 {tag}
               </p>
               <h1 className="font-display font-normal text-[72px] text-white max-md:text-[32px] leading-[80px] max-md:leading-normal tracking-[-2.88px] max-md:tracking-[-1.28px]">
@@ -53,7 +53,9 @@ export function LumoraHero({
               <p className="font-sans text-[#eaeaea] max-md:text-base text-lg leading-[1.4] max-md:leading-6 tracking-[-0.54px] max-md:tracking-[-0.32px]">
                 {description}
               </p>
-              <p className="font-sans text-sm ">{subdescription}</p>
+              <p className="font-sans text-sm hidden md:block ">
+                {subdescription}
+              </p>
             </div>
           </div>
         </div>

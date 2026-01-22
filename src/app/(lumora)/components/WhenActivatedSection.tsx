@@ -32,7 +32,7 @@ export function WhenActivatedSection({
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
-      <Container>
+      <Container className="px-4 md:px-12">
         <div className="flex flex-col gap-16 max-md:gap-10">
           {/* Header */}
           <div className="flex flex-col gap-6 items-center text-center max-w-[960px] mx-auto">

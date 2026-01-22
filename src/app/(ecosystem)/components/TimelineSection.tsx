@@ -27,7 +27,7 @@ export function TimelineSection({
   return (
     <section
       ref={sectionRef}
-      className={`bg-[#f9f6ef] py-[120px] transition-opacity duration-1000 ${
+      className={`bg-[#f9f6ef] py-[120px] transition-opacity duration-1000 hidden md:block ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >

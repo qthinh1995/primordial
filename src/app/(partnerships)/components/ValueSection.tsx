@@ -12,8 +12,8 @@ interface ValueSectionProps {
 
 export function ValueSection({ title, description, image }: ValueSectionProps) {
   return (
-    <section className="py-[120px] max-md:py-16">
-      <Container>
+    <section className="py-[64px] md:py-[120px] max-md:py-16">
+      <Container className="px-4 md:px-12">
         <AnimatedSection className="flex gap-10 max-lg:flex-col items-center">
           {/* Left Column - Content */}
           <div className="w-[648px] max-lg:w-full px-16 max-md:px-0 flex-shrink-0">

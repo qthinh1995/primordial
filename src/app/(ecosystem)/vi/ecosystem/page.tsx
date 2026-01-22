@@ -27,12 +27,14 @@ export default function EcosystemPage() {
         title="Hệ sinh thái"
         description={
           <p>
-            Một hệ sinh thái được thiết kế để kết nối bền vững. Ba trụ cột chiến
-            lược —{" "}
-            <strong className="font-bold text-white">
-              Lưu trú · Con người · Trải nghiệm{" "}
-            </strong>
-            — được kết nối và điều phối trong một tư duy dài hạn.
+            Một hệ sinh thái được thiết kế để kết nối bền vững.
+            <span className="hidden md:inline">
+              Ba trụ cột chiến lược —{" "}
+              <strong className="font-bold text-white">
+                Lưu trú · Con người · Trải nghiệm{" "}
+              </strong>
+              — được kết nối và điều phối trong một tư duy dài hạn.
+            </span>
           </p>
         }
         image={heroImage}
@@ -42,7 +44,9 @@ export default function EcosystemPage() {
         title="BA TRỤ CỘT CHIẾN LƯỢC"
         description={
           <>
-            <p className="italic">Lưu trú - Con người - Trải nghiệm.</p>
+            <p className="italic mb-4 md:mb-0">
+              Lưu trú - Con người - Trải nghiệm.
+            </p>
             <p>
               Hệ sinh thái Primordial được triển khai thông qua ba trụ cột, mỗi
               trụ cột giải quyết một bài toán cốt lõi trong vòng đời của một dự
@@ -57,13 +61,17 @@ export default function EcosystemPage() {
             description: (
               <p>
                 Stouffer Hotels™ là nền tảng{" "}
-                <strong>soft-brand affiliation</strong> dành cho khách sạn và
-                khu nghỉ dưỡng độc lập. Nền tảng này hỗ trợ định vị thương hiệu,
-                cấu trúc vận hành và uy tín thị trường - trong khi chủ đầu tư
-                vẫn giữ toàn quyền sở hữu, pháp lý và quyết định kinh doanh.
-                Stouffer tập trung tạo{" "}
-                <strong>kỷ luật vận hành và sự nhất quán</strong> , mà không làm
-                mất đi bản sắc riêng của từng tài sản.
+                <strong className="hidden md:inline">
+                  soft-brand affiliation
+                </strong>{" "}
+                dành cho khách sạn và khu nghỉ dưỡng độc lập. Nền tảng này hỗ
+                trợ định vị thương hiệu, cấu trúc vận hành và uy tín thị trường
+                - trong khi chủ đầu tư vẫn giữ toàn quyền sở hữu, pháp lý và
+                quyết định kinh doanh. Stouffer tập trung tạo{" "}
+                <strong className="hidden md:inline">
+                  kỷ luật vận hành và sự nhất quán
+                </strong>{" "}
+                , mà không làm mất đi bản sắc riêng của từng tài sản.
               </p>
             ),
 
@@ -77,11 +85,14 @@ export default function EcosystemPage() {
             description: (
               <p>
                 Hoteliers Without Borders™ là nền tảng điều phối{" "}
-                <strong>nhân sự hospitality linh hoạt</strong> , kết nối khách
-                sạn với các chuyên gia giàu kinh nghiệm cho nhu cầu theo mùa
-                hoặc theo dự án. Nền tảng này giúp khách sạn tiếp cận đúng
-                người, đúng thời điểm, giảm áp lực payroll dài hạn và tăng khả
-                năng thích ứng trong các giai đoạn cao điểm hoặc chuyển đổi.
+                <strong className="hidden md:inline">
+                  nhân sự hospitality linh hoạt
+                </strong>{" "}
+                , kết nối khách sạn với các chuyên gia giàu kinh nghiệm cho nhu
+                cầu theo mùa hoặc theo dự án. Nền tảng này giúp khách sạn tiếp
+                cận đúng người, đúng thời điểm, giảm áp lực payroll dài hạn và
+                tăng khả năng thích ứng trong các giai đoạn cao điểm hoặc chuyển
+                đổi.
               </p>
             ),
 
@@ -138,10 +149,10 @@ export default function EcosystemPage() {
         title="ĐƯỢC THIẾT KẾ CHO NHỮNG DỰ ÁN CẦN TƯ DUY DÀI HẠN"
         description={
           <>
-            <p>
+            <p className="inline md:block">
               Hệ sinh thái Primordial không được xây dựng cho tất cả mọi dự án.
             </p>
-            <p>
+            <p className="inline md:block">
               Nó được thiết kế cho những chủ đầu tư và tài sản cần cấu trúc rõ
               ràng, nhưng không muốn bị ràng buộc bởi mô hình cứng.
             </p>

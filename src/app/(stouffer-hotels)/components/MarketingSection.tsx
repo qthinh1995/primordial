@@ -16,10 +16,10 @@ export function MarketingSection({
   image2,
 }: MarketingSectionProps) {
   return (
-    <section className="w-full bg-[#f9f6ef] py-16 px-4 md:py-[120px] md:px-12">
+    <section className="w-full bg-[#f7f2e6] py-16 px-4 md:py-[120px] md:px-12">
       <div className="max-w-[1344px] mx-auto flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
         {/* Left Side - Images (stacked offset layout) */}
-        <div className="relative w-full lg:flex-1 h-[400px] md:h-[520px]">
+        <div className="relative w-full lg:flex-1 h-[400px] md:h-[520px] hidden md:block">
           {/* Top Left Image */}
           <div className="absolute top-0 left-0 w-[65%] md:w-[480px] h-[240px] md:h-[320px]">
             <Image

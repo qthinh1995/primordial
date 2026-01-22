@@ -27,20 +27,23 @@ export function ProjectsSection({
   return (
     <section
       ref={sectionRef}
-      className={`py-[80px] transition-opacity duration-1000 ${
+      className={`pb-[64px] transition-opacity duration-1000 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
-      <Container>
-        <div className="flex flex-col gap-16">
+      <Container className="px-4 md:px-12">
+        <div className="flex flex-col gap-16 md:py-[120px]">
           {/* Header */}
-          <div className="flex md:flex-row flex-col gap-20">
+          <div className="flex md:flex-row flex-col gap-6 md:gap-20">
             <div className="flex-1 max-w-[648px]">
-              <h2 className="font-display font-normal text-[44px] text-black leading-[1.4] tracking-[-1.76px]">
+              <span className="block w-full font-sans font-bold text-center text-base text-red-500 md:hidden py-2">
+                WORK · TALENT PLATFORM
+              </span>
+              <h2 className="font-display font-normal text-[32px] text-center md:text-left md:text-[44px] text-black leading-[1.4] tracking-[-1.76px]">
                 {title}
               </h2>
             </div>
-            <div className="flex-1 font-sans text-[#2c2c2c] text-lg leading-[1.4] tracking-[-0.54px]">
+            <div className="flex-1 font-sans text-[#2c2c2c] text-center text-base md:text-left md:text-lg leading-[1.4] tracking-[-0.54px]">
               {description}
             </div>
           </div>

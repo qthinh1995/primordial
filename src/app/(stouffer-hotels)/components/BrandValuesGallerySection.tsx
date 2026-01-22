@@ -63,7 +63,7 @@ export function BrandValuesGallerySection({
               <h2 className="font-display font-normal text-[32px] md:text-[44px] text-black tracking-[-1.28px] md:tracking-[-1.76px] leading-normal text-center md:text-left uppercase md:normal-case">
                 {title}
               </h2>
-              <div className="font-sans font-normal text-base md:text-lg text-[#2c2c2c] tracking-[-0.32px] md:tracking-[-0.54px] leading-6 md:leading-[1.4] text-center md:text-left">
+              <div className="font-sans font-normal text-base md:text-lg text-[#2c2c2c] tracking-[-0.32px] md:tracking-[-0.54px] leading-6 md:leading-[1.4] md:text-center md:text-left">
                 {description}
               </div>
             </div>

@@ -9,7 +9,7 @@ import { ContactFormSection } from "../../components/ContactFormSection";
 // Images
 const heroImage = "/partnerships/partnerships-hero.jpg";
 const tpoImage1 = "/partnerships/partnerships-hero.jpg";
-const tpoImage2 = "/partnerships/partnerships-tpo-2.jpg";
+const tpoImage2 = "/partnerships/partnerships-tpo-1.jpg";
 const valueImage = "/partnerships/partnerships-value.jpg";
 const quoteImage = "/partnerships/partnerships-quote.jpg";
 

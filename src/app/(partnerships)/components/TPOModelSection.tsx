@@ -69,12 +69,12 @@ export function TPOModelSection({
   };
 
   return (
-    <section className="py-[120px] max-md:py-16">
-      <Container>
+    <section className="py-[64px] md:py-[120px] max-md:py-16">
+      <Container className="px-4 md:px-12">
         <AnimatedSection className="flex gap-16 max-lg:flex-col items-start">
           {/* Left Column - Title and Description */}
           <div className="w-[648px] max-lg:w-full px-16 max-md:px-0 flex-shrink-0">
-            <h2 className="font-display font-normal text-[44px] max-md:text-[32px] leading-[1.4] tracking-[-1.76px] max-md:tracking-[-1.28px] text-black mb-6">
+            <h2 className="font-display font-normal max-md:text-center md:text-[44px] max-md:text-[32px] leading-[1.4] tracking-[-1.76px] max-md:tracking-[-1.28px] text-black mb-6">
               {title}
             </h2>
             <div className="font-sans text-lg max-md:text-base leading-[1.4] tracking-[-0.54px] max-md:tracking-[-0.32px] text-[var(--grey-500)]">

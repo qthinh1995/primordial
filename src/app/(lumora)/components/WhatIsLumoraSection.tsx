@@ -56,7 +56,7 @@ export function WhatIsLumoraSection({
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
-      <Container>
+      <Container className="px-4 md:px-12">
         <div className="flex flex-col gap-16 max-md:gap-10">
           {/* Content Row */}
           <div className="flex max-md:flex-col gap-16 max-md:gap-10">

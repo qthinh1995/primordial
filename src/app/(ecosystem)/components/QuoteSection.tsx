@@ -15,7 +15,7 @@ export function QuoteSection({ quote, image }: QuoteSectionProps) {
   return (
     <section
       ref={sectionRef}
-      className={`relative h-[512px] flex items-center justify-center p-[120px] transition-opacity duration-1000 ${
+      className={`relative h-[512px] flex items-center justify-center p-[120px] transition-opacity duration-1000 hidden md:block ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
@@ -32,7 +32,7 @@ export function QuoteSection({ quote, image }: QuoteSectionProps) {
       </div>
 
       {/* Content */}
-      <Container className="z-10 relative">
+      <Container className="z-10 relative ">
         <p
           className={`mx-auto max-w-[960px] text-center font-display text-[32px] font-normal leading-[1.5] text-white transition-all duration-1000 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"

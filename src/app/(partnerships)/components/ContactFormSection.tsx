@@ -40,8 +40,8 @@ export function ContactFormSection({ labels }: ContactFormSectionProps) {
   };
 
   return (
-    <section className="py-[120px] max-md:py-16">
-      <Container>
+    <section className="py-[64px] md:py-[120px] max-md:py-16">
+      <Container className="px-4 md:px-12">
         <AnimatedSection className="flex flex-col items-center gap-10">
           {/* Header */}
           <div className="text-center max-w-[960px]">

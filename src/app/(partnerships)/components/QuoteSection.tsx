@@ -11,7 +11,7 @@ interface QuoteSectionProps {
 
 export function QuoteSection({ quote, image, classWidth }: QuoteSectionProps) {
   return (
-    <section className="relative w-full h-[512px] max-md:h-auto max-md:min-h-[400px] overflow-hidden flex items-center justify-center">
+    <section className="relative w-full h-[512px] max-md:h-auto max-md:min-h-[400px] overflow-hidden flex items-center justify-center hidden md:block">
       {/* Background Image */}
       <div className="absolute inset-0 z-[1]">
         <Image

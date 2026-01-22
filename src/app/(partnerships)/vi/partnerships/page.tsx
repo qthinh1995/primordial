@@ -9,7 +9,7 @@ import { ContactFormSection } from "../../components/ContactFormSection";
 // Images
 const heroImage = "/partnerships/partnerships-hero.jpg";
 const tpoImage1 = "/partnerships/partnerships-hero.jpg";
-const tpoImage2 = "/partnerships/partnerships-tpo-2.jpg";
+const tpoImage2 = "/partnerships/partnerships-tpo-1.jpg";
 const valueImage = "/partnerships/partnerships-value.jpg";
 const quoteImage = "/partnerships/partnerships-quote.jpg";
 
@@ -32,7 +32,7 @@ export default function PartnershipsPage() {
               tác sáng tạo và nhà đầu tư thông qua mô hình Third-Party Operator
               (TPO) linh hoạt.
             </p>
-            <p className="italic mt-2">
+            <p className="italic mt-2 hidden md:block">
               Đảm bảo tiêu chuẩn cao, mà không cần mở rộng quá mức nguồn lực nội
               bộ.
             </p>
@@ -89,7 +89,9 @@ export default function PartnershipsPage() {
           <>
             <p className="mb-4">
               Primordial triển khai mô hình TPO dựa trên nguyên tắc{" "}
-              <strong>linh hoạt - minh bạch - theo giai đoạn.</strong>
+              <span className="font-normal md:font-bold">
+                linh hoạt - minh bạch - theo giai đoạn.
+              </span>
             </p>
             <p className="mb-4">
               Chúng tôi làm việc cùng dự án tại những điểm giao thoa quan trọng,

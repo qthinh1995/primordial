@@ -33,11 +33,11 @@ export function PillarsSection({
   return (
     <section
       ref={sectionRef}
-      className={`py-[120px] transition-opacity duration-1000 ${
+      className={`py-[64px] md:py-[120px] transition-opacity duration-1000 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
-      <Container>
+      <Container className="px-4 md:px-12">
         <div className="flex md:flex-row flex-col gap-16">
           {/* Left Column - Title */}
           <div className="w-full md:w-[416px] shrink-0">
@@ -45,21 +45,21 @@ export function PillarsSection({
               <p className="font-sans font-bold text-[#d21c27] text-[16px] md:text-left text-center tracking-[-0.32px]">
                 {subtitle}
               </p>
-              <h2 className="font-display font-normal text-[44px] text-black uppercase leading-[1.4] tracking-[-1.76px]">
+              <h2 className="font-display font-normal text-[32px] text-center md:text-left md:text-[44px] text-black uppercase leading-[1.4] tracking-[-1.76px]">
                 {title}
               </h2>
             </div>
-            <div className="font-sans text-[#2c2c2c] text-lg leading-[1.4] tracking-[-0.54px]">
+            <div className="font-sans text-[#2c2c2c] text-base text-center md:text-lg md:text-left leading-[1.4] tracking-[-0.54px]">
               {description}
             </div>
           </div>
 
           {/* Right Column - Pillars */}
-          <div className="flex flex-col flex-1 gap-3">
+          <div className="md:flex md:flex-col grid flex-1 gap-6">
             {pillars.map((pillar, index) => (
               <div
                 key={index}
-                className={`bg-[#f7f2e6] flex gap-6 p-6 transition-all duration-1000 ${
+                className={`bg-[#f7f2e6] w-full h-[428px] md:h-[204px] flex flex-col md:flex-row gap-4 md:gap-6 p-5 md:p-6 transition-all duration-1000 ${
                   isVisible
                     ? "translate-y-0 opacity-100"
                     : "translate-y-4 opacity-0"
@@ -67,7 +67,7 @@ export function PillarsSection({
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 {/* Logo */}
-                <div className="relative flex justify-center items-center bg-white w-[120px] h-[56px] shrink-0">
+                <div className="relative flex justify-center md:my-auto items-center bg-white w-[120px] h-[56px] shrink-0">
                   <div className="relative w-full h-full">
                     <Image
                       src={pillar.logoImage}
@@ -79,26 +79,35 @@ export function PillarsSection({
                   </div>
                 </div>
 
-                {/* Content */}
                 <div className="flex flex-col flex-1 gap-2">
-                  <div className="flex justify-between items-center gap-2">
-                    <h3 className="flex-1 font-sans font-semibold text-[#2c2c2c] text-[20px] leading-[28px] tracking-[-0.6px]">
-                      {pillar.title}
-                    </h3>
-                    <p className="font-sans font-bold text-[#d21c27] text-[14px] text-right leading-[20px] tracking-[-0.28px]">
+                  {/* Tag */}
+                  <div className=" md:flex md:justify-between ">
+                    <p
+                      className="font-sans font-bold text-[#d21c27]
+                      text-[14px] md:text-[14px] md:order-2 md:leading-[2]
+                      tracking-[-0.28px]"
+                    >
                       {pillar.tag}
                     </p>
+
+                    <h3
+                      className="font-sans font-semibold text-[#2c2c2c]
+                      text-xl md:order-1
+                      leading-[1.4] tracking-[-0.6px]"
+                    >
+                      {pillar.title}
+                    </h3>
                   </div>
+
                   <div className="font-sans text-[#2c2c2c] text-base leading-6 tracking-[-0.32px]">
                     {pillar.description}
                   </div>
                 </div>
-
                 {/* Arrow Button */}
                 {pillar.link && (
                   <Link
                     href={pillar.link}
-                    className="flex justify-center items-center bg-[#e4d4b4] p-2 rounded-[2px] shrink-0"
+                    className="absolute top-4 right-4 md:static md:my-auto flex w-[40px] h-[40px] justify-center items-center bg-[#e4d4b4] rounded-[2px] shrink-0"
                   >
                     <svg
                       width="24"

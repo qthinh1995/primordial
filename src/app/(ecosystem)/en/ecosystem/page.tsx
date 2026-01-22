@@ -28,16 +28,20 @@ export default function EcosystemPage() {
         description={
           <>
             <p>
-              An ecosystem designed for lasting connection. Three strategic
-              pillars—
-              <strong className="font-bold text-white">
-                Stay · People · Experience
-              </strong>
-              —
-            </p>
-            <p>
-              connected and orchestrated through a long-term, integrated
-              mindset.
+              An ecosystem designed for lasting connection.
+              <span className="hidden md:inline">
+                {" "}
+                pillars—{" "}
+                <strong className="font-bold text-white">
+                  Stay · People · Experience
+                </strong>{" "}
+                — connected and orchestrated through a long-term, integrated
+                mindset.
+              </span>
+              <span className="hidden md:inline">
+                {" "}
+                Three strategic pillars.
+              </span>
             </p>
           </>
         }

@@ -39,7 +39,7 @@ export function WhoBuiltForSection({
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
-      <Container>
+      <Container className="px-4 md:px-12">
         <div className="flex flex-col gap-16 max-md:gap-6">
           {/* Header */}
           <div
@@ -50,7 +50,10 @@ export function WhoBuiltForSection({
             }`}
           >
             <h2 className="font-display font-normal text-[44px] max-md:text-[32px] text-black leading-[1.4] max-md:leading-normal tracking-[-1.76px] max-md:tracking-[-1.28px] uppercase max-md:text-center">
-              {title}
+              <span className="hidden md:block">{title}</span>
+              <span className="md:hidden">
+                AI LÀ ĐỐI TƯỢNG LUMORA XÂY DỰNG CHO
+              </span>
             </h2>
             <div className="font-sans text-lg max-md:text-base leading-[1.4] max-md:leading-6 tracking-[-0.54px] max-md:tracking-[-0.32px] text-[#2c2c2c] max-w-[763px]">
               {description}
