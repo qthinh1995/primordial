@@ -28,7 +28,7 @@ export function CenteredFixedAnimatedHero({
         trigger="mount"
         className="z-2 relative mx-auto px-12 max-md:px-4 max-w-[800px] text-center"
       >
-        <h1 className="mb-4 font-display font-normal text-[72px] text-white max-md:text-[40px] leading-[80px] max-md:leading-[48px] tracking-[-2.88px] max-md:tracking-[-1.6px]">
+        <h1 className="mb-4 font-display font-normal text-[72px] text-white max-md:text-[32px] leading-[80px] max-md:leading-[48px] tracking-[-2.88px] max-md:tracking-[-1.6px]">
           {title}
         </h1>
         <div className="font-sans text-[#eaeaea] max-md:text-base text-lg leading-[1.4] tracking-[-0.54px] max-md:tracking-[-0.32px]">

@@ -82,19 +82,11 @@ export function PillarsSection({
                 <div className="flex flex-col flex-1 gap-2">
                   {/* Tag */}
                   <div className=" md:flex md:justify-between ">
-                    <p
-                      className="font-sans font-bold text-[#d21c27]
-                      text-[14px] md:text-[14px] md:order-2 md:leading-[2]
-                      tracking-[-0.28px]"
-                    >
+                    <p className="font-sans font-bold text-[#d21c27] text-[14px] md:order-2 md:leading-[2] tracking-[-0.28px]">
                       {pillar.tag}
                     </p>
 
-                    <h3
-                      className="font-sans font-semibold text-[#2c2c2c]
-                      text-xl md:order-1
-                      leading-[1.4] tracking-[-0.6px]"
-                    >
+                    <h3 className="font-sans font-semibold text-[#2c2c2c] text-xl md:order-1 leading-[1.4] tracking-[-0.6px]">
                       {pillar.title}
                     </h3>
                   </div>

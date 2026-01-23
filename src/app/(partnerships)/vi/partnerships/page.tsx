@@ -8,6 +8,7 @@ import { ContactFormSection } from "../../components/ContactFormSection";
 
 // Images
 const heroImage = "/partnerships/partnerships-hero.jpg";
+const heroImage1 = "/partnerships/partnerships-hero-1.jpg";
 const tpoImage1 = "/partnerships/partnerships-hero.jpg";
 const tpoImage2 = "/partnerships/partnerships-tpo-1.jpg";
 const valueImage = "/partnerships/partnerships-value.jpg";

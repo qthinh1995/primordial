@@ -11,7 +11,7 @@ interface QuoteSectionProps {
 
 export function QuoteSection({ quote, image, classWidth }: QuoteSectionProps) {
   return (
-    <section className="relative w-full h-[512px] max-md:h-auto max-md:min-h-[400px] overflow-hidden flex items-center justify-center hidden md:block">
+    <section className="relative w-full h-[512px] max-md:h-auto max-md:min-h-[400px] overflow-hidden hidden md:flex">
       {/* Background Image */}
       <div className="absolute inset-0 z-[1]">
         <Image
@@ -26,7 +26,7 @@ export function QuoteSection({ quote, image, classWidth }: QuoteSectionProps) {
       </div>
 
       {/* Quote Content */}
-      <AnimatedSection className="relative z-[2] w-full max-md:px-4 py-[120px] max-md:py-16 text-center mx-auto">
+      <AnimatedSection className="relative z-[2] w-full max-md:px-4 py-[120px] flex items-center justify-center max-md:py-16 text-center mx-auto">
         <div className={classWidth}>{quote}</div>
       </AnimatedSection>
     </section>
