@@ -57,9 +57,9 @@ export const FOOTER_CONTENT_EN: FooterContent = {
   },
   copyright: "© 2025 All rights reserved by · Primordial Hospitium.",
   socialLinks: [
-    { name: "LinkedIn", href: "#", icon: "/figma/social-linkedin.png" },
-    { name: "YouTube", href: "#", icon: "/figma/social-youtube.png" },
-    { name: "Facebook", href: "#", icon: "/figma/social-facebook.png" },
+    { name: "LinkedIn", href: "#", icon: "/social-linkedin.png" },
+    { name: "YouTube", href: "#", icon: "/social-youtube.png" },
+    { name: "Facebook", href: "#", icon: "/social-facebook.png" },
   ],
 };
 
@@ -106,9 +106,9 @@ export const FOOTER_CONTENT_VI: FooterContent = {
   },
   copyright: "© 2025 Tất cả các quyền được bảo lưu bởi · Primordial Hospitium.",
   socialLinks: [
-    { name: "LinkedIn", href: "#", icon: "/figma/social-linkedin.png" },
-    { name: "YouTube", href: "#", icon: "/figma/social-youtube.png" },
-    { name: "Facebook", href: "#", icon: "/figma/social-facebook.png" },
+    { name: "LinkedIn", href: "#", icon: "/social-linkedin.png" },
+    { name: "YouTube", href: "#", icon: "/social-youtube.png" },
+    { name: "Facebook", href: "#", icon: "/social-facebook.png" },
   ],
 };
 
@@ -148,9 +148,9 @@ export const NAV_CONTENT_EN: NavContent = {
   mobileContactLabel: "Contact us",
   mobileCopyright: "© 2025 Primordial Hospitium · All Rights Reserved.",
   mobileSocialLinks: [
-    { name: "LinkedIn", href: "#", icon: "/figma/menu-linkedin.png" },
-    { name: "YouTube", href: "#", icon: "/figma/menu-youtube.png" },
-    { name: "Facebook", href: "#", icon: "/figma/menu-facebook.png" },
+    { name: "LinkedIn", href: "#", icon: "/menu-linkedin.png" },
+    { name: "YouTube", href: "#", icon: "/menu-youtube.png" },
+    { name: "Facebook", href: "#", icon: "/menu-facebook.png" },
   ],
 };
 
@@ -171,9 +171,9 @@ export const NAV_CONTENT_VI: NavContent = {
   mobileCopyright:
     "© 2025 Primordial Hospitium · Tất cả các quyền được bảo lưu.",
   mobileSocialLinks: [
-    { name: "LinkedIn", href: "#", icon: "/figma/menu-linkedin.png" },
-    { name: "YouTube", href: "#", icon: "/figma/menu-youtube.png" },
-    { name: "Facebook", href: "#", icon: "/figma/menu-facebook.png" },
+    { name: "LinkedIn", href: "#", icon: "/menu-linkedin.png" },
+    { name: "YouTube", href: "#", icon: "/menu-youtube.png" },
+    { name: "Facebook", href: "#", icon: "/menu-facebook.png" },
   ],
 };
 

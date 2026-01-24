@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Container } from "./container";
 import { cn } from "@/lib/utils";
 import type { NavContent } from "@/lib/constants";
+import { LanguageSwitch } from "./language-switch";
+import { useMenuAnimation } from "@/hooks/useMenuAnimation";
 
 interface NavbarProps {
   content: NavContent;
@@ -20,28 +20,15 @@ interface NavbarProps {
 }
 
 export function Navbar({ content, logo, className }: NavbarProps) {
-  const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const isVietnamese = pathname.startsWith("/vi");
+  const { setOpen, shouldRender, isVisible } = useMenuAnimation(pathname);
 
   const logoConfig = logo ?? {
-    src: "/figma/navbar-logo.png",
+    src: "/navbar-logo.png",
     alt: "Primordial Hospitium",
     width: 173,
     height: 40,
   };
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [open]);
 
   const isActive = (href: string) =>
     href === "/en" || href === "/vi"
@@ -51,19 +38,19 @@ export function Navbar({ content, logo, className }: NavbarProps) {
   return (
     <>
       {/* ================= NAVBAR ================= */}
-      <header className={cn("sticky z-50 w-full", className)}>
+      <header className={cn("z-50 sticky w-full", className)}>
         {/* Blur background */}
         <div className="absolute inset-0 bg-black/60 backdrop-blur-md pointer-events-none" />
 
         {/* INNER WRAPPER – KHÔNG Container */}
-        <div className="relative z-10 mx-auto flex h-[80px] w-full max-w-[1440px] items-center justify-between px-4 md:px-12">
+        <div className="z-10 relative flex justify-between items-center mx-auto px-4 md:px-12 w-full max-w-[1440px] h-[80px]">
           {/* LEFT */}
           <div className="flex items-center gap-12 ml-[-20px] md:ml-[-25px]">
             <Link
               href={content.items[0]?.href || "/"}
               className="flex items-center"
             >
-              <Image {...logoConfig} className="h-auto w-auto" priority />
+              <Image {...logoConfig} className="w-auto h-auto" priority />
             </Link>
 
             {/* DESKTOP NAV */}
@@ -93,68 +80,83 @@ export function Navbar({ content, logo, className }: NavbarProps) {
           <div className="hidden lg:flex items-center gap-6">
             <Link
               href={content.contactHref}
-              className="text-white font-semibold"
+              className="font-semibold text-white"
             >
               {content.contactLabel}
             </Link>
 
-            <span className="h-4 w-px bg-white/40" />
+            <span className="bg-white/40 w-px h-4" />
 
-            <Link
-              href={isVietnamese ? "/en" : "/vi"}
-              className="text-white font-semibold"
-            >
-              {isVietnamese ? "EN" : "VN"}
-            </Link>
+            <LanguageSwitch />
           </div>
 
-          {/* MOBILE BUTTON */}
-          <button
-            onClick={() => setOpen(true)}
-            className="lg:hidden flex h-[44px] w-[44px] items-center justify-center text-white"
-            aria-label="Open menu"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24">
-              <path
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                d="M3 6h18M3 12h18M3 18h18"
-              />
-            </svg>
-          </button>
+          {/* MOBILE BUTTONS */}
+          <div className="lg:hidden flex items-center gap-6">
+            <LanguageSwitch />
+
+            <span className="bg-white/40 w-px h-4" />
+
+            <button
+              onClick={() => setOpen(true)}
+              className="flex justify-center items-center w-[44px] h-[44px] text-white"
+              aria-label="Open menu"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  d="M3 6h13.5M3 12h18M3 18h9"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
       </header>
 
       {/* ================= MOBILE MENU ================= */}
-      {open && (
+      {shouldRender && (
         <>
           {/* BACKDROP */}
           <div
-            className="fixed inset-0 z-40 bg-black/60 lg:hidden"
+            className={cn(
+              "lg:hidden z-40 fixed inset-0 bg-black/60 transition-opacity duration-300",
+              isVisible ? "opacity-100" : "opacity-0"
+            )}
             onClick={() => setOpen(false)}
           />
 
           {/* PANEL */}
-          <aside className="fixed right-0 top-0 z-50 h-full w-[320px] bg-[#121212]/95 animate-in slide-in-from-right duration-300">
+          <aside
+            className={cn(
+              "top-0 right-0 z-50 fixed bg-[#121212]/95 w-[320px] h-full transition-transform duration-300 ease-out",
+              isVisible ? "translate-x-0" : "translate-x-full"
+            )}
+          >
             {/* HEADER */}
-            <div className="h-[88px] flex items-center justify-between px-6">
+            <div className="flex justify-between items-center px-6 h-[88px]">
               <Image
                 {...logoConfig}
-                className="h-[52px] w-auto object-contain"
+                className="w-auto h-[52px] object-contain"
               />
-              <button onClick={() => setOpen(false)} aria-label="Close menu">
-                <Image
-                  src="/figma/menu-close.png"
-                  alt="Close"
-                  width={24}
-                  height={24}
-                />
+              <button
+                onClick={() => setOpen(false)}
+                className="flex justify-center items-center w-[44px] h-[44px] text-white"
+                aria-label="Close menu"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                  <path
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    d="M18 6L6 18M6 6l12 12"
+                  />
+                </svg>
               </button>
             </div>
 
             {/* NAV */}
-            <nav className="px-6 pt-6 flex flex-col gap-6">
+            <nav className="flex flex-col gap-6 px-6 pt-6">
               {content.items.map((item, i) => (
                 <Link
                   key={i}
@@ -169,19 +171,19 @@ export function Navbar({ content, logo, className }: NavbarProps) {
                 </Link>
               ))}
 
-              <div className="h-px bg-white/20 my-6" />
+              <div className="bg-white/20 my-6 h-px" />
 
               <Link
                 href={content.contactHref}
                 onClick={() => setOpen(false)}
-                className="text-white font-semibold"
+                className="font-semibold text-white"
               >
                 {content.mobileContactLabel}
               </Link>
             </nav>
 
             {/* FOOTER */}
-            <div className="mt-auto px-6 pb-6 space-y-4">
+            <div className="space-y-4 mt-auto px-6 pb-6">
               <div className="flex gap-6">
                 {content.mobileSocialLinks.map((s, i) => (
                   <a key={i} href={s.href} target="_blank" rel="noreferrer">
@@ -190,7 +192,7 @@ export function Navbar({ content, logo, className }: NavbarProps) {
                 ))}
               </div>
 
-              <p className="text-sm text-white/80">{content.mobileCopyright}</p>
+              <p className="text-white/80 text-sm">{content.mobileCopyright}</p>
             </div>
           </aside>
         </>

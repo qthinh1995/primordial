@@ -62,7 +62,7 @@ interface FooterProps {
 
 export function Footer({ content, logo, className }: FooterProps) {
   const defaultLogo = {
-    src: "/figma/footer-logo.png",
+    src: "/footer-logo.png",
     alt: "Primordial Hospitium",
     width: 246,
     height: 56,

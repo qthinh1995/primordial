@@ -19,10 +19,10 @@ const teamMemberImage = "/introduction-vision.jpg";
 
 // Team member images
 const teamImages = {
-  member1: "/introduction-vision.jpg",
-  member2: "/introduction-team-member-2.jpg",
-  member3: "/introduction-team-member-3.jpg",
-  member4: "/introduction-team-member-4.jpg",
+  member1: "/bao-nguyen.png",
+  member2: "/nguyen-ngoc.png",
+  member3: "/cang-lam.png",
+  member4: "/ty-nguyen.png",
 };
 
 export default function IntroductionPage() {
