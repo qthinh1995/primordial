@@ -73,17 +73,17 @@ export function Footer({ content, logo, className }: FooterProps) {
   return (
     <footer
       className={cn(
-        "bg-[var(--yellow-200)] flex flex-col items-center justify-center px-4 py-4 md:py-12 md:px-12",
+        "flex flex-col justify-center items-center bg-[var(--yellow-200)] px-4 md:px-12 py-4 md:py-12",
         className
       )}
     >
       {/* BACKGROUND CHÍNH – GIỮ NGUYÊN */}
-      <div className="bg-[var(--yellow-50)] flex flex-col gap-20 items-start md:items-center py-20 w-full">
-        <Container className="flex flex-col gap-10 px-4 md:px-12 md:gap-20 ">
+      <div className="flex flex-col items-start md:items-center gap-20 bg-[var(--yellow-50)] py-20 w-full">
+        <Container className="flex flex-col gap-10 md:gap-20 px-4 md:px-12">
           {/* ================= LOGO + TAGLINE ================= */}
-          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between md:text-left w-full">
+          <div className="flex md:flex-row flex-col md:justify-between md:items-center gap-6 w-full md:text-left">
             <div className="flex justify-start">
-              <div className="h-14 w-[246px] ml-[-30px] justify-start mt-[-80px] md:mt-[-80px] md:ml-[-40px]">
+              <div className="justify-start mt-[-80px] md:mt-[-80px] ml-[-30px] md:ml-[-40px] w-[246px] h-14">
                 <Image
                   src={logoConfig.src}
                   alt={logoConfig.alt}
@@ -95,16 +95,16 @@ export function Footer({ content, logo, className }: FooterProps) {
               </div>
             </div>
 
-            <p className="font-display font-normal leading-[1.4] text-[18px] tracking-[-1px] text-black md:text-[32px] xl:text-[44px] md:tracking-[-1.76px] whitespace-normal">
+            <p className="font-display font-normal text-[18px] text-black md:text-[32px] xl:text-[44px] leading-[1.4] tracking-[-1px] md:tracking-[-1.76px] whitespace-normal">
               {content.tagline}
             </p>
           </div>
 
           {/* ================= 3 COLUMNS ================= */}
-          <div className="flex flex-col mt-[-20px] md:mt-0 md:flex-row gap-10 md:gap-16 items-start w-full">
+          <div className="flex md:flex-row flex-col items-start gap-10 md:gap-16 mt-[-20px] md:mt-0 w-full">
             {/* -------- SITE NAV (MOBILE FIRST) -------- */}
-            <div className="order-1 md:order-2 flex flex-1 flex-col gap-2">
-              <p className="font-sans font-bold leading-6 text-base text-black tracking-[-0.32px] py-2">
+            <div className="flex flex-col flex-1 gap-2 order-1 md:order-2">
+              <p className="py-2 font-sans font-bold text-black text-base leading-6 tracking-[-0.32px]">
                 {content.siteNav.title}
               </p>
 
@@ -112,7 +112,7 @@ export function Footer({ content, logo, className }: FooterProps) {
                 <Link
                   key={index}
                   href={item.href}
-                  className="py-2 font-sans font-normal leading-6 text-base text-black tracking-[-0.32px] hover:opacity-80 transition-opacity"
+                  className="hover:opacity-80 py-2 font-sans font-normal text-black text-base leading-6 tracking-[-0.32px] transition-opacity"
                 >
                   {item.label}
                 </Link>
@@ -120,8 +120,8 @@ export function Footer({ content, logo, className }: FooterProps) {
             </div>
 
             {/* -------- ECOSYSTEM -------- */}
-            <div className="order-2 md:order-3 flex flex-1 flex-col gap-2">
-              <p className="font-sans font-bold leading-6 text-base text-black tracking-[-0.32px] py-2">
+            <div className="flex flex-col flex-1 gap-2 order-2 md:order-3">
+              <p className="py-2 font-sans font-bold text-black text-base leading-6 tracking-[-0.32px]">
                 {content.ecosystem.title}
               </p>
 
@@ -129,7 +129,7 @@ export function Footer({ content, logo, className }: FooterProps) {
                 <Link
                   key={index}
                   href={item.href}
-                  className="py-2 font-sans font-normal leading-6 text-base text-black tracking-[-0.32px] hover:opacity-80 transition-opacity"
+                  className="hover:opacity-80 py-2 font-sans font-normal text-black text-base leading-6 tracking-[-0.32px] transition-opacity"
                 >
                   {item.label}
                 </Link>
@@ -137,7 +137,7 @@ export function Footer({ content, logo, className }: FooterProps) {
             </div>
 
             {/* -------- CONTACT (MOBILE LAST) -------- */}
-            <div className="order-3 md:order-1 flex flex-1 flex-col gap-5 items-start">
+            <div className="flex flex-col flex-1 items-start gap-5 order-3 md:order-1">
               {/* EMAIL */}
               <div className="flex flex-col gap-1 w-full">
                 <p className="font-sans font-bold">
@@ -162,7 +162,7 @@ export function Footer({ content, logo, className }: FooterProps) {
                   {content.contact.phone.label}
                 </p>
 
-                <div className="flex gap-1 flex-wrap items-center">
+                <div className="flex flex-wrap items-center gap-1">
                   {content.contact.phone.numbers.map((phone, index) => (
                     <div key={index} className="flex items-center">
                       {index > 0 && (
@@ -173,7 +173,7 @@ export function Footer({ content, logo, className }: FooterProps) {
 
                       <a
                         href={`tel:${phone.replace(/\s/g, "")}`}
-                        className="hover:opacity-80 transition-opacity whitespace-nowrap"
+                        className="hover:opacity-80 whitespace-nowrap transition-opacity"
                       >
                         {phone}
                       </a>
@@ -193,26 +193,26 @@ export function Footer({ content, logo, className }: FooterProps) {
           </div>
 
           {/* ================= DIVIDER ================= */}
-          <div className="w-full h-px bg-black/60" />
+          <div className="bg-black/60 w-full h-px" />
 
           {/* ================= BOTTOM ================= */}
-          <div className="flex flex-col gap-6 text-left md:flex-row md:items-center md:justify-between md:text-left w-full">
-            <p className=" order-2 md:order-1 font-sans font-normalleading-6 text-[var(--grey-500)] text-base tracking-[-0.32px]">
+          <div className="flex md:flex-row flex-col md:justify-between md:items-center gap-6 w-full text-left md:text-left">
+            <p className="order-2 md:order-1 font-normalleading-6 font-sans text-[var(--grey-500)] text-base tracking-[-0.32px]">
               {content.copyright}
             </p>
 
-            <div className="flex order-1 md:order-2 md:justify-end gap-4">
+            <div className="flex md:justify-end gap-4 order-1 md:order-2">
               {/* LinkedIn */}
               <a
                 href="https://www.linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="h-8 w-8"
+                className="w-8 h-8"
               >
                 <svg
                   viewBox="0 0 27.9918 28"
-                  className="h-full w-full"
+                  className="w-full h-full"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
@@ -236,11 +236,11 @@ export function Footer({ content, logo, className }: FooterProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
-                className="h-8 w-8"
+                className="w-8 h-8"
               >
                 <svg
                   viewBox="0 0 27.9917 28"
-                  className="h-full w-full"
+                  className="w-full h-full"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
@@ -260,11 +260,11 @@ export function Footer({ content, logo, className }: FooterProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="h-8 w-8"
+                className="w-8 h-8"
               >
                 <svg
                   viewBox="0 0 27.9927 28"
-                  className="h-full w-full"
+                  className="w-full h-full"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path

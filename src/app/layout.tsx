@@ -24,6 +24,12 @@ export const metadata: Metadata = {
   title: "Primordial Hospitium",
   description:
     "Primordial is an independent hospitality advisory and coordination platform",
+  icons: {
+    icon: {
+      url: "/navbar-logo.png",
+      type: "image/png",
+    },
+  },
 };
 
 export default function RootLayout({
