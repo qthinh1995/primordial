@@ -2,16 +2,28 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+First, install dependencies:
+
+```bash
+npm install
+```
+
+Then, set up your environment variables. Copy `.env.example` to `.env.local` and fill in the required values:
+
+```bash
+cp .env.example .env.local
+```
+
+Required environment variables:
+
+- `RESEND_API_KEY`: Your Resend API key (get one at https://resend.com/api-keys)
+- `CONTACT_FORM_EMAIL`: The email address where contact form submissions will be sent
+- `RESEND_FROM_EMAIL` (optional): The "from" email address. Defaults to `Contact Form <onboarding@resend.dev>`. For production, use a verified domain email (e.g., `Contact Form <noreply@yourdomain.com>`)
+
+Now, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

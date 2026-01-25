@@ -1,5 +1,5 @@
 import { CenteredFixedSubtitleHero } from "@/components/hero";
-import { ContactFormSection } from "../../components/ContactFormSection";
+import { ContactFormSection } from "@/components/ui/contact-form-section";
 import { OfficesSection } from "../../components/OfficesSection";
 
 // Images
@@ -15,22 +15,10 @@ export default function ContactPage() {
         image={heroImage}
       />
       <ContactFormSection
+        locale="vi"
+        variant="two-column"
         title="THÔNG TIN LIÊN HỆ"
         description="Để tìm hiểu thêm về Primordial Hospitality, vui lòng điền vào mẫu liên hệ và chúng tôi sẽ liên lạc với bạn sớm nhất."
-        form={{
-          fullNameLabel: "Họ & Tên",
-          fullNamePlaceholder: "Nguyễn Ngọc Giao",
-          fullNameRequired: "(Bắt buộc)",
-          emailLabel: "Email",
-          emailPlaceholder: "JaneSmith@gmail.com",
-          emailRequired: "(Bắt buộc)",
-          phoneLabel: "Số điện thoại",
-          phonePlaceholder: "234 234 235",
-          phoneRequired: "(Bắt buộc)",
-          messageLabel: "Lời nhắn",
-          messagePlaceholder: "Nhập lời nhắn của bạn tại đây",
-          submitButton: "GỬI THÔNG TIN",
-        }}
       />
       <OfficesSection
         title="Chi Nhánh"

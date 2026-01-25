@@ -4,7 +4,7 @@ import { TPOModelSection } from "../../components/TPOModelSection";
 import { ImplementTPOSection } from "../../components/ImplementTPOSection";
 import { ValueSection } from "../../components/ValueSection";
 import { QuoteSection } from "../../components/QuoteSection";
-import { ContactFormSection } from "../../components/ContactFormSection";
+import { ContactFormSection } from "@/components/ui/contact-form-section";
 
 // Images
 const heroImage = "/partnerships/partnerships-hero.jpg";
@@ -160,22 +160,9 @@ export default function PartnershipsPage() {
         image={quoteImage}
       />
       <ContactFormSection
-        labels={{
-          title: "Become a Partner with Us",
-          description:
-            "To learn more about Primordial Hospitality, please complete the contact form and we will get in touch with you as soon as possible.",
-          fullName: "Full name",
-          fullNamePlaceholder: "Mr Joe",
-          email: "Email",
-          emailPlaceholder: "JaneSmith@gmail.com",
-          phone: "Phone number",
-          phonePlaceholder: "234 234 235",
-          message: "Message",
-          messagePlaceholder: "Enter your message here",
-          required: "(Required)",
-          submitButton: "SUBMIT",
-          countryCode: "+ 123",
-        }}
+        locale="en"
+        title="Become a Partner with Us"
+        description="To learn more about Primordial Hospitality, please complete the contact form and we will get in touch with you as soon as possible."
       />
     </main>
   );

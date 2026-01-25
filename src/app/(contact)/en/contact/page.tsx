@@ -1,5 +1,5 @@
 import { CenteredFixedSubtitleHero } from "@/components/hero";
-import { ContactFormSection } from "../../components/ContactFormSection";
+import { ContactFormSection } from "@/components/ui/contact-form-section";
 import { OfficesSection } from "../../components/OfficesSection";
 
 // Images
@@ -15,22 +15,10 @@ export default function ContactPage() {
         image={heroImage}
       />
       <ContactFormSection
+        locale="en"
+        variant="two-column"
         title="CONTACT INFORMATION"
         description="To learn more about Primordial Hospitality, please fill out the contact form and we will get in touch with you as soon as possible."
-        form={{
-          fullNameLabel: "Full Name",
-          fullNamePlaceholder: "Nguyen Ngoc Giao",
-          fullNameRequired: "(Required)",
-          emailLabel: "Email",
-          emailPlaceholder: "JaneSmith@gmail.com",
-          emailRequired: "(Required)",
-          phoneLabel: "Phone number",
-          phonePlaceholder: "234 234 235",
-          phoneRequired: "(Required)",
-          messageLabel: "Message",
-          messagePlaceholder: "Enter your message here",
-          submitButton: "SUBMIT",
-        }}
       />
       <OfficesSection
         title="OFFICES"

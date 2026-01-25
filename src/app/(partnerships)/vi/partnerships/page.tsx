@@ -4,7 +4,7 @@ import { TPOModelSection } from "../../components/TPOModelSection";
 import { ImplementTPOSection } from "../../components/ImplementTPOSection";
 import { ValueSection } from "../../components/ValueSection";
 import { QuoteSection } from "../../components/QuoteSection";
-import { ContactFormSection } from "../../components/ContactFormSection";
+import { ContactFormSection } from "@/components/ui/contact-form-section";
 
 // Images
 const heroImage = "/partnerships/partnerships-hero.jpg";
@@ -33,7 +33,7 @@ export default function PartnershipsPage() {
               tác sáng tạo và nhà đầu tư thông qua mô hình Third-Party Operator
               (TPO) linh hoạt.
             </p>
-            <p className="italic mt-2 hidden md:block">
+            <p className="hidden md:block mt-2 italic">
               Đảm bảo tiêu chuẩn cao, mà không cần mở rộng quá mức nguồn lực nội
               bộ.
             </p>
@@ -61,7 +61,7 @@ export default function PartnershipsPage() {
               đúng thời điểm, giúp dự án đạt được hiệu quả vận hành và thương
               mại mà vẫn giữ được tính độc lập.
             </p>
-            <p className="italic text-[var(--accent)]">
+            <p className="text-[var(--accent)] italic">
               TPO không phải là thay thế - mà là bổ sung đúng cách.
             </p>
           </>
@@ -98,7 +98,7 @@ export default function PartnershipsPage() {
               Chúng tôi làm việc cùng dự án tại những điểm giao thoa quan trọng,
               bao gồm:
             </p>
-            <ul className="list-disc ml-6 mb-4 space-y-1">
+            <ul className="space-y-1 mb-4 ml-6 list-disc">
               <li>Định hình cấu trúc vận hành và tiêu chuẩn cốt lõi</li>
               <li>
                 Kết nối các nền tảng trong hệ sinh thái Stay · Work · Experience
@@ -123,7 +123,7 @@ export default function PartnershipsPage() {
         description={
           <>
             <p className="mb-4">Thông qua mô hình TPO, Primordial mang lại:</p>
-            <ul className="list-disc ml-6 mb-4 space-y-1">
+            <ul className="space-y-1 mb-4 ml-6 list-disc">
               <li>
                 <strong>Tiếp cận chuyên môn chọn lọc</strong>, không dàn trải
                 nguồn lực
@@ -167,22 +167,9 @@ export default function PartnershipsPage() {
         image={quoteImage}
       />
       <ContactFormSection
-        labels={{
-          title: "Trở thành đối tác với chúng tôi",
-          description:
-            "Để tìm hiểu thêm về Primordial Hospitality, vui lòng điền vào mẫu liên hệ và chúng tôi sẽ liên lạc với bạn sớm nhất.",
-          fullName: "Họ & Tên",
-          fullNamePlaceholder: "Nguyễn Ngọc Giao",
-          email: "Email",
-          emailPlaceholder: "JaneSmith@gmail.com",
-          phone: "Số điện thoại",
-          phonePlaceholder: "234 234 235",
-          message: "Lời nhắn",
-          messagePlaceholder: "Nhập lời nhắn của bạn tại đây",
-          required: "(Bắt buộc)",
-          submitButton: "GỬI THÔNG TIN",
-          countryCode: "+ 84",
-        }}
+        locale="vi"
+        title="Trở thành đối tác với chúng tôi"
+        description="Để tìm hiểu thêm về Primordial Hospitality, vui lòng điền vào mẫu liên hệ và chúng tôi sẽ liên lạc với bạn sớm nhất."
       />
     </main>
   );

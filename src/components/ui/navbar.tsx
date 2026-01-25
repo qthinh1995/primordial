@@ -30,10 +30,39 @@ export function Navbar({ content, logo, className }: NavbarProps) {
     height: 40,
   };
 
-  const isActive = (href: string) =>
-    href === "/en" || href === "/vi"
-      ? pathname === href || pathname === `${href}/`
-      : pathname.startsWith(href);
+  const isActive = (href: string) => {
+    // Home: only active on /en or /vi (and /en/ or /vi/)
+    if (href === "/en/" || href === "/vi/") {
+      return pathname === href.slice(0, -1) || pathname === href;
+    }
+
+    // Introduction: active on exact match
+    if (href === "/en/introduction" || href === "/vi/introduction") {
+      return pathname === href;
+    }
+
+    // Ecosystem: active on ecosystem and related pages
+    if (href === "/en/ecosystem" || href === "/vi/ecosystem") {
+      return (
+        pathname === `/en/ecosystem` ||
+        pathname === `/vi/ecosystem` ||
+        pathname === `/en/stouffer-hotels` ||
+        pathname === `/vi/stouffer-hotels` ||
+        pathname === `/en/hoteliers-without-borders` ||
+        pathname === `/vi/hoteliers-without-borders` ||
+        pathname === `/en/lumora` ||
+        pathname === `/vi/lumora`
+      );
+    }
+
+    // Partners & Affiliates: active on exact match
+    if (href === "/en/partnerships" || href === "/vi/partnerships") {
+      return pathname === href;
+    }
+
+    // Default: check if pathname starts with href
+    return pathname.startsWith(href);
+  };
 
   return (
     <>
