@@ -24,7 +24,7 @@ export function Navbar({ content, logo, className }: NavbarProps) {
   const { setOpen, shouldRender, isVisible } = useMenuAnimation(pathname);
 
   const logoConfig = logo ?? {
-    src: "/navbar-logo.png",
+    src: "/navbar-logo-white.png",
     alt: "Primordial Hospitium",
     width: 173,
     height: 40,
@@ -67,14 +67,14 @@ export function Navbar({ content, logo, className }: NavbarProps) {
   return (
     <>
       {/* ================= NAVBAR ================= */}
-      <header className={cn("z-50 sticky w-full", className)}>
+      <header className={cn("top-0 z-50 fixed w-full", className)}>
         {/* Blur background */}
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-md pointer-events-none" />
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-md pointer-events-none" />
 
         {/* INNER WRAPPER – KHÔNG Container */}
         <div className="z-10 relative flex justify-between items-center mx-auto px-4 md:px-12 w-full max-w-[1440px] h-[80px]">
           {/* LEFT */}
-          <div className="flex items-center gap-12 ml-[-20px] md:ml-[-25px]">
+          <div className="flex items-center gap-12">
             <Link
               href={content.items[0]?.href || "/"}
               className="flex items-center"
@@ -89,9 +89,9 @@ export function Navbar({ content, logo, className }: NavbarProps) {
                   key={i}
                   href={item.href}
                   className={cn(
-                    "relative flex items-center h-[52px]",
+                    "relative flex items-center",
                     "text-white text-base",
-                    "after:absolute after:left-0 after:-bottom-[6px]",
+                    "after:absolute after:left-0 after:-bottom-[2px]",
                     "after:h-[2px] after:w-full after:origin-left",
                     "after:scale-x-0 after:bg-white",
                     "after:transition-transform after:duration-300",

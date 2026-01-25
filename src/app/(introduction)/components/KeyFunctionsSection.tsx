@@ -36,41 +36,40 @@ export function KeyFunctionsSection({
       )}
     >
       <Container className="px-4 md:px-12">
-        <div className="flex flex-col gap-10 md:gap-16 md:flex-row md:items-start">
+        <div className="flex md:flex-row flex-col md:items-start gap-10 md:gap-16">
           {/* Title */}
-          <div className="w-full shrink-0 md:w-[416px]">
-            <span className="md:hidden block w-full text-red-500 text-center italic font-bold font-sans">
+          <div className="w-full md:w-[416px] shrink-0">
+            <span className="md:hidden block w-full font-sans font-bold text-red-500 text-center italic">
               PRIMORDIAL COMPANY LIMITED
             </span>
-            <h2 className="font-display text-center text-[32px] md:text-[44px] font-normal leading-[1.4] tracking-[-1.76px] text-black uppercase">
+            <h2 className="font-display font-normal text-[32px] text-black md:text-[44px] text-center uppercase leading-[1.4] tracking-[-1.76px]">
               {title}
             </h2>
           </div>
 
           {/* Functions List */}
-          <div className="flex flex-1 flex-col">
+          <div className="flex flex-col flex-1">
             {functions.map((func, index) => {
               const isExpanded = expandedIndex === index;
-              const isFirst = index === 0;
 
               return (
                 <div
                   key={index}
                   className={cn(
                     "flex flex-col border-b transition-all duration-300",
-                    isFirst
+                    isExpanded
                       ? "bg-[#f7f2e6] border-[#b39355] p-6"
                       : "border-[#9e9e9e] px-6 py-2"
                   )}
                 >
                   <button
                     onClick={() => toggleFunction(index)}
-                    className="flex items-center justify-between gap-4 text-left"
+                    className="flex justify-between items-center gap-4 text-left"
                   >
-                    <h3 className="font-display text-lg md:text-xl font-bold leading-7 tracking-[-0.6px] text-foreground flex-1">
+                    <h3 className="flex-1 font-display font-bold text-foreground text-lg md:text-xl leading-7 tracking-[-0.6px]">
                       {func.title}
                     </h3>
-                    <div className="shrink-0 size-6">
+                    <div className="size-6 shrink-0">
                       {isExpanded ? (
                         <svg
                           width="24"
@@ -109,7 +108,7 @@ export function KeyFunctionsSection({
                   {isExpanded && (
                     <div
                       className={cn(
-                        "mt-5 font-sans text-base leading-6 tracking-[-0.32px] text-foreground transition-all duration-500",
+                        "mt-5 font-sans text-foreground text-base leading-6 tracking-[-0.32px] transition-all duration-500",
                         isVisible
                           ? "translate-y-0 opacity-100"
                           : "translate-y-4 opacity-0"

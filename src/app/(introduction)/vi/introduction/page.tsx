@@ -15,7 +15,7 @@ const storyImage3 = "/introduction-story-3.jpg";
 // Vision section images
 const visionImage = "/introduction-vision-1.jpg";
 const visionValueImage = "/introduction-vision-value.jpg";
-const teamMemberImage = "/introduction-vision.jpg";
+const teamMemberImage = "/bao-nguyen.png";
 
 // Team member images
 const teamImages = {
