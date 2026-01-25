@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Resend } from "resend";
+// import { Resend } from "resend";
 import {
   validateContactForm,
   type ContactFormData,
 } from "@/lib/contact-form-validation";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Get recipient email from environment variable or use a default
 const RECIPIENT_EMAIL = process.env.CONTACT_FORM_EMAIL || "contact@example.com";
@@ -44,39 +44,39 @@ export async function POST(request: NextRequest) {
     const fullPhoneNumber = `${body.countryCode} ${body.phone}`;
 
     // Send email using Resend
-    const { data, error } = await resend.emails.send({
-      from: FROM_EMAIL,
-      to: RECIPIENT_EMAIL,
-      replyTo: body.email,
-      subject: `New Contact Form Submission from ${body.fullName}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Full Name:</strong> ${body.fullName}</p>
-        <p><strong>Email:</strong> ${body.email}</p>
-        <p><strong>Phone:</strong> ${fullPhoneNumber}</p>
-        ${body.message ? `<p><strong>Message:</strong></p><p>${body.message.replace(/\n/g, "<br>")}</p>` : ""}
-        <hr>
-        <p><small>Submitted at: ${new Date().toLocaleString()}</small></p>
-      `,
-      text: `
-New Contact Form Submission
-
-Full Name: ${body.fullName}
-Email: ${body.email}
-Phone: ${fullPhoneNumber}
-${body.message ? `Message:\n${body.message}` : ""}
-
-Submitted at: ${new Date().toLocaleString()}
-      `,
-    });
-
-    if (error) {
-      console.error("Resend error:", error);
-      return NextResponse.json(
-        { error: "Failed to send email", details: error.message },
-        { status: 500 }
-      );
-    }
+    // const { data, error } = await resend.emails.send({
+    //   from: FROM_EMAIL,
+    //   to: RECIPIENT_EMAIL,
+    //   replyTo: body.email,
+    //   subject: `New Contact Form Submission from ${body.fullName}`,
+    //   html: `
+    //     <h2>New Contact Form Submission</h2>
+    //     <p><strong>Full Name:</strong> ${body.fullName}</p>
+    //     <p><strong>Email:</strong> ${body.email}</p>
+    //     <p><strong>Phone:</strong> ${fullPhoneNumber}</p>
+    //     ${body.message ? `<p><strong>Message:</strong></p><p>${body.message.replace(/\n/g, "<br>")}</p>` : ""}
+    //     <hr>
+    //     <p><small>Submitted at: ${new Date().toLocaleString()}</small></p>
+    //   `,
+    //   text: `
+    // New Contact Form Submission
+    //
+    // Full Name: ${body.fullName}
+    // Email: ${body.email}
+    // Phone: ${fullPhoneNumber}
+    // ${body.message ? `Message:\n${body.message}` : ""}
+    //
+    // Submitted at: ${new Date().toLocaleString()}
+    //   `,
+    // });
+    //
+    // if (error) {
+    //   console.error("Resend error:", error);
+    //   return NextResponse.json(
+    //     { error: "Failed to send email", details: error.message },
+    //     { status: 500 }
+    //   );
+    // }
 
     return NextResponse.json(
       { success: true, message: "Contact form submitted successfully" },
