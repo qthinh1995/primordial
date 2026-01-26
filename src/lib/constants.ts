@@ -39,13 +39,13 @@ export const FOOTER_CONTENT_EN: FooterContent = {
     items: [
       { label: "Home", href: "/en/home" },
       { label: "Introduction", href: "/en/introduction" },
+      { label: "Ecosystem", href: "/en/ecosystem" },
       { label: "Partners & Links", href: "/en/partnerships" },
-      { label: "News & Stories", href: "/en/news" },
       { label: "Contact", href: "/en/contact" },
     ],
   },
   ecosystem: {
-    title: "Ecosystem",
+    title: "Subsidiary brand",
     items: [
       { label: "Stouffer Hotels™", href: "/en/stouffer-hotels" },
       {
@@ -88,13 +88,13 @@ export const FOOTER_CONTENT_VI: FooterContent = {
     items: [
       { label: "Trang chủ", href: "/vi/home" },
       { label: "Giới thiệu", href: "/vi/introduction" },
+      { label: "Hệ sinh thái", href: "/vi/ecosystem" },
       { label: "Đối tác & Liên kết", href: "/vi/partnerships" },
-      { label: "Tin tức & Câu chuyện", href: "/vi/news" },
       { label: "Liên hệ", href: "/vi/contact" },
     ],
   },
   ecosystem: {
-    title: "Hệ sinh thái",
+    title: "Thương hiệu phụ",
     items: [
       { label: "Stouffer Hotels™", href: "/vi/stouffer-hotels" },
       {
@@ -120,11 +120,13 @@ export interface NavItem {
 
 export interface NavContent {
   items: NavItem[];
+  subsidiaryBrandItems: NavItem[];
   contactLabel: string;
   contactHref: string;
   languageLabel: string;
   languageHref: string;
   mobileContactLabel: string;
+  mobileSubsidiaryBrandLabel: string;
   mobileCopyright: string;
   mobileSocialLinks: Array<{
     name: string;
@@ -140,11 +142,20 @@ export const NAV_CONTENT_EN: NavContent = {
     { label: "Ecosystem", href: "/en/ecosystem" },
     { label: "Partners & Affiliates", href: "/en/partnerships" },
   ],
+  subsidiaryBrandItems: [
+    { label: "Stouffer Hotels™", href: "/en/stouffer-hotels" },
+    {
+      label: "Hoteliers Without Borders™",
+      href: "/en/hoteliers-without-borders",
+    },
+    { label: "Lumora IX.IX Agenda™", href: "/en/lumora" },
+  ],
   contactLabel: "CONTACT",
   contactHref: "/en/contact",
   languageLabel: "EN",
   languageHref: "/en",
   mobileContactLabel: "Contact us",
+  mobileSubsidiaryBrandLabel: "SUBSIDIARY BRAND",
   mobileCopyright: "© 2025 Primordial Hospitium · All Rights Reserved.",
   mobileSocialLinks: [
     { name: "LinkedIn", href: "#", icon: "/menu-linkedin.png" },
@@ -161,11 +172,20 @@ export const NAV_CONTENT_VI: NavContent = {
     { label: "Hệ sinh thái", href: "/vi/ecosystem" },
     { label: "Đối tác", href: "/vi/partnerships" },
   ],
+  subsidiaryBrandItems: [
+    { label: "Stouffer Hotels™", href: "/vi/stouffer-hotels" },
+    {
+      label: "Hoteliers Without Borders™",
+      href: "/vi/hoteliers-without-borders",
+    },
+    { label: "Lumora IX.IX Agenda™", href: "/vi/lumora" },
+  ],
   contactLabel: "LIÊN HỆ",
   contactHref: "/vi/contact",
   languageLabel: "VN",
   languageHref: "/vi",
   mobileContactLabel: "Liên hệ",
+  mobileSubsidiaryBrandLabel: "THƯƠNG HIỆU PHỤ",
   mobileCopyright:
     "© 2025 Primordial Hospitium · Tất cả các quyền được bảo lưu.",
   mobileSocialLinks: [

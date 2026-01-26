@@ -13,7 +13,7 @@ export function LanguageSwitch() {
 
   // Construct the target path with the opposite language
   const targetPath = isVietnamese ? `/en${suffix}` : `/vi${suffix}`;
-  const label = isVietnamese ? "EN" : "VN";
+  const label = isVietnamese ? "VN" : "EN";
 
   return (
     <Link href={targetPath} className="font-semibold text-white">

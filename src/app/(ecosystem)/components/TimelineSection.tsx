@@ -34,11 +34,11 @@ export function TimelineSection({
       <Container>
         <div className="flex flex-col gap-16">
           {/* Header */}
-          <div className="flex flex-col gap-6 items-center text-center max-w-[960px] mx-auto">
+          <div className="flex flex-col items-center gap-6 mx-auto max-w-[960px] text-center">
             <h2 className="font-display font-normal text-[44px] text-black leading-[1.4] tracking-[-1.76px]">
               {title}
             </h2>
-            <div className="font-sans text-lg leading-[1.4] tracking-[-0.54px] text-[#2c2c2c]">
+            <div className="font-sans text-[#2c2c2c] text-lg leading-[1.4] tracking-[-0.54px]">
               {description}
             </div>
           </div>
@@ -46,24 +46,24 @@ export function TimelineSection({
           {/* Timeline */}
           <div className="flex flex-col gap-[10px]">
             {/* Timeline Line with Dots */}
-            <div className="relative flex items-start justify-between">
+            <div className="relative flex justify-between items-start">
               {/* Horizontal Line */}
-              <div className="absolute top-1/2 left-0 right-0 h-px bg-[#c5a25d] -translate-y-1/2" />
+              <div className="top-1/2 right-0 left-0 absolute bg-[#c5a25d] h-px -translate-y-1/2" />
 
               {/* Dots */}
               {phases.map((_, index) => (
                 <div
                   key={index}
-                  className="relative z-10 flex items-center justify-center"
+                  className="z-10 relative flex items-center"
                   style={{ width: "432px" }}
                 >
-                  <div className="relative size-[40px] flex items-center justify-center">
+                  <div className="relative flex items-center size-[40px]">
                     {/* Outer Square */}
-                    <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="absolute inset-0 flex justify-center items-center">
                       <div className="bg-[#f9f6ef] border-[#b39355] border-[0.5px] border-solid rounded-[2px] size-[28px] rotate-45" />
                     </div>
                     {/* Inner Dot */}
-                    <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="absolute inset-0 flex justify-center items-center">
                       <div className="bg-[#d21c27] rounded-[2px] size-3 rotate-45" />
                     </div>
                   </div>
@@ -84,13 +84,13 @@ export function TimelineSection({
                   style={{ transitionDelay: `${index * 150}ms` }}
                 >
                   <div className="flex flex-col">
-                    <div className="font-display font-bold text-[20px] leading-[28px] text-[#1f1f1f]">
+                    <div className="font-display font-bold text-[#1f1f1f] text-[20px] leading-[28px]">
                       <p className="mb-0">{phase.number}</p>
                       <p className="text-[#d21c27]">{phase.title}</p>
                     </div>
                   </div>
-                  <div className="font-sans text-lg leading-[1.4] tracking-[-0.54px] text-[#2c2c2c]">
-                    <p className="font-bold mb-2">{phase.subtitle}</p>
+                  <div className="font-sans text-[#2c2c2c] text-lg leading-[1.4] tracking-[-0.54px]">
+                    <p className="mb-2 font-bold">{phase.subtitle}</p>
                     <p>{phase.description}</p>
                   </div>
                 </div>

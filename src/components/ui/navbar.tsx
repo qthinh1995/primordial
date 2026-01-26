@@ -9,14 +9,14 @@ import { LanguageSwitch } from "./language-switch";
 import { useMenuAnimation } from "@/hooks/useMenuAnimation";
 
 interface NavbarProps {
-  content: NavContent;
-  logo?: {
+  readonly content: NavContent;
+  readonly logo?: {
     src: string;
     alt: string;
     width?: number;
     height?: number;
   };
-  className?: string;
+  readonly className?: string;
 }
 
 export function Navbar({ content, logo, className }: NavbarProps) {
@@ -57,6 +57,18 @@ export function Navbar({ content, logo, className }: NavbarProps) {
 
     // Partners & Affiliates: active on exact match
     if (href === "/en/partnerships" || href === "/vi/partnerships") {
+      return pathname === href;
+    }
+
+    // Subsidiary brand items: active on exact match
+    if (
+      href === "/en/stouffer-hotels" ||
+      href === "/vi/stouffer-hotels" ||
+      href === "/en/hoteliers-without-borders" ||
+      href === "/vi/hoteliers-without-borders" ||
+      href === "/en/lumora" ||
+      href === "/vi/lumora"
+    ) {
       return pathname === href;
     }
 
@@ -153,75 +165,97 @@ export function Navbar({ content, logo, className }: NavbarProps) {
               isVisible ? "opacity-100" : "opacity-0"
             )}
             onClick={() => setOpen(false)}
+            onKeyDown={(e) => {
+              if (e.key === "Escape") {
+                setOpen(false);
+              }
+            }}
+            role="presentation"
+            tabIndex={-1}
+            aria-hidden="true"
           />
 
           {/* PANEL */}
           <aside
             className={cn(
-              "top-0 right-0 z-50 fixed bg-[#121212]/95 w-[320px] h-full transition-transform duration-300 ease-out",
+              "top-0 right-0 z-50 fixed flex flex-col bg-[#121212] w-[311px] h-full transition-transform duration-300 ease-out",
               isVisible ? "translate-x-0" : "translate-x-full"
             )}
           >
             {/* HEADER */}
-            <div className="flex justify-between items-center px-6 h-[88px]">
-              <Image
-                {...logoConfig}
-                className="w-auto h-[52px] object-contain"
-              />
+            <div className="top-0 sticky flex justify-end items-center bg-[#121212] backdrop-blur-[4px] px-4 py-5 shrink-0">
               <button
                 onClick={() => setOpen(false)}
-                className="flex justify-center items-center w-[44px] h-[44px] text-white"
+                className="flex justify-center items-center w-6 h-6 text-white"
                 aria-label="Close menu"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path
                     stroke="currentColor"
                     strokeWidth="2"
                     strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="M18 6L6 18M6 6l12 12"
                   />
                 </svg>
               </button>
             </div>
 
-            {/* NAV */}
-            <nav className="flex flex-col gap-6 px-6 pt-6">
-              {content.items.map((item, i) => (
+            {/* MENU CONTENT */}
+            <div className="flex flex-col flex-1 items-start px-6 py-[10px] overflow-y-auto">
+              <div className="flex flex-col flex-1 items-start gap-6 w-full">
+                {/* MAIN NAVIGATION */}
+                <div className="flex flex-col justify-center items-start gap-2 w-full">
+                  {content.items.map((item, i) => (
+                    <Link
+                      key={i}
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      className={cn(
+                        "flex justify-start items-center py-2 w-full text-white text-base leading-6 tracking-[-0.32px]",
+                        isActive(item.href) && "font-bold underline"
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+
+                {/* DIVIDER */}
+                <div className="bg-white/20 w-32 h-px" />
+
+                {/* SUBSIDIARY BRAND SECTION */}
+                <div className="flex flex-col justify-center items-start gap-2 w-full">
+                  <p className="text-white/60 text-base uppercase leading-6 tracking-[-0.32px]">
+                    {content.mobileSubsidiaryBrandLabel}
+                  </p>
+                  {content.subsidiaryBrandItems.map((item, i) => (
+                    <Link
+                      key={i}
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      className={cn(
+                        "flex justify-start items-center py-2 w-full text-white text-base leading-6 tracking-[-0.32px]",
+                        isActive(item.href) && "font-bold underline"
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+
+                {/* DIVIDER */}
+                <div className="bg-white/20 w-32 h-px" />
+
+                {/* CONTACT */}
                 <Link
-                  key={i}
-                  href={item.href}
+                  href={content.contactHref}
                   onClick={() => setOpen(false)}
-                  className={cn(
-                    "text-white text-2xl tracking-tight",
-                    isActive(item.href) && "font-semibold"
-                  )}
+                  className="flex justify-start items-center py-2 font-bold text-white text-base leading-6 tracking-[-0.32px]"
                 >
-                  {item.label}
+                  {content.mobileContactLabel}
                 </Link>
-              ))}
-
-              <div className="bg-white/20 my-6 h-px" />
-
-              <Link
-                href={content.contactHref}
-                onClick={() => setOpen(false)}
-                className="font-semibold text-white"
-              >
-                {content.mobileContactLabel}
-              </Link>
-            </nav>
-
-            {/* FOOTER */}
-            <div className="space-y-4 mt-auto px-6 pb-6">
-              <div className="flex gap-6">
-                {content.mobileSocialLinks.map((s, i) => (
-                  <a key={i} href={s.href} target="_blank" rel="noreferrer">
-                    <Image src={s.icon} alt={s.name} width={24} height={24} />
-                  </a>
-                ))}
               </div>
-
-              <p className="text-white/80 text-sm">{content.mobileCopyright}</p>
             </div>
           </aside>
         </>

@@ -3,7 +3,7 @@ import { WhatIsHWBSection } from "../../components/WhatIsHWBSection";
 import { ValueSection } from "../../components/ValueSection";
 
 // Images
-const heroImage = "/hwb/hwb-hero.jpg";
+const heroImage = "/hwb/hwb-hero.png";
 const valueImage = "/hwb/hwb-value.jpg";
 
 export default function HoteliersWithoutBordersPage() {
