@@ -28,7 +28,7 @@ export function HWBSection({
           {/* TEXT – luôn ở trên mobile */}
           <div className="flex flex-col flex-1 gap-10 order-1 lg:order-2 lg:text-left text-center">
             <div className="flex flex-col gap-6">
-              <div className="flex flex-col gap-3 md:w-[576px]">
+              <div className="flex flex-col gap-3 lg:max-w-[576px]">
                 <p className="font-sans font-bold text-accent text-sm md:text-base tracking-[-0.32px]">
                   {badge}
                 </p>

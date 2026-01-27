@@ -33,7 +33,7 @@ export function StorySection({
       <Container className="px-4 lg:px-12">
         <div className="flex md:flex-row flex-col md:items-start gap-16">
           {/* Image */}
-          <div className="relative w-full h-[457.33px] md:w-[648px] md:h-[864px] shrink-0">
+          <div className="relative md:flex-1 w-full h-[457.33px] md:h-[864px] shrink-0">
             <div
               className={`h-full w-full transition-all duration-1000 delay-200 ${
                 isVisible
@@ -46,8 +46,8 @@ export function StorySection({
           </div>
 
           {/* Text Content */}
-          <div className="flex flex-col flex-1 gap-10">
-            <h2 className="font-display font-normal text-[32px] md:text-[44px] text-black uppercase leading-[1.4] tracking-[-1.76px]">
+          <div className="flex flex-col md:flex-1 gap-10">
+            <h2 className="font-display font-normal text-[32px] text-black md:text-[44px] uppercase leading-[1.4] tracking-[-1.76px]">
               {title}
             </h2>
 

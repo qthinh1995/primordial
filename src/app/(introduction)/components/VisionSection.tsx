@@ -43,8 +43,8 @@ export function VisionSection({
         <Container className="px-4 md:px-12">
           <div className="flex md:flex-row flex-col md:items-center gap-16">
             {/* Text Content */}
-            <div className="flex flex-col flex-1 gap-10">
-              <h2 className="font-display font-normal text-[32px] md:text-[44px] text-black leading-[1.4] tracking-[-1.76px]">
+            <div className="flex flex-col md:flex-1 lg:flex-2 gap-10">
+              <h2 className="font-display font-normal text-[32px] text-black md:text-[44px] leading-[1.4] tracking-[-1.76px]">
                 {title}
               </h2>
               <div
@@ -70,8 +70,8 @@ export function VisionSection({
                       : "translate-y-4 opacity-0"
                   }`}
                 >
-                  <div className="grid grid-2 md:flex gap-4">
-                    <div className="relative w-full h-[455px] md:w-[144px] md:h-[190px] overflow-hidden shrink-0">
+                  <div className="md:flex gap-4 grid grid-2">
+                    <div className="relative w-full md:w-[144px] aspect-[3/4] overflow-hidden shrink-0">
                       <Image
                         src={teamMember.image}
                         alt={teamMember.name}
@@ -79,9 +79,9 @@ export function VisionSection({
                         className="object-cover"
                       />
                     </div>
-                    <div className="grid grid-2 flex md:flex-col flex-2 gap-5">
+                    <div className="flex md:flex-col flex-2 gap-5 grid grid-2">
                       <div className="flex flex-col gap-3 md:gap-0">
-                        <p className="font-display font-semibold mt-4 md:mt-0 text-foreground text:lg md:text-xl leading-7 tracking-[-0.6px]">
+                        <p className="mt-4 md:mt-0 font-display font-semibold text-foreground md:text-xl leading-7 tracking-[-0.6px] text:lg">
                           {teamMember.name}
                         </p>
                         <p className="font-display font-normal text-accent text-sm italic uppercase leading-normal">
@@ -99,7 +99,7 @@ export function VisionSection({
 
             {/* Image */}
             <div
-              className={`relative w-full h-[228px] shrink-0 md:w-[764px] md:h-[510px] transition-all duration-1000 delay-300 ${
+              className={`relative h-[228px]  md:w-[764px] md:h-[510px] shrink-0 transition-all duration-1000 delay-300 md:flex-1 lg:flex-3 ${
                 isVisible
                   ? "translate-x-0 opacity-100"
                   : "translate-x-8 opacity-0"
@@ -112,7 +112,7 @@ export function VisionSection({
       </section>
 
       {/* Value Statement Section */}
-      <section className="relative flex justify-center w-full h-[244px] items-center py-[64px] md:py-[120px] md:h-[512px]">
+      <section className="relative flex justify-center items-center py-[64px] md:py-[120px] w-full h-[244px] md:h-[512px]">
         <div className="absolute inset-0">
           <Image
             src={valueImage}

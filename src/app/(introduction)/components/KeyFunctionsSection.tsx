@@ -66,7 +66,12 @@ export function KeyFunctionsSection({
                     onClick={() => toggleFunction(index)}
                     className="flex justify-between items-center gap-4 text-left"
                   >
-                    <h3 className="flex-1 font-display font-bold text-foreground text-lg md:text-xl leading-7 tracking-[-0.6px]">
+                    <h3
+                      className={cn(
+                        "flex-1 font-display font-bold text-lg md:text-xl leading-7 tracking-[-0.6px]",
+                        isExpanded ? "text-accent" : "text-foreground"
+                      )}
+                    >
                       {func.title}
                     </h3>
                     <div className="size-6 shrink-0">

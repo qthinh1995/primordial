@@ -100,7 +100,7 @@ export default function HomePage() {
         title="Primordial Hospitium"
         description="Primordial Hospitium đồng hành cùng các chủ khách sạn độc lập, đối tác sáng tạo và nhà đầu tư thông qua mô hình hợp tác linh hoạt và minh bạch. Chúng tôi không quản lý, không nhượng quyền, không thay thế quyền quyết định - Primordial đóng vai trò tư vấn, điều phối và hỗ trợ để mỗi dự án phát triển đúng bản chất của mình. Bởi với chúng tôi, Everybody is Somebody không chỉ là một triết lý, mà là cách chúng tôi lựa chọn đồng hành."
         buttonText="Liên hệ hợp tác"
-        classwidth="font-sans mb-[10px] md:mb-0 text-[16px] leading-[1.6] tracking-[-0.3px] md:text-xl md:leading-[28px] md:tracking-[-0.6px] text-foreground md:w-[1272px]"
+        classwidth="font-sans mb-[10px] md:mb-0 text-[16px] leading-[1.6] tracking-[-0.3px] md:text-xl md:leading-[28px] md:tracking-[-0.6px] text-foreground lg:max-w-[1272px]"
         buttonHref="/vi/partnerships"
         image={partnershipImage}
       />

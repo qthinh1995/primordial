@@ -40,7 +40,7 @@ export const FOOTER_CONTENT_EN: FooterContent = {
       { label: "Home", href: "/en/home" },
       { label: "Introduction", href: "/en/introduction" },
       { label: "Ecosystem", href: "/en/ecosystem" },
-      { label: "Partners & Links", href: "/en/partnerships" },
+      { label: "Partners & Affiliates", href: "/en/partnerships" },
       { label: "Contact", href: "/en/contact" },
     ],
   },
