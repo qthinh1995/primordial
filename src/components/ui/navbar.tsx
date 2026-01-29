@@ -96,24 +96,70 @@ export function Navbar({ content, logo, className }: NavbarProps) {
 
             {/* DESKTOP NAV */}
             <nav className="hidden lg:flex items-center gap-8">
-              {content.items.map((item, i) => (
-                <Link
-                  key={i}
-                  href={item.href}
-                  className={cn(
-                    "relative flex items-center",
-                    "text-white text-base",
-                    "after:absolute after:left-0 after:-bottom-[2px]",
-                    "after:h-[2px] after:w-full after:origin-left",
-                    "after:scale-x-0 after:bg-white",
-                    "after:transition-transform after:duration-300",
-                    "hover:after:scale-x-100",
-                    isActive(item.href) && "after:scale-x-100"
-                  )}
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {content.items.map((item, i) => {
+                const hasSubmenu = item.subItems && item.subItems.length > 0;
+
+                if (hasSubmenu) {
+                  return (
+                    <div key={i} className="group relative">
+                      <Link
+                        href={item.href}
+                        className={cn(
+                          "relative flex items-center",
+                          "text-white text-base",
+                          "after:absolute after:left-0 after:-bottom-[2px]",
+                          "after:h-[2px] after:w-full after:origin-left",
+                          "after:scale-x-0 after:bg-white",
+                          "after:transition-transform after:duration-300",
+                          "hover:after:scale-x-100",
+                          isActive(item.href) && "after:scale-x-100"
+                        )}
+                      >
+                        {item.label}
+                      </Link>
+
+                      {/* SUBMENU DROPDOWN */}
+                      <div className="hidden group-hover:block absolute top-full left-0 pt-2">
+                        <div className="bg-black/50 backdrop-blur-md border border-white/20 rounded-md shadow-lg min-w-[240px] py-2">
+                          {item.subItems?.map((subItem, subIndex) => (
+                            <Link
+                              key={subIndex}
+                              href={subItem.href}
+                              className={cn(
+                                "block px-4 py-2 text-white text-base transition-colors",
+                                "hover:bg-white/10",
+                                isActive(subItem.href) &&
+                                  "bg-white/10 font-semibold"
+                              )}
+                            >
+                              {subItem.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={i}
+                    href={item.href}
+                    className={cn(
+                      "relative flex items-center",
+                      "text-white text-base",
+                      "after:absolute after:left-0 after:-bottom-[2px]",
+                      "after:h-[2px] after:w-full after:origin-left",
+                      "after:scale-x-0 after:bg-white",
+                      "after:transition-transform after:duration-300",
+                      "hover:after:scale-x-100",
+                      isActive(item.href) && "after:scale-x-100"
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
             </nav>
           </div>
 
@@ -206,19 +252,58 @@ export function Navbar({ content, logo, className }: NavbarProps) {
               <div className="flex flex-col flex-1 items-start gap-6 w-full">
                 {/* MAIN NAVIGATION */}
                 <div className="flex flex-col justify-center items-start gap-2 w-full">
-                  {content.items.map((item, i) => (
-                    <Link
-                      key={i}
-                      href={item.href}
-                      onClick={() => setOpen(false)}
-                      className={cn(
-                        "flex justify-start items-center py-2 w-full text-white text-base leading-6 tracking-[-0.32px]",
-                        isActive(item.href) && "font-bold underline"
-                      )}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
+                  {content.items.map((item, i) => {
+                    const hasSubmenu =
+                      item.subItems && item.subItems.length > 0;
+
+                    if (hasSubmenu) {
+                      return (
+                        <div key={i} className="flex flex-col w-full">
+                          <Link
+                            href={item.href}
+                            onClick={() => setOpen(false)}
+                            className={cn(
+                              "flex justify-start items-center py-2 w-full text-white text-base leading-6 tracking-[-0.32px]",
+                              isActive(item.href) && "font-bold underline"
+                            )}
+                          >
+                            {item.label}
+                          </Link>
+                          {/* SUBMENU ITEMS */}
+                          <div className="flex flex-col pl-4 w-full">
+                            {item.subItems.map((subItem, subIndex) => (
+                              <Link
+                                key={subIndex}
+                                href={subItem.href}
+                                onClick={() => setOpen(false)}
+                                className={cn(
+                                  "flex justify-start items-center py-2 w-full text-white/80 text-sm leading-6 tracking-[-0.32px]",
+                                  isActive(subItem.href) &&
+                                    "font-bold text-white"
+                                )}
+                              >
+                                {subItem.label}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    }
+
+                    return (
+                      <Link
+                        key={i}
+                        href={item.href}
+                        onClick={() => setOpen(false)}
+                        className={cn(
+                          "flex justify-start items-center py-2 w-full text-white text-base leading-6 tracking-[-0.32px]",
+                          isActive(item.href) && "font-bold underline"
+                        )}
+                      >
+                        {item.label}
+                      </Link>
+                    );
+                  })}
                 </div>
 
                 {/* DIVIDER */}

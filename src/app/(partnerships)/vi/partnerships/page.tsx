@@ -169,7 +169,7 @@ export default function PartnershipsPage() {
       <ContactFormSection
         locale="vi"
         title="Trở thành đối tác với chúng tôi"
-        description="Để tìm hiểu thêm về Primordial Hospitality, vui lòng điền vào mẫu liên hệ và chúng tôi sẽ liên lạc với bạn sớm nhất."
+        description="Hãy để chúng tôi hiểu thêm về dự án của bạn."
       />
     </main>
   );

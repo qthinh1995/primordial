@@ -11,14 +11,14 @@ export default function ContactPage() {
     <main>
       <CenteredFixedSubtitleHero
         title="Liên hệ"
-        subtitle="Cảm thấy hứng thú với Primordial Hospitality."
+        subtitle="Chia sẻ dự án của bạn với chúng tôi"
         image={heroImage}
       />
       <ContactFormSection
         locale="vi"
         variant="two-column"
         title="THÔNG TIN LIÊN HỆ"
-        description="Để tìm hiểu thêm về Primordial Hospitality, vui lòng điền vào mẫu liên hệ và chúng tôi sẽ liên lạc với bạn sớm nhất."
+        description="Hãy để chúng tôi hiểu thêm về dự án của bạn."
       />
       <OfficesSection
         title="Chi Nhánh"

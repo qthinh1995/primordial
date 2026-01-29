@@ -116,6 +116,7 @@ export const FOOTER_CONTENT_VI: FooterContent = {
 export interface NavItem {
   label: string;
   href: string;
+  subItems?: NavItem[];
 }
 
 export interface NavContent {
@@ -139,7 +140,18 @@ export const NAV_CONTENT_EN: NavContent = {
   items: [
     { label: "Home", href: "/en/" },
     { label: "Introduction", href: "/en/introduction" },
-    { label: "Ecosystem", href: "/en/ecosystem" },
+    {
+      label: "Ecosystem",
+      href: "/en/ecosystem",
+      subItems: [
+        { label: "Stouffer Hotels™", href: "/en/stouffer-hotels" },
+        {
+          label: "Hoteliers Without Borders™",
+          href: "/en/hoteliers-without-borders",
+        },
+        { label: "Lumora IX.IX Agenda™", href: "/en/lumora" },
+      ],
+    },
     { label: "Partners & Affiliates", href: "/en/partnerships" },
   ],
   subsidiaryBrandItems: [
@@ -169,7 +181,18 @@ export const NAV_CONTENT_VI: NavContent = {
   items: [
     { label: "Trang chủ", href: "/vi/" },
     { label: "Giới thiệu", href: "/vi/introduction" },
-    { label: "Hệ sinh thái", href: "/vi/ecosystem" },
+    {
+      label: "Hệ sinh thái",
+      href: "/vi/ecosystem",
+      subItems: [
+        { label: "Stouffer Hotels™", href: "/vi/stouffer-hotels" },
+        {
+          label: "Hoteliers Without Borders™",
+          href: "/vi/hoteliers-without-borders",
+        },
+        { label: "Lumora IX.IX Agenda™", href: "/vi/lumora" },
+      ],
+    },
     { label: "Đối tác", href: "/vi/partnerships" },
   ],
   subsidiaryBrandItems: [

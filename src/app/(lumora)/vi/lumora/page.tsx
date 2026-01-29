@@ -14,9 +14,7 @@ export default function LumoraPage() {
   return (
     <main>
       <LumoraHero
-        tag="Where Hospitality Becomes Memory"
-        title="Curated Experiences."
-        subtitle="Designed to Be Remembered"
+        title="Lumora IX.IX agenda ™"
         description="Lumora IX.IX Agenda™ là nền tảng kiến tạo trải nghiệm và văn hoá, giúp không gian khách sạn vượt ra khỏi chức năng lưu trú để trở thành nơi cảm xúc được ghi nhớ và quay lại."
         subdescription="Không tổ chức đại trà. Không chạy theo xu hướng ngắn hạn. Chỉ tập trung vào những khoảnh khắc có giá trị lâu dài."
         image={heroImage}

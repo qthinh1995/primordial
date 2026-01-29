@@ -10,8 +10,7 @@ export default function HoteliersWithoutBordersPage() {
   return (
     <main>
       <FullscreenSplitHero
-        tagline="Where Hospitality Becomes Memory"
-        title="Hospitality Works Best When People Arrive at the Right Time"
+        title="Hotelier with borders ™"
         description="Hoteliers Without Borders™ là mạng lưới nhân sự hospitality linh hoạt, được thiết kế để hỗ trợ dự án đúng lúc - khi tuyển dụng toàn thời gian không còn là giải pháp tối ưu."
         subdescription="Không thay thế đội ngũ hiện hữu. Không làm phình bộ máy. Chỉ xuất hiện khi dự án cần đúng năng lực."
         image={heroImage}
