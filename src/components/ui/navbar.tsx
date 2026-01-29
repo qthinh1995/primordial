@@ -119,8 +119,8 @@ export function Navbar({ content, logo, className }: NavbarProps) {
                       </Link>
 
                       {/* SUBMENU DROPDOWN */}
-                      <div className="hidden group-hover:block absolute top-full left-0 pt-2">
-                        <div className="bg-black/50 backdrop-blur-md border border-white/20 rounded-md shadow-lg min-w-[240px] py-2">
+                      <div className="hidden group-hover:block top-full left-0 absolute pt-2">
+                        <div className="bg-black/50 shadow-lg backdrop-blur-md py-2 border border-white/20 rounded-md min-w-[240px]">
                           {item.subItems?.map((subItem, subIndex) => (
                             <Link
                               key={subIndex}
@@ -271,7 +271,7 @@ export function Navbar({ content, logo, className }: NavbarProps) {
                           </Link>
                           {/* SUBMENU ITEMS */}
                           <div className="flex flex-col pl-4 w-full">
-                            {item.subItems.map((subItem, subIndex) => (
+                            {item.subItems?.map((subItem, subIndex) => (
                               <Link
                                 key={subIndex}
                                 href={subItem.href}
