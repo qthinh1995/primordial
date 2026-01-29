@@ -252,58 +252,19 @@ export function Navbar({ content, logo, className }: NavbarProps) {
               <div className="flex flex-col flex-1 items-start gap-6 w-full">
                 {/* MAIN NAVIGATION */}
                 <div className="flex flex-col justify-center items-start gap-2 w-full">
-                  {content.items.map((item, i) => {
-                    const hasSubmenu =
-                      item.subItems && item.subItems.length > 0;
-
-                    if (hasSubmenu) {
-                      return (
-                        <div key={i} className="flex flex-col w-full">
-                          <Link
-                            href={item.href}
-                            onClick={() => setOpen(false)}
-                            className={cn(
-                              "flex justify-start items-center py-2 w-full text-white text-base leading-6 tracking-[-0.32px]",
-                              isActive(item.href) && "font-bold underline"
-                            )}
-                          >
-                            {item.label}
-                          </Link>
-                          {/* SUBMENU ITEMS */}
-                          <div className="flex flex-col pl-4 w-full">
-                            {item.subItems?.map((subItem, subIndex) => (
-                              <Link
-                                key={subIndex}
-                                href={subItem.href}
-                                onClick={() => setOpen(false)}
-                                className={cn(
-                                  "flex justify-start items-center py-2 w-full text-white/80 text-sm leading-6 tracking-[-0.32px]",
-                                  isActive(subItem.href) &&
-                                    "font-bold text-white"
-                                )}
-                              >
-                                {subItem.label}
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-                      );
-                    }
-
-                    return (
-                      <Link
-                        key={i}
-                        href={item.href}
-                        onClick={() => setOpen(false)}
-                        className={cn(
-                          "flex justify-start items-center py-2 w-full text-white text-base leading-6 tracking-[-0.32px]",
-                          isActive(item.href) && "font-bold underline"
-                        )}
-                      >
-                        {item.label}
-                      </Link>
-                    );
-                  })}
+                  {content.items.map((item, i) => (
+                    <Link
+                      key={i}
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      className={cn(
+                        "flex justify-start items-center py-2 w-full text-white text-base leading-6 tracking-[-0.32px]",
+                        isActive(item.href) && "font-bold underline"
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
                 </div>
 
                 {/* DIVIDER */}
