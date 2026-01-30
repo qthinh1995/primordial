@@ -45,17 +45,17 @@ export function PillarsSection({
               <p className="font-sans font-bold text-[#d21c27] text-[16px] md:text-left text-center tracking-[-0.32px]">
                 {subtitle}
               </p>
-              <h2 className="font-display font-normal text-[32px] text-center md:text-left md:text-[44px] text-black uppercase leading-[1.4] tracking-[-1.76px]">
+              <h2 className="font-display font-normal text-[32px] text-black md:text-[44px] md:text-left text-center uppercase leading-[1.4] tracking-[-1.76px]">
                 {title}
               </h2>
             </div>
-            <div className="font-sans text-[#2c2c2c] text-base text-center md:text-lg md:text-left leading-[1.4] tracking-[-0.54px]">
+            <div className="font-sans text-[#2c2c2c] text-base md:text-lg md:text-left text-center leading-[1.4] tracking-[-0.54px]">
               {description}
             </div>
           </div>
 
           {/* Right Column - Pillars */}
-          <div className="md:flex md:flex-col grid flex-1 gap-6">
+          <div className="md:flex md:flex-col flex-1 gap-6 grid">
             {pillars.map((pillar, index) => (
               <div
                 key={index}
@@ -67,26 +67,26 @@ export function PillarsSection({
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 {/* Logo */}
-                <div className="relative flex justify-center md:my-auto items-center bg-white w-[120px] h-[56px] shrink-0">
+                <div className="relative flex justify-center items-center bg-white md:my-auto w-[120px] h-[56px] shrink-0">
                   <div className="relative w-full h-full">
                     <Image
                       src={pillar.logoImage}
                       alt={pillar.title}
                       fill
                       sizes="120px"
-                      className="p-2 object-contain"
+                      className={`object-contain ${index === pillars.length - 1 ? "p-2" : ""}`}
                     />
                   </div>
                 </div>
 
                 <div className="flex flex-col flex-1 gap-2">
                   {/* Tag */}
-                  <div className=" md:flex md:justify-between ">
-                    <p className="font-sans font-bold text-[#d21c27] text-[14px] md:order-2 md:leading-[2] tracking-[-0.28px]">
+                  <div className="md:flex md:justify-between">
+                    <p className="md:order-2 font-sans font-bold text-[#d21c27] text-[14px] md:leading-[2] tracking-[-0.28px]">
                       {pillar.tag}
                     </p>
 
-                    <h3 className="font-sans font-semibold text-[#2c2c2c] text-xl md:order-1 leading-[1.4] tracking-[-0.6px]">
+                    <h3 className="md:order-1 font-sans font-semibold text-[#2c2c2c] text-xl leading-[1.4] tracking-[-0.6px]">
                       {pillar.title}
                     </h3>
                   </div>
@@ -99,7 +99,7 @@ export function PillarsSection({
                 {pillar.link && (
                   <Link
                     href={pillar.link}
-                    className="absolute top-4 right-4 md:static md:my-auto flex w-[40px] h-[40px] justify-center items-center bg-[#e4d4b4] rounded-[2px] shrink-0"
+                    className="top-4 right-4 md:static absolute flex justify-center items-center bg-[#e4d4b4] md:my-auto rounded-[2px] w-[40px] h-[40px] shrink-0"
                   >
                     <svg
                       width="24"

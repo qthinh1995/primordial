@@ -8,8 +8,8 @@ import { QuoteSection } from "../../components/QuoteSection";
 const heroImage = "/ecosystem-hero.jpg";
 
 // Pillar logo images
-const stoufferLogo = "/ecosystem-stouffer-logo.jpg";
-const hwbLogo = "/ecosystem-hwb-logo.jpg";
+const stoufferLogo = "/ecosystem-stouffer-logo.png";
+const hwbLogo = "/ecosystem-hwb-logo.png";
 const lumoraLogo = "/ecosystem-lumora-logo.jpg";
 
 // Project images
@@ -44,7 +44,7 @@ export default function EcosystemPage() {
         title="BA TRỤ CỘT CHIẾN LƯỢC"
         description={
           <>
-            <p className="italic mb-4 md:mb-0">
+            <p className="mb-4 md:mb-0 italic">
               Lưu trú - Con người - Trải nghiệm.
             </p>
             <p>
@@ -149,10 +149,10 @@ export default function EcosystemPage() {
         title="ĐƯỢC THIẾT KẾ CHO NHỮNG DỰ ÁN CẦN TƯ DUY DÀI HẠN"
         description={
           <>
-            <p className="inline md:block">
+            <p className="md:block inline">
               Hệ sinh thái Primordial không được xây dựng cho tất cả mọi dự án.
             </p>
-            <p className="inline md:block">
+            <p className="md:block inline">
               Nó được thiết kế cho những chủ đầu tư và tài sản cần cấu trúc rõ
               ràng, nhưng không muốn bị ràng buộc bởi mô hình cứng.
             </p>

@@ -49,7 +49,7 @@ export default function IntroductionPage() {
           "Vì vậy, Primordial làm việc ở tầng chiến lược sớm nhất, cung cấp góc nhìn độc lập kết hợp tư duy thiết kế, vận hành và phân tích tài chính, để giúp chủ đầu tư đưa ra quyết định đúng và đưa dự án phát triển bền vững.",
         ]}
         teamMember={{
-          name: "Nguyễn Bảo (Bao Nguyen)",
+          name: "Nguyễn Bảo",
           role: "Người sáng lập & CEO",
           bio: "Dẫn dắt định hướng chiến lược, phân tích khả thi và cấu trúc dự án, đồng hành cùng chủ đầu tư trong các quyết định có ảnh hưởng dài hạn đến vận hành, thương hiệu và hiệu quả tài chính.",
           image: teamMemberImage,
