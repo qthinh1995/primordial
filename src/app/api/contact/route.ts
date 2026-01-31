@@ -48,10 +48,10 @@ export async function POST(request: NextRequest) {
       from: FROM_EMAIL,
       to: RECIPIENT_EMAIL,
       replyTo: body.email,
-      subject: `[Primodial] Yêu cầu trở thành đối tác từ ${body.fullName}`,
+      subject: `[Primodial] Thư mời liên hệ từ khách hàng ${body.fullName}`,
       html: `
-        <h2>Yêu cầu trở thành đối tác</h2>
-        <p>Có người muốn trở thành đối tác với thông tin như sau:</p>
+        <h2>Thư mời liên hệ từ khách hàng</h2>
+        <p>Bạn nhận được thư mời liên hệ từ khách hàng với thông tin như sau:</p>
         
         <div style="background-color: #ffffff; padding: 20px; border: 1px solid #e0e0e0; border-radius: 5px; margin: 20px 0;">
           <p><strong>Họ và tên:</strong> ${body.fullName}</p>
@@ -64,9 +64,9 @@ export async function POST(request: NextRequest) {
         <p style="color: #999; font-size: 12px;">Gửi lúc: ${new Date().toLocaleString("vi-VN")}</p>
       `,
       text: `
-YÊU CẦU TRỞ THÀNH ĐỐI TÁC
+Thư mời liên hệ từ khách hàng
 
-Có người muốn trở thành đối tác với thông tin như sau:
+Bạn nhận được thư mời liên hệ từ khách hàng với thông tin như sau:
 
 Họ và tên: ${body.fullName}
 Email: ${body.email}
