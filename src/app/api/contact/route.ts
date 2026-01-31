@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-// import { Resend } from "resend";
+import { Resend } from "resend";
 import {
   validateContactForm,
   type ContactFormData,
 } from "@/lib/contact-form-validation";
 
-// const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Get recipient email from environment variable or use a default
 const RECIPIENT_EMAIL = process.env.CONTACT_FORM_EMAIL || "contact@example.com";
@@ -44,39 +44,48 @@ export async function POST(request: NextRequest) {
     const fullPhoneNumber = `${body.countryCode} ${body.phone}`;
 
     // Send email using Resend
-    // const { data, error } = await resend.emails.send({
-    //   from: FROM_EMAIL,
-    //   to: RECIPIENT_EMAIL,
-    //   replyTo: body.email,
-    //   subject: `New Contact Form Submission from ${body.fullName}`,
-    //   html: `
-    //     <h2>New Contact Form Submission</h2>
-    //     <p><strong>Full Name:</strong> ${body.fullName}</p>
-    //     <p><strong>Email:</strong> ${body.email}</p>
-    //     <p><strong>Phone:</strong> ${fullPhoneNumber}</p>
-    //     ${body.message ? `<p><strong>Message:</strong></p><p>${body.message.replace(/\n/g, "<br>")}</p>` : ""}
-    //     <hr>
-    //     <p><small>Submitted at: ${new Date().toLocaleString()}</small></p>
-    //   `,
-    //   text: `
-    // New Contact Form Submission
-    //
-    // Full Name: ${body.fullName}
-    // Email: ${body.email}
-    // Phone: ${fullPhoneNumber}
-    // ${body.message ? `Message:\n${body.message}` : ""}
-    //
-    // Submitted at: ${new Date().toLocaleString()}
-    //   `,
-    // });
-    //
-    // if (error) {
-    //   console.error("Resend error:", error);
-    //   return NextResponse.json(
-    //     { error: "Failed to send email", details: error.message },
-    //     { status: 500 }
-    //   );
-    // }
+    const { data, error } = await resend.emails.send({
+      from: FROM_EMAIL,
+      to: RECIPIENT_EMAIL,
+      replyTo: body.email,
+      subject: `[Primodial] Yêu cầu trở thành đối tác từ ${body.fullName}`,
+      html: `
+        <h2>Yêu cầu trở thành đối tác</h2>
+        <p>Có người muốn trở thành đối tác với thông tin như sau:</p>
+        
+        <div style="background-color: #ffffff; padding: 20px; border: 1px solid #e0e0e0; border-radius: 5px; margin: 20px 0;">
+          <p><strong>Họ và tên:</strong> ${body.fullName}</p>
+          <p><strong>Email:</strong> ${body.email}</p>
+          <p><strong>Số điện thoại:</strong> ${fullPhoneNumber}</p>
+          ${body.message ? `<p><strong>Tin nhắn:</strong></p><p style="white-space: pre-wrap;">${body.message.replaceAll("\n", "<br>")}</p>` : ""}
+        </div>
+        
+        <hr>
+        <p style="color: #999; font-size: 12px;">Gửi lúc: ${new Date().toLocaleString("vi-VN")}</p>
+      `,
+      text: `
+YÊU CẦU TRỞ THÀNH ĐỐI TÁC
+
+Có người muốn trở thành đối tác với thông tin như sau:
+
+Họ và tên: ${body.fullName}
+Email: ${body.email}
+Số điện thoại: ${fullPhoneNumber}
+${body.message ? `Tin nhắn:\n${body.message}` : ""}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Gửi lúc: ${new Date().toLocaleString("vi-VN")}
+      `,
+    });
+
+    if (error) {
+      console.error("Resend error:", error);
+      return NextResponse.json(
+        { error: "Failed to send email", details: error.message },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json(
       { success: true, message: "Contact form submitted successfully" },

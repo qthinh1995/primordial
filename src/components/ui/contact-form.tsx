@@ -225,7 +225,6 @@ export function ContactForm({
                 }))
               }
               options={COUNTRY_CODES}
-              variant={variant}
               wrapperClassName="gap-0 shrink-0"
             />
             <Input
