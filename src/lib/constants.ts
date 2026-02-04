@@ -89,7 +89,7 @@ export const FOOTER_CONTENT_VI: FooterContent = {
       { label: "Trang chủ", href: "/vi/home" },
       { label: "Giới thiệu", href: "/vi/introduction" },
       { label: "Hệ sinh thái", href: "/vi/ecosystem" },
-      { label: "Đối tác & Liên kết", href: "/vi/partnerships" },
+      { label: "Đối tác", href: "/vi/partnerships" },
       { label: "Liên hệ", href: "/vi/contact" },
     ],
   },
